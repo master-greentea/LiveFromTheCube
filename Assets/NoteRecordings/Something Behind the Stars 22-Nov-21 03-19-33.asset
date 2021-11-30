@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9aee7e548d5de44a366308702e981a, type: 3}
+  m_Name: Something Behind the Stars 22-Nov-21 03-19-33
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 22e406142d0996740a03edcbb1f8f4e4, type: 3}
+  author: BennyKok
+  bpm: 128
+  metadata:
+    values:
+    - id: difficulties
+      intValue: 3
+      stringValue: 
+  useCurrentBpmMidiImport: 0
+  notes:
+  - noteName: 0
+    noteOctave: 4
+    time: -0.1171875
+    noteLength: 0.46875
+    beatIndex: -0.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 0.1171875
+    noteLength: 0.46875
+    beatIndex: 0.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 0.8203125
+    noteLength: 0.46875
+    beatIndex: 1.75
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 1.171875
+    noteLength: 0.46875
+    beatIndex: 2.5
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 1.40625
+    noteLength: 0.46875
+    beatIndex: 3
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 1.640625
+    noteLength: 0.46875
+    beatIndex: 3.5
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 1.7578125
+    noteLength: 0.46875
+    beatIndex: 3.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 2.578125
+    noteLength: 0.46875
+    beatIndex: 5.5
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 2.8125
+    noteLength: 0.46875
+    beatIndex: 6
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 2.9296875
+    noteLength: 0.46875
+    beatIndex: 6.25
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 3.1640625
+    noteLength: 0.46875
+    beatIndex: 6.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 4.21875
+    noteLength: 0.46875
+    beatIndex: 9
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 4.453125
+    noteLength: 0.46875
+    beatIndex: 9.5
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 4.5703125
+    noteLength: 0.46875
+    beatIndex: 9.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 4.8046875
+    noteLength: 0.46875
+    beatIndex: 10.25
+    beatLengthIndex: 1
+  useGenetator: 0
+  runtimeGenerate: 0
+  generator: {fileID: 0}
+  onsetSensitivity: 1
+  onsetData: []
+  onsetMin: 0
+  onsetMax: 0
