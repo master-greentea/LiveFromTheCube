@@ -19,15 +19,14 @@ EditorBuildSettings:
     path: Assets/RhythmGameStarter/QuickStart/Colorful/Scenes/Colorful Vertical Recording
       Mode.unity
     guid: 9cd208214d04ef145a0f140f23e95570
-  - enabled: 1
+  - enabled: 0
     path: Assets/RhythmGameStarter/QuickStart/Basic/Scenes/Vertical4TracksDemo.unity
     guid: 1eb35e2215b261040b67c67e4782c711
   - enabled: 0
     path: Assets/RhythmGameStarter/QuickStart/Basic/Scenes/Horizontal6TracksDemo.unity
     guid: 448dc77d944d49c4193642d92fc30caa
-  - enabled: 0
-    path: Assets/RhythmGameStarter/QuickStart/Basic/Scenes/Vertical4TracksDemo Input
-      System.unity
+  - enabled: 1
+    path: Assets/Scenes/Game Scene.unity
     guid: fd6ce20fe82bb864484b04c8c894c208
   - enabled: 0
     path: Assets/RhythmGameStarter/QuickStart/Colorful/Scenes/Colorful Vertical Complete.unity
