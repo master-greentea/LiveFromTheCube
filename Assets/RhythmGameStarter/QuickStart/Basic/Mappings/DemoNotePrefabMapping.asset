@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc7143b8421ffa4c8482bcce31d9f98, type: 3}
   m_Name: DemoNotePrefabMapping
   m_EditorClassIdentifier: 
-  referenceRootOctave: 3
+  referenceRootOctave: 5
   ignoreOctave: 0
   ignoreName: 1
   notesPrefab:
@@ -31,10 +31,10 @@ MonoBehaviour:
   mapping:
   - notePrefabIndex: 1
     noteName: 0
-    noteOctave: 4
+    noteOctave: 6
   - notePrefabIndex: 3
     noteName: 0
-    noteOctave: 5
+    noteOctave: 7
   - notePrefabIndex: 2
     noteName: 0
-    noteOctave: 6
+    noteOctave: 8

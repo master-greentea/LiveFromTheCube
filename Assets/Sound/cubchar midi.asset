@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c9aee7e548d5de44a366308702e981a, type: 3}
-  m_Name: Cubsical Test Song
+  m_Name: cubchar midi
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: f56302ea6cfbab947b7437b91ad205ba, type: 3}
+  clip: {fileID: 0}
   author: 
   bpm: 93
   metadata:
