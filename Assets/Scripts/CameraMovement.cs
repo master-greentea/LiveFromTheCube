@@ -69,7 +69,7 @@ public class CameraMovement : MonoBehaviour
 			}
 
 			// otherwise, ease behind the target if any of the directional keys are pressed
-			else if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+			else if (Input.GetKey(KeyCode.W))
 			{
 				float targetRotationAngle = target.eulerAngles.y;
 				float currentRotationAngle = transform.eulerAngles.y;

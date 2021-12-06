@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchScreen : MonoBehaviour
 {
-    public Canvas gameCanvas;
+    public GameObject gameCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class SwitchScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            gameCanvas.enabled = !gameCanvas.enabled;
+            gameCanvas.SetActive(!gameCanvas.activeInHierarchy);
         }
     }
 }
