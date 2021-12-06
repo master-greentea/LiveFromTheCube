@@ -264,7 +264,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167583866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -813,6 +813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 733527835}
   - component: {fileID: 733527836}
+  - component: {fileID: 733527837}
   m_Layer: 0
   m_Name: SuspectManager
   m_TagString: Untagged
@@ -842,12 +843,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733527834}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d94ec22608931884a82489e24552a3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 167583869}
+  maxRange: 12
+  activateNum: 2
+  suspicionGain: 4
+  suspicionLoss: 8
+  timeBetweenRolls: 1
+--- !u!114 &733527837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733527834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1146986d3e9b6b445b3bf29f91b46465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameCanvas: {fileID: 6422469461727880747}
 --- !u!1 &736653840
 GameObject:
   m_ObjectHideFlags: 0
@@ -30449,6 +30468,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 733527836}
+        m_TargetAssemblyTypeName: CatchPlayer, Assembly-CSharp
+        m_MethodName: GameStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6932052371128357039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30791,6 +30822,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4537050401763096886}
         m_TargetAssemblyTypeName: 
         m_MethodName: ResumeSong
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 733527836}
+        m_TargetAssemblyTypeName: CatchPlayer, Assembly-CSharp
+        m_MethodName: GameResume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31317,6 +31360,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 733527836}
+        m_TargetAssemblyTypeName: CatchPlayer, Assembly-CSharp
+        m_MethodName: GameStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &8630173075291520210
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31569,6 +31624,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: 
         m_MethodName: StopSong
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 733527836}
+        m_TargetAssemblyTypeName: CatchPlayer, Assembly-CSharp
+        m_MethodName: GameStopped
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
