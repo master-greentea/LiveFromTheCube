@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763ee49da2ed9b74bb87659b7f3d8452, type: 3}
   m_Name: DefaultMidiTrackMapping6Tracks
   m_EditorClassIdentifier: 
+  referenceRootOctave: 5
   ignoreOctave: 1
   mapping:
   - noteTarget: 0
