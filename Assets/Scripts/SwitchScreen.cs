@@ -5,10 +5,12 @@ using UnityEngine;
 public class SwitchScreen : MonoBehaviour
 {
     public GameObject gameCanvas;
+    private CatchPlayer catchPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        catchPlayer = GetComponent<CatchPlayer>();
     }
 
     // Update is called once per frame
@@ -17,6 +19,7 @@ public class SwitchScreen : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             gameCanvas.SetActive(!gameCanvas.activeInHierarchy);
+            catchPlayer.playing = !catchPlayer.playing;
         }
     }
 }
