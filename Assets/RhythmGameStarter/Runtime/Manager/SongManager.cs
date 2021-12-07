@@ -12,6 +12,9 @@ namespace RhythmGameStarter
         [Comment("Responsible for song control, handling song related events.")]
         public AudioSource audioSource;
 
+        public GameObject suspectManager;
+        //public CatchPlayer catchPlayer;
+
         [Title("Properties", 0)]
         [Space]
         public bool playOnAwake = true;
@@ -58,6 +61,7 @@ namespace RhythmGameStarter
         {
             trackManager = GetComponent<TrackManager>();
             comboSystem = GetComponent<ComboSystem>();
+            //catchPlayer = suspectManager.GetComponent<catchPlayer>();
 
             trackManager.Init(this);
         }
@@ -212,6 +216,19 @@ namespace RhythmGameStarter
                 //If its looping, we replay the current song
                 if (looping)
                     PlaySong(currentSongItem);
+            }
+        }
+
+        void OnDisable()
+        {
+            PauseSong();
+        }
+
+        void OnEnable()
+        {
+            if (songPaused == true)
+            {
+                ResumeSong();
             }
         }
     }

@@ -6,7 +6,7 @@ public class CatchPlayer : MonoBehaviour
 {
     private int suspicionCount;
     public MeshRenderer boss;
-    private bool playing;
+    public bool playing;
     private bool CR_ROLL_running;
     private bool CR_BOSS_running;
     private bool firstPlayDone;
