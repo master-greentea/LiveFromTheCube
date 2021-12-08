@@ -20,7 +20,7 @@ EditorBuildSettings:
       Mode.unity
     guid: 9cd208214d04ef145a0f140f23e95570
   - enabled: 0
-    path: Assets/RhythmGameStarter/QuickStart/Basic/Scenes/Vertical4TracksDemo.unity
+    path: Assets/Vertical4TracksDemo.unity
     guid: 1eb35e2215b261040b67c67e4782c711
   - enabled: 0
     path: Assets/RhythmGameStarter/QuickStart/Basic/Scenes/Horizontal6TracksDemo.unity
