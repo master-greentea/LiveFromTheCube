@@ -16,6 +16,11 @@ public class CameraMovement : MonoBehaviour
 	public float minDistance = .6f;
 	public float speedDistance = 5;
 
+	private float baseZoom;
+	public float maxZoom = 20;
+	public float zoomToTargetSpeed = .5f;
+	//public float zoomDuration = 20;
+
 	public float xSpeed = 200.0f;
 	public float ySpeed = 200.0f;
 
@@ -45,6 +50,7 @@ public class CameraMovement : MonoBehaviour
 		desiredDistance = distance;
 		correctedDistance = distance;
 
+		baseZoom = Camera.main.fieldOfView;
 		// Make the rigid body not change rotation
 		if (this.gameObject.GetComponent<Rigidbody>())
 			this.gameObject.GetComponent<Rigidbody>().freezeRotation = true;
@@ -57,13 +63,14 @@ public class CameraMovement : MonoBehaviour
 	{
 		Vector3 vTargetOffset;
 
-		if (sus.playing == true)
-        {
-			StartCoroutine(FocusIn());
-        } else
-        {
-			StopCoroutine(FocusIn());
-        }
+		//juice, zoom camera into the target while the player is playing the game and if they haven't used the mouse in a bit
+		//if (sus.playing == true)
+  //      {
+		//	StartCoroutine(FocusIn());
+  //      } else
+  //      {
+		//	StopCoroutine(FocusIn());
+  //      }
 
 		// Don't do anything if target is not defined
 		if (!target)
@@ -140,8 +147,22 @@ public class CameraMovement : MonoBehaviour
 		return Mathf.Clamp(angle, min, max);
 	}
 
-	private IEnumerator FocusIn()
-    {
-		yield return null;
-    }
+	//coroutine for juice above
+	//private IEnumerator FocusIn()
+ //   {
+	//	var startTime = Time.time;
+
+	//	float distCovered = (Time.time - startTime) * zoomToTargetSpeed;
+
+	//	// Fraction of journey completed equals current distance divided by total distance.
+	//	float fractionOfJourney = distCovered / maxZoom;
+
+	//	var totalZoomToMove = Mathf.Lerp(baseZoom, maxZoom, fractionOfJourney);
+
+	//	Debug.Log(totalZoomToMove);
+
+	//	Camera.main.fieldOfView = Mathf.SmoothDamp(currentPosition, newHeightToMove, ref velocity, timeBetweenPoints);
+
+	//	yield return new WaitForSeconds(.5f);
+	//}
 }
