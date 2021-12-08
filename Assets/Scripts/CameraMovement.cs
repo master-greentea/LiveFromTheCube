@@ -57,9 +57,12 @@ public class CameraMovement : MonoBehaviour
 	{
 		Vector3 vTargetOffset;
 
-		while (sus.playing == true)
+		if (sus.playing == true)
         {
-			Debug.Log("I bet this is an infinte loop!");
+			StartCoroutine(FocusIn());
+        } else
+        {
+			StopCoroutine(FocusIn());
         }
 
 		// Don't do anything if target is not defined
