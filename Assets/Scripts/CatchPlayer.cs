@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class CatchPlayer : MonoBehaviour
 {
-    private int suspicionCount;
-    public MeshRenderer boss;
+    public int suspicionCount;
+    public GameObject boss;
+    public MeshRenderer bossRenderer;
     public bool playing;
-    public List<GameObject> spawnLocation = new List<GameObject>();
+    public List<GameObject> spawnLocations = new List<GameObject>();
     private bool CR_ROLL_running;
     private bool CR_BOSS_running;
     private bool firstPlayDone;
+    private bool mayReduceSus; //might not need this if I just attach the tasks to if the player is not playing, aka tabbed
     private float counter;
 
     [Header("Roll Values")]
@@ -23,15 +25,17 @@ public class CatchPlayer : MonoBehaviour
 
     public int suspicionGain = 1;
     public int suspicionLoss = 1;
+    public int staringSuspicion = 10;
 
     public float timeBetweenRolls = 1.0f;
 
     void Start()
     {
-        boss.enabled = false;
+        bossRenderer.enabled = false;
         playing = false;
         firstPlayDone = false;
-        suspicionCount = 0;
+        mayReduceSus = false;
+        suspicionCount = staringSuspicion;
     }
 
 
@@ -39,7 +43,7 @@ public class CatchPlayer : MonoBehaviour
     void Update()
     {
         //first play done stops the boss from firing before the player presses play the first time
-        while (boss.enabled == false && CR_ROLL_running == false && firstPlayDone == true)
+        while (bossRenderer.enabled == false && CR_ROLL_running == false && firstPlayDone == true)
         {
             StartCoroutine(rollBoss());
         }
@@ -47,7 +51,7 @@ public class CatchPlayer : MonoBehaviour
         //counter += 1 * Time.deltaTime;
         //Debug.Log("It has been " + Mathf.RoundToInt(counter) + "seconds");
 
-        if (boss.enabled == true && CR_BOSS_running == false)
+        if (bossRenderer.enabled == true && CR_BOSS_running == false)
         {
             StartCoroutine(BossActive());
         }
@@ -58,6 +62,8 @@ public class CatchPlayer : MonoBehaviour
         CR_ROLL_running = true;
 
         int rollNum = 0;
+        int spawnRollNum = Random.Range(0, spawnLocations.Count);
+        Debug.Log(spawnRollNum);
 
         while (rollNum != activateNum)
         {
@@ -68,8 +74,9 @@ public class CatchPlayer : MonoBehaviour
         
         if (rollNum == activateNum)
         {
-            boss.enabled = true;
-            //Debug.Log("I should be activated");
+            boss.transform.position = spawnLocations[spawnRollNum].transform.position;
+            bossRenderer.enabled = true;
+            Debug.Log(spawnRollNum);
             StopCoroutine(rollBoss());
             yield return null;
             CR_ROLL_running = false;
@@ -79,11 +86,12 @@ public class CatchPlayer : MonoBehaviour
     IEnumerator BossActive()
     {
         CR_BOSS_running = true;
-        while (boss.enabled == true)
+        while (bossRenderer.enabled == true)
         {
             while (suspicionCount < 100 && playing == true)
             {
                 suspicionCount += suspicionGain;
+                mayReduceSus = false;
 
                 Debug.Log(suspicionCount);
                 yield return new WaitForSeconds(1);
@@ -91,7 +99,9 @@ public class CatchPlayer : MonoBehaviour
 
             while (suspicionCount < 100 && playing == false && suspicionCount > 0)
             {
-                suspicionCount -= suspicionLoss;
+                suspicionCount += Mathf.RoundToInt(suspicionGain/2);
+
+                mayReduceSus = true;
 
                 Debug.Log(suspicionCount);
                 yield return new WaitForSeconds(1);
@@ -104,9 +114,9 @@ public class CatchPlayer : MonoBehaviour
                 //game should end here
                 yield return null;
                 StopCoroutine(rollBoss());
-                boss.enabled = false;
+                bossRenderer.enabled = false;
                 CR_BOSS_running = false;
-                suspicionCount = 0;
+                suspicionCount = staringSuspicion;
             } else if (suspicionCount >= 100)
             {
                 Debug.Log("The game ended.");
@@ -133,5 +143,13 @@ public class CatchPlayer : MonoBehaviour
     public void GameStopped()
     {
         playing = false;
+    }
+
+    public void ReduceSus()
+    {
+        if (mayReduceSus == true)
+        {
+            suspicionCount -= suspicionLoss;
+        }
     }
 }

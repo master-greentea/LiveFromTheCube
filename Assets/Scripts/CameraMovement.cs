@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
 	public Transform target;
+	public Transform focusTarget;
+	public CatchPlayer sus;
 
 	public float targetHeight = 1.7f;
 	public float distance = 5.0f;
@@ -54,6 +56,11 @@ public class CameraMovement : MonoBehaviour
 	void LateUpdate()
 	{
 		Vector3 vTargetOffset;
+
+		while (sus.playing == true)
+        {
+			Debug.Log("I bet this is an infinte loop!");
+        }
 
 		// Don't do anything if target is not defined
 		if (!target)
@@ -129,4 +136,9 @@ public class CameraMovement : MonoBehaviour
 			angle -= 360;
 		return Mathf.Clamp(angle, min, max);
 	}
+
+	private IEnumerator FocusIn()
+    {
+		yield return null;
+    }
 }
