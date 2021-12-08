@@ -7,6 +7,7 @@ public class CatchPlayer : MonoBehaviour
     private int suspicionCount;
     public MeshRenderer boss;
     public bool playing;
+    public List<GameObject> spawnLocation = new List<GameObject>();
     private bool CR_ROLL_running;
     private bool CR_BOSS_running;
     private bool firstPlayDone;

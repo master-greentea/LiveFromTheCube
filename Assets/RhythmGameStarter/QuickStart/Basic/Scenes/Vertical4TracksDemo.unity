@@ -1255,9 +1255,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 167583869}
+  playing: 0
   maxRange: 12
   activateNum: 2
-  suspicionGain: 10
+  suspicionGain: 20
   suspicionLoss: 8
   timeBetweenRolls: 1
 --- !u!114 &733527837
@@ -30647,6 +30648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1270975605}
+  suspectManager: {fileID: 0}
   playOnAwake: 0
   defaultSong: {fileID: 11400000, guid: f3941c32fe20f9a4fb3320f02c061969, type: 2}
   delay: 2
