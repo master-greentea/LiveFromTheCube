@@ -226,7 +226,7 @@ namespace RhythmGameStarter
 
         void OnEnable()
         {
-            if (songPaused == true)
+            if (songPaused == true && songHasStarted == true)
             {
                 ResumeSong();
             }
