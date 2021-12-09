@@ -27,6 +27,8 @@ namespace RhythmGameStarter
         [NonSerialized] public int maxCombo;
         [NonSerialized] public int missed;
         [NonSerialized] public int score;
+
+        int comboMultiplier = 10; 
         #endregion
 
         [Serializable]
@@ -67,7 +69,7 @@ namespace RhythmGameStarter
         public void AddCombo(int addCombo, float deltaDiff, int addScore)
         {
             // print(deltaDiff);
-            combo += addCombo;
+            combo += (addCombo*comboMultiplier);
             if (combo > maxCombo)
             {
                 maxCombo = combo;

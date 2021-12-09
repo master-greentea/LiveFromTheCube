@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
+  suspectManager: {fileID: 0}
   playOnAwake: 0
   defaultSong: {fileID: 11400000, guid: 55e75ed5e7f253b4080948c6dba8ad8b, type: 2}
   delay: 4

@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
+
 namespace RhythmGameStarter
 {
+
     public class ComboUI : MonoBehaviour
     {
         public string[] animatorParams;
-
+        public GameObject UIHEART;
         private Animator anim;
 
         void Start()
@@ -25,6 +27,9 @@ namespace RhythmGameStarter
         public void OnVisibilityChanged(bool show)
         {
             anim.SetBool(animatorParams[1], show);
+        }
+
+        public void Update() {
         }
     }
 }
