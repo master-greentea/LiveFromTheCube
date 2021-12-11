@@ -85,6 +85,9 @@ public class CatchPlayer : MonoBehaviour
 
     IEnumerator BossActive()
     {
+        // play boss aduio
+        GetComponent<AudioSource>().Play();
+        //
         CR_BOSS_running = true;
         while (bossRenderer.enabled == true)
         {
@@ -114,10 +117,14 @@ public class CatchPlayer : MonoBehaviour
                 //game should end here
                 yield return null;
                 StopCoroutine(rollBoss());
+                // stop boss audio
+                GetComponent<AudioSource>().Stop();
+                //
                 bossRenderer.enabled = false;
                 CR_BOSS_running = false;
                 suspicionCount = staringSuspicion;
-            } else if (suspicionCount >= 100)
+            }
+            else if (suspicionCount >= 100)
             {
                 Debug.Log("The game ended.");
                 //game should end here
