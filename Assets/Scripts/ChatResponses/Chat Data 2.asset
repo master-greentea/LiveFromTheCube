@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chat Data 2
   m_EditorClassIdentifier: 
   profilePicture: {fileID: 21300000, guid: 708b6bdbb664aed4a8d5b73f3b572475, type: 3}
-  profileName: boozer
-  chatContent: you'll warm up then
+  profileName: angery
+  chatContent: rar rawr

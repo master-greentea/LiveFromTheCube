@@ -2248,7 +2248,7 @@ RectTransform:
   m_Children:
   - {fileID: 491411134}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2977,6 +2977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0845fd7b549940443ac4c398468657a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  susManager: {fileID: 733527836}
 --- !u!1 &701041207
 GameObject:
   m_ObjectHideFlags: 0
@@ -41008,7 +41009,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1742085271
 GameObject:

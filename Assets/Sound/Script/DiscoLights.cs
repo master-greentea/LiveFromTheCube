@@ -5,7 +5,8 @@ using UnityEngine;
 public class DiscoLights : MonoBehaviour
 {
     Light light;
-    bool lightSwitched = true;
+    public CatchPlayer susManager;
+    bool lightSwitched = false;
 
     void Start()
     {
@@ -15,8 +16,11 @@ public class DiscoLights : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab)) {
-            lightSwitched = !lightSwitched;
+        if (susManager.playing == true) {
+            lightSwitched = true;
+        } else
+        {
+            lightSwitched = false;
         }
 
         if (lightSwitched) {
