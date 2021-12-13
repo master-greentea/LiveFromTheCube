@@ -18,6 +18,7 @@ public class DiscoLights : MonoBehaviour
     {
         if (susManager.playing == true) {
             lightSwitched = true;
+            
         } else
         {
             lightSwitched = false;

@@ -13,6 +13,7 @@ namespace RhythmGameStarter
         public AudioSource audioSource;
 
         public GameObject suspectManager;
+        public GameObject endscreen; 
         //public CatchPlayer catchPlayer;
 
         [Title("Properties", 0)]
@@ -213,6 +214,9 @@ namespace RhythmGameStarter
 
                 trackManager.ClearAllTracks();
 
+                //end condition
+
+                endscreen.SetActive(true);
                 //If its looping, we replay the current song
                 if (looping)
                     PlaySong(currentSongItem);

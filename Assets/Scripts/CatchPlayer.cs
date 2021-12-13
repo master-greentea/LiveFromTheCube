@@ -6,6 +6,12 @@ public class CatchPlayer : MonoBehaviour
 {
     public int suspicionCount;
     public GameObject boss;
+
+
+    public GameObject endScreen; 
+    public GameObject mangaLines;
+
+
     public MeshRenderer bossRenderer;
     public bool playing;
     public List<GameObject> spawnLocations = new List<GameObject>();
@@ -87,10 +93,14 @@ public class CatchPlayer : MonoBehaviour
     {
         // play boss aduio
         GetComponent<AudioSource>().Play();
+
         //
         CR_BOSS_running = true;
         while (bossRenderer.enabled == true)
         {
+
+            mangaLines.SetActive(true);
+
             while (suspicionCount < 100 && playing == true)
             {
                 suspicionCount += suspicionGain;
@@ -133,6 +143,8 @@ public class CatchPlayer : MonoBehaviour
                 CR_BOSS_running = false;
             }
         }
+
+        mangaLines.SetActive(false);
     }
 
     public void GameStart()
