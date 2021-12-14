@@ -6,7 +6,7 @@ public class DiscoLights : MonoBehaviour
 {
     Light light;
     public CatchPlayer susManager;
-    bool lightSwitched = false;
+    public bool lightSwitched = false;
 
     void Start()
     {
