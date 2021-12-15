@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf85a943c68a85d47a7752593b0ba472, type: 3}
-  m_Name: Chat Data 1
+  m_Name: whatever
   m_EditorClassIdentifier: 
-  profilePicture: {fileID: 21300000, guid: 5d7fcb0c92dc75342b8e950353ee364a, type: 3}
-  profileName: captspacefurry
-  chatContent: wear the fursuit
+  profilePicture: {fileID: 21300000, guid: 7154e0031fdb2944fbc5ac36ac69f181, type: 3}
+  profileName: AnonyYoMommy
+  chatContent: what game is this

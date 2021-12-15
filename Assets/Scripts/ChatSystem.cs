@@ -32,21 +32,13 @@ public class ChatSystem : MonoBehaviour
     {
         counter += 1 * Time.deltaTime;
 
-        if (listenToGame != true)
+
+        if (Mathf.RoundToInt(counter) == timeToRollChat)
         {
-            if (Mathf.RoundToInt(counter) == timeToRollChat && susManager.bossRenderer.enabled == true)
-            {
-                ManageChat();
-                counter = 0;
-            }
-        } else
-        {
-            if (Mathf.RoundToInt(counter) == timeToRollChat && susManager.playing == true)
-            {
-                ManageChat();
-                counter = 0;
-            }
+            ManageChat();
+            counter = 0;
         }
+
     }
 
     private ChatScriptableObj RollMessage(List<ChatScriptableObj> responseList)
@@ -65,10 +57,10 @@ public class ChatSystem : MonoBehaviour
         //spawn the prefab at the bottom and move all other objects in the list up by the height of their background image
 
         //ON OBJECTS add a timer to delete itself after a couple of seconds
-        for (int i = 0; i < activeChatList.Count; i++)
-        {
-            //chatMessage[i].GetComponent<ChatMessage>().chatData = RollMessage(normResponse);
-        }
+        //for (int i = 0; i < activeChatList.Count; i++)
+        //{
+        //    //chatMessage[i].GetComponent<ChatMessage>().chatData = RollMessage(normResponse);
+        //}
 
         GameObject newChatObject = Instantiate(chatObject) as GameObject;
         newChatObject.GetComponent<ChatMessage>().chatData = RollMessage(normResponse);
@@ -93,7 +85,7 @@ public class ChatSystem : MonoBehaviour
             {
                 if (i != 0)
                 {
-                    activeChatList[i].transform.position = activeChatList[i].transform.position + new Vector3(0, 2, 0);
+                    activeChatList[i].transform.position = activeChatList[i].transform.position + new Vector3(0, 1.6f, 0);
                 }
 
                 if (i == maxChatValue)

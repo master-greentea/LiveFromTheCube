@@ -1,0 +1,20 @@
+newmtl acmat_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.698039 0.698039 0.698039
+Ks 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+Ns 9.84916
+map_Kd Legoshi_Eyes.png
+map_Kn Legoshi_Eyes_N.png
+
+newmtl acmat_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.698039 0.698039 0.698039
+Ks 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+Ns 9.84916
+map_Kd Legoshi.png
+map_Kn Legoshi_N.png
+

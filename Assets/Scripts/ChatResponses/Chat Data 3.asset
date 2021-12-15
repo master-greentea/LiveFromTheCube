@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf85a943c68a85d47a7752593b0ba472, type: 3}
   m_Name: Chat Data 3
   m_EditorClassIdentifier: 
-  profilePicture: {fileID: 21300000, guid: c77092c3d6275b44fb4afc7a3b294087, type: 3}
-  profileName: tester
-  chatContent: i say things
+  profilePicture: {fileID: 21300000, guid: 4beec288caa8908469e090bda265916b, type: 3}
+  profileName: SantaConRules
+  chatContent: HO HO HO YOU SUCK

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf85a943c68a85d47a7752593b0ba472, type: 3}
-  m_Name: Chat Data 1
+  m_Name: manofMen
   m_EditorClassIdentifier: 
-  profilePicture: {fileID: 21300000, guid: 5d7fcb0c92dc75342b8e950353ee364a, type: 3}
-  profileName: captspacefurry
-  chatContent: wear the fursuit
+  profilePicture: {fileID: 21300000, guid: 0b5556168007d254c99ef2dea29e3413, type: 3}
+  profileName: ManOfMen
+  chatContent: wack
