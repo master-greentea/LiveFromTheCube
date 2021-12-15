@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CatchPlayer : MonoBehaviour
 {
@@ -137,6 +138,7 @@ public class CatchPlayer : MonoBehaviour
             else if (suspicionCount >= 100)
             {
                 Debug.Log("The game ended.");
+                SceneManager.LoadScene("Failed Scene");
                 //game should end here
                 yield return null;
                 StopCoroutine(rollBoss());

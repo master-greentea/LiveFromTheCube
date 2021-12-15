@@ -4483,9 +4483,6 @@ MonoBehaviour:
   - {fileID: 1113041070}
   - {fileID: 193750506}
   - {fileID: 1204767174}
-  - {fileID: 346008673}
-  - {fileID: 2083735334}
-  - {fileID: 2134959437}
   maxRange: 12
   activateNum: 2
   suspicionGain: 10
