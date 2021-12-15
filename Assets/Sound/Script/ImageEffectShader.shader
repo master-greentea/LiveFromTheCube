@@ -149,12 +149,12 @@
                 float fn = fractal_noise(nUV);
                 // uv += float2(pow(fn, _contrast), 0);
 
-                uv -= .5;
+                // uv -= .5;
 
                 float radius = pow(length(uv), 2);
                 
                 float distort = 1 + radius * (_distortion - .2);
-                uv = uv * distort * _scale + .5;
+                // uv = uv * distort * _scale + .5;
 
                 float modifier = length(uv * 2 - 1) * .5;
                 float offset = MAX_OFFSET * _cintensity * modifier * (radius + .2);
