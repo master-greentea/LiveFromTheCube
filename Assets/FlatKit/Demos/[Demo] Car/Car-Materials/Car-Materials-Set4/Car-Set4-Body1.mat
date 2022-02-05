@@ -149,7 +149,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorCelShadow: {r: 0.49056602, g: 0.34478462, b: 0.4476891, a: 1}
-    - _ColorDim: {r: 0.27367392, g: 0.33729902, b: 0.7735849, a: 1}
+    - _ColorDim: {r: 0.3254717, g: 0.4104516, b: 1, a: 1}
     - _ColorDimCurve: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
     - _ColorDimExtra: {r: 1, g: 0.6864865, b: 0, a: 1}
     - _ColorDimSteps: {r: 0.29690358, g: 0.38679248, b: 0.24265754, a: 0.85}
