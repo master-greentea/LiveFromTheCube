@@ -99,15 +99,15 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DirectionPitch: 148
-    - _DirectionYaw: 150
+    - _DirectionPitch: 114.7
+    - _DirectionYaw: 119.9
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Exponent: 0.52
+    - _Exponent: 0.9
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Intensity: 1.22
+    - _Intensity: 1.02
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -123,9 +123,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.3019758, g: 0.53289926, b: 0.5471698, a: 0}
-    - _Color2: {r: 0.5660378, g: 0.38046208, b: 0.2803489, a: 0}
-    - _Direction: {r: 0.2649597, g: -0.84804803, b: -0.45892358, a: 0}
+    - _Color1: {r: 0.033018872, g: 0.12568474, b: 0.13207549, a: 0}
+    - _Color2: {r: 0.16037738, g: 0.094562136, b: 0.094562136, a: 0}
+    - _Direction: {r: 0.7875829, g: -0.417867, b: -0.45288017, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
