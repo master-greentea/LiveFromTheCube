@@ -1,3 +1,18 @@
-﻿LOCATION,new york,chicago,paris
-TIME,morning,2pm,at night
-NAME,zeru,wes,lexa
+﻿id,Type of variable,,,,,,,,,,,,,
+0,ADJ_DESCRIPTIVE+,good,great,awesome,,,,,,,,,,
+1,ADJ_DESCRIPTIVE-,bad,test 1,test 1,,,,,,,,,,
+2,ADJ_DESCRIPTIVE,big,test 2,test 2,,,,,,,,,,
+3,ADJ_SUPERLATIVE+,best,test 3,test 3,,,,,,,,,,
+4,ADJ_SUPERLATIVE-,worst,test 4,test 4,,,,,,,,,,
+5,ADV_DEGREE,really,test 5,test 5,,,,,,,,,,
+6,ADV_MANNER+,well,test 6,test 6,,,,,,,,,,
+7,ADV_MANNER-,poorly,test 7,test 7,,,,,,,,,,
+8,AFFIRMATION,yes,test 8,test 8,,,,,,,,,,
+9,NEGATION,no,test 9,test 9,,,,,,,,,,
+10,SUBJECT,noob,test 10,test 10,,,,,,,,,,
+11,AGENT,master,test 11,test 11,,,,,,,,,,
+12,GREETING,hi,test 12,test 12,,,,,,,,,,
+13,LOCATION,Dorzia,test 13,test 13,,,,,,,,,,
+14,TIME,noon,1,2,3,4,5,6,7,8,9,10,11,12
+15,FIRST_NAME,Hideo,testname,testname,,,,,,,,,,
+16,LAST_NAME,Kojima,testname,testname,,,,,,,,,,

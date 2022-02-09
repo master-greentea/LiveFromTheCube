@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 29600007}
   - component: {fileID: 29600006}
   - component: {fileID: 29600008}
+  - component: {fileID: 29600009}
   m_Layer: 5
   m_Name: Mail icon
   m_TagString: Untagged
@@ -424,6 +425,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &29600009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29600004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d41b26705ddf4819be8e7654fef2702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &36389226
 PrefabInstance:
   m_ObjectHideFlags: 0
