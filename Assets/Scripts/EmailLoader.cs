@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
+using System.Linq;
+using TMPro;
 
 public class EmailLoader : MonoBehaviour
 {
 
-	List<Email> emails;
-	Dictionary<string, string[]> varDictionary;
+	public List<Email> emails;
+	public Dictionary<string, string[]> varDictionary;
+
+	[SerializeField] TextMeshPro emailSubject;
+	[SerializeField] TextMeshPro emailSender;
+	[SerializeField] TextMeshPro emailBody;
+	[SerializeField] TextMeshPro emailResponseSender;
+	[SerializeField] TextMeshPro emailResponseSubject;
+	[SerializeField] TextMeshPro emailResponseBody;
+
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -16,13 +27,14 @@ public class EmailLoader : MonoBehaviour
 		var dictionaryCSV = Resources.Load<TextAsset>("variableDictionary");
 		varDictionary = new Dictionary<string, string[]>();
 		string[] dictionaryArray = dictionaryCSV.text.Split(new char[] { '\n' });
-		Debug.Log("dict has " + dictionaryArray.Length + "rows");
+		//Debug.Log("dict has " + dictionaryArray.Length + "rows");
 		for (int i = 0; i < dictionaryArray.Length; i++)
 		{
 			string[] row = dictionaryArray[i].Split(new char[] { ',' });
-			string identifier = row[0]; // the first item in the row is the identifier in the text
+			string identifier = row[1]; // the first item in the row is the identifier in the text
 			string[] replacements = new string[row.Length - 1];
-			Array.ConstrainedCopy(row, 1, replacements, 0, row.Length - 1);   // every item except the first in the row is a replacement in the text
+			Array.ConstrainedCopy(row, 2, replacements, 0, row.Length - 2);   // every item except the first two in the row is a replacement in the text
+			replacements = replacements.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 			varDictionary.Add(identifier, replacements);
 		}
 
@@ -31,7 +43,7 @@ public class EmailLoader : MonoBehaviour
 		emails = new List<Email>();
 		var emailCSV = Resources.Load<TextAsset>("placeholderEmail");
 		string[] emailsArray = emailCSV.text.Split(new char[] { '\n' }); // split csv by row
-		for (int i = 0; i < emailsArray.Length; i++) // for every row in csv
+		for (int i = 1; i < emailsArray.Length; i++) // for every row in csv
 		{
 			string[] row = emailsArray[i].Split(new char[] { ',' }); // row = a row in csv split by column (id, email, response)
 			Email email = new Email(); // refers to the Email class, 
@@ -43,21 +55,34 @@ public class EmailLoader : MonoBehaviour
 			email.responseSubject = "RE: " + email.subject;
 
 
+			string[] signatures;
+			varDictionary.TryGetValue("SIGNATURE", out signatures);
+			
+			if (signatures!=null)
+			{
+				email.body = email.body + "\n\n" + signatures[Random.Range(0, signatures.Length - 1)] + "\n" + email.sender;
+				email.responseBody = email.responseBody + "\n\n" + signatures[Random.Range(0, signatures.Length - 1)] + "\n" + email.responseSender;
+			}
 
 			emails.Add(email);
 		}
 
-		foreach (KeyValuePair<string, string[]> entry in varDictionary)
-		{
-			Debug.Log(entry.Key + entry.Value);
-		}
 
-			foreach (Email email in emails)
+		// debug
+		foreach (Email email in emails)
 		{
 			Debug.Log(email.index + email.sender + email.subject + email.body + email.responseSubject + email.responseBody);
 		}
 
+		// text boxes setup
 
+		emailSubject.text = emails[0].subject;
+		emailSender.text = emails[0].sender;
+		emailBody.text = emails[0].body;
+		emailResponseSender.text = emails[0].responseSender;
+		emailResponseSubject.text = emails[0].responseSubject;
+		emailResponseBody.text = emails[0].responseBody;
+		emailResponseBody.color = new Color(180, 180, 180);
 	}
 
 	// Update is called once per frame
@@ -74,19 +99,23 @@ public class EmailLoader : MonoBehaviour
 		{
 			int numberOfReplacements = entry.Value.Length;
 			int randomIndex = Random.Range(0, numberOfReplacements - 1);
-			if (entry.Value!= null)
+			//Debug.Log(entry.Value[randomIndex]);
+			if (entry.Value[randomIndex].Length>=1)
 			{
-				//string uppercaseReplacement = char.ToUpper(entry.Value[randomIndex][0]) + entry.Value[randomIndex].Substring(1);
-				//output.Replace(". " + entry.Key, uppercaseReplacement);
-				//output.Replace("! " + entry.Key, uppercaseReplacement);
-				//output.Replace("? " + entry.Key, uppercaseReplacement);
-				output.Replace(entry.Key, entry.Value[randomIndex]);
+				string uppercaseReplacement = char.ToUpper(entry.Value[randomIndex][0]) + entry.Value[randomIndex].Substring(1);
+				//Debug.Log(uppercaseReplacement);
+				output = output.Replace(". " + entry.Key, uppercaseReplacement);
+				output = output.Replace("! " + entry.Key, uppercaseReplacement);
+				output = output.Replace("? " + entry.Key, uppercaseReplacement);
+				output = output.Replace(") " + entry.Key, uppercaseReplacement);
+				//Debug.Log(entry.Key + string.Join(',',entry.Value));
+				output = output.Replace(entry.Key, entry.Value[randomIndex]);
 			}
 			
 		}
-		output.Replace("COMMA", ",");
+		output = output.Replace("COMMA", ",");
 
-
+		//Debug.Log("ParseText:"+output);
 		return output;
 	}
 }

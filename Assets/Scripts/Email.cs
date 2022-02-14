@@ -8,7 +8,7 @@ public class Email
     public string sender;
     public string subject;
     public string body;
-    public const string responseSender = "YOU";
+    public string responseSender = "YOU";
     public string responseSubject;
     public string responseBody;
 }
