@@ -12,13 +12,14 @@ public class EmailLoader : MonoBehaviour
 	public List<Email> emails;
 	public Dictionary<string, string[]> varDictionary;
 
-	[SerializeField] TextMeshPro emailSubject;
-	[SerializeField] TextMeshPro emailSender;
-	[SerializeField] TextMeshPro emailBody;
-	[SerializeField] TextMeshPro emailResponseSender;
-	[SerializeField] TextMeshPro emailResponseSubject;
-	[SerializeField] TextMeshPro emailResponseBody;
+	[SerializeField] GameObject emailSubject;
+	[SerializeField] GameObject emailSender;
+	[SerializeField] GameObject emailBody;
+	[SerializeField] GameObject emailResponseSender;
+	[SerializeField] GameObject emailResponseSubject;
+	[SerializeField] GameObject emailResponseBody;
 
+	int emailIndex;
 
 	// Start is called before the first frame update
 	void Start()
@@ -57,8 +58,8 @@ public class EmailLoader : MonoBehaviour
 
 			string[] signatures;
 			varDictionary.TryGetValue("SIGNATURE", out signatures);
-			
-			if (signatures!=null)
+
+			if (signatures != null)
 			{
 				email.body = email.body + "\n\n" + signatures[Random.Range(0, signatures.Length - 1)] + "\n" + email.sender;
 				email.responseBody = email.responseBody + "\n\n" + signatures[Random.Range(0, signatures.Length - 1)] + "\n" + email.responseSender;
@@ -75,14 +76,12 @@ public class EmailLoader : MonoBehaviour
 		}
 
 		// text boxes setup
+		emailIndex = 0;
+		emailResponseBody.GetComponent<TextMeshProUGUI>().color = new Color(180, 180, 180);
 
-		emailSubject.text = emails[0].subject;
-		emailSender.text = emails[0].sender;
-		emailBody.text = emails[0].body;
-		emailResponseSender.text = emails[0].responseSender;
-		emailResponseSubject.text = emails[0].responseSubject;
-		emailResponseBody.text = emails[0].responseBody;
-		emailResponseBody.color = new Color(180, 180, 180);
+
+		NextEmail();
+
 	}
 
 	// Update is called once per frame
@@ -90,6 +89,7 @@ public class EmailLoader : MonoBehaviour
 	{
 
 	}
+
 
 
 	string ParseText(string text, Dictionary<string, string[]> myDict)
@@ -100,7 +100,7 @@ public class EmailLoader : MonoBehaviour
 			int numberOfReplacements = entry.Value.Length;
 			int randomIndex = Random.Range(0, numberOfReplacements - 1);
 			//Debug.Log(entry.Value[randomIndex]);
-			if (entry.Value[randomIndex].Length>=1)
+			if (entry.Value[randomIndex].Length >= 1)
 			{
 				string uppercaseReplacement = char.ToUpper(entry.Value[randomIndex][0]) + entry.Value[randomIndex].Substring(1);
 				//Debug.Log(uppercaseReplacement);
@@ -111,11 +111,32 @@ public class EmailLoader : MonoBehaviour
 				//Debug.Log(entry.Key + string.Join(',',entry.Value));
 				output = output.Replace(entry.Key, entry.Value[randomIndex]);
 			}
-			
+
 		}
 		output = output.Replace("COMMA", ",");
 
 		//Debug.Log("ParseText:"+output);
 		return output;
 	}
+	public void NextEmail()
+	{
+
+		emailSubject.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].subject;
+		emailSender.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].sender;
+		emailBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].body;
+		emailResponseSender.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseSender;
+		emailResponseSubject.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseSubject;
+		emailResponseBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseBody;
+		if (emailIndex < emails.Count - 1)
+		{
+			emailIndex++;
+		}
+		else
+		{
+			emailIndex = 0;
+		}
+
+	}
 }
+
+
