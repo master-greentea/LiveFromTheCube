@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class BossAnimation : MonoBehaviour
 {
@@ -8,16 +9,33 @@ public class BossAnimation : MonoBehaviour
     private Vector3 startHeight;
     private Vector3 targetHeight;
     private CatchPlayer sus;
+    public Slider slider; 
 
     public GameObject susManager;
     public float timeBetweenPoints = .5f;
+    public float suspicionLevel;
+
     private Vector3 velocity = Vector3.zero;
+
+    public int maxHealth = 1;
+    public int currentHealth; 
+
+    public void SetMaxHealth(int health) {
+        slider.maxValue = health;
+        slider.value = health; 
+    }
+
+    public void SetHealth(int health) {
+        slider.value = health; 
+    }
 
     void Start()
     {
         sus = susManager.GetComponent<CatchPlayer>();
         startHeight = new Vector3 (0,0,0) + new Vector3 (0,transform.position.y,0);
         targetHeight = startHeight + new Vector3(0,15,0);
+
+        currentHealth = 0; 
     }
 
     // Update is called once per frame
@@ -29,6 +47,9 @@ public class BossAnimation : MonoBehaviour
         var newHeightToMove = new Vector3(transform.position.x, totalHeightToMove.y, transform.position.z);
 
         Debug.Log(lerpInterpo);
+        suspicionLevel = lerpInterpo;
+
+        slider.value = suspicionLevel; 
 
         transform.position = Vector3.SmoothDamp(currentPosition, newHeightToMove, ref velocity, timeBetweenPoints);
     }
