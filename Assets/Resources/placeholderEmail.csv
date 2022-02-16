@@ -1,0 +1,19 @@
+id,Sender,Subject,Body,Response
+0,FIRST_NAME LAST_NAME,Meeting,GREETING! I'm writing you to follow up on our previous correspondence. Our COMPANY is ADV_DEGREE interested in closing a deal soon. Can you agree to a meeting next DAY_OF_WEEK at TIME at LOCATION?,AFFIRMATION! We too are ADV_DEGREE excited to move forward with this. I'll have my secretary add next DAY_OF_WEEK's meeting at LOCATION to my calendar.
+1,FIRST_NAME LAST_NAME,Proofreading,GREETING. Have you gotten around to proofreading our latest report? We need to release it to the shareholders by DAY_OF_WEEKCOMMA and you did ADV_DEGREE ADV_MANNER looking over the last one. Please get back to me after you've looked through it.,"APOLOGYCOMMA I've been completely swamped this weekCOMMA but I'll make sure to prioritize the report! It'll be done in time, I guarantee."
+2,FIRST_NAME LAST_NAME,Presentation,GREETING. How far are you into the upcoming presentation to our potential investors? It's critical that we land this dealCOMMA so I expect this to be ADJ_DESCRIPTIVE+. Don't forget that your deadline is next DAY_OF_WEEK at TIME.,AFFIRMATIONCOMMA I 100% agree! This presentation is my top priority and I will put my all into making sure that it's the ADJ_SUPERLATIVE+ pitch this firm has produced. You will not be disappointed.
+3,FIRST_NAME LAST_NAME,Marketing help,GREETINGCOMMA this is FIRST_NAME from marketing. Would you be willing to participate in a focus group to for our new product? The ADJ_SUPERLATIVE+ name we've been able to come up with for it is the SUBJECTAGENTCOMMA but it doesn't ADV_DEGREE feel ADJ_DESCRIPTIVE+. Please let me know if you're free DAY_OF_WEEK at TIME!,APOLOGYCOMMA but you could offer me all the money in the world and I wouldn't get involved in marketing. FranklyCOMMA if the best your team could come up with was SUBJECTAGENTCOMMA I'm scared for the future of this company.
+4,FIRST_NAME LAST_NAME,IMPORTANT: YOU WIN! (prize money inside),GREETING! You just sent the 5 billionth email! Click here to claim your 5 billion dollar reward!,I think you'd have better luck just asking people for their bank accounts.
+5,FIRST_NAME LAST_NAME,Recruiting,"GREETINGCOMMA MC_FIRST_NAME. This is FIRST_NAME in recruiting. As we look to expand this COMPANY, we're asking everyone to participate in interviews for potential candidates. Please respond with your availability in the upcoming week, and we'll try to schedule it per your convenience.",GREETING FIRST_NAMECOMMA I think I can fit an interview or two into my schedule at TIME on DAY_OF_WEEK. Does that work for you?
+6,FIRST_NAME LAST_NAME,Keep it up!,GREETING GROUP! This is a friendly reminder to always put your all into your work! RememberCOMMA we're a teamCOMMA so hard work benefits your peersCOMMA and the COMPANY too!,Is taking the time to respond to this email productive?
+7,FIRST_NAME LAST_NAME,"No ""sexting""",GREETING GROUP. This is FIRST_NAME from HR. Don't forget that we have access to all correspondence on your COMPANY emails. It has come to our attention that some employees have been sending explicit messages to each other at work. Please make sure all messages are strictly work-related from now on. Thank you for your understanding.,DamnCOMMA I didn't know know HR stood for Horniness Rejectors.
+8,FIRST_NAME LAST_NAME,Foreign markets,GREETING GROUP. As we look for new ways to grow our COMPANY,
+9,FIRST_NAME LAST_NAME,,,
+10,FIRST_NAME LAST_NAME,,,
+11,FIRST_NAME LAST_NAME,,,
+12,FIRST_NAME LAST_NAME,,,
+13,FIRST_NAME LAST_NAME,,,
+14,FIRST_NAME LAST_NAME,,,
+15,FIRST_NAME LAST_NAME,,,
+16,FIRST_NAME LAST_NAME,,,
+17,FIRST_NAME LAST_NAME,,,
