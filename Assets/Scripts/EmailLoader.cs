@@ -19,7 +19,11 @@ public class EmailLoader : MonoBehaviour
 	[SerializeField] GameObject emailResponseSubject;
 	[SerializeField] GameObject emailResponseBody;
 
-	int emailIndex;
+	int emailIndex = -1;
+
+	int responseColoringIndex = 0;
+	public string responseColor;
+	bool responseComplete = true;
 
 	// Start is called before the first frame update
 	void Start()
@@ -81,16 +85,49 @@ public class EmailLoader : MonoBehaviour
 
 
 		NextEmail();
-
+		responseComplete = false;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-
+		if (Input.inputString.Length > 0) // typing
+		{
+			foreach(char inputChar in Input.inputString)
+			{
+				if (inputChar == '\n')
+				{
+					if (responseComplete)
+					{
+						NextEmail();
+					}
+				}
+				else if (responseColoringIndex < emails[emailIndex].responseBody.Length)
+				{
+					responseColoringIndex ++;
+					emailResponseBody.GetComponent<TextMeshProUGUI>().text = ColorizeResponse();
+				}
+				else
+				{
+					responseComplete = true;
+					break;
+				}
+				
+			}
+			
+			
+		}
 	}
 
+	string ColorizeResponse()
+	{
+		string output = emails[emailIndex].responseBody;
 
+		output = output.Insert(responseColoringIndex, "</color>");
+		output = responseColor + output;
+
+		return output;
+	}
 
 	string ParseText(string text, Dictionary<string, string[]> myDict)
 	{
@@ -120,22 +157,26 @@ public class EmailLoader : MonoBehaviour
 	}
 	public void NextEmail()
 	{
-
-		emailSubject.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].subject;
-		emailSender.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].sender;
-		emailBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].body;
-		emailResponseSender.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseSender;
-		emailResponseSubject.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseSubject;
-		emailResponseBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseBody;
-		if (emailIndex < emails.Count - 1)
+		if (responseComplete)
 		{
-			emailIndex++;
-		}
-		else
-		{
-			emailIndex = 0;
-		}
+			if (emailIndex < emails.Count - 1)
+			{
+				emailIndex++;
+			}
+			else
+			{
+				emailIndex = 0;
+			}
+			emailSubject.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].subject;
+			emailSender.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].sender;
+			emailBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].body;
+			emailResponseSender.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseSender;
+			emailResponseSubject.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseSubject;
+			emailResponseBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseBody;
 
+			responseComplete = false;
+			responseColoringIndex = 0;
+		}
 	}
 }
 

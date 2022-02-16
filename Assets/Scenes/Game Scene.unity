@@ -44004,6 +44004,7 @@ MonoBehaviour:
   emailResponseSender: {fileID: 1728133073}
   emailResponseSubject: {fileID: 1291849433}
   emailResponseBody: {fileID: 752966216}
+  responseColor: <color=#008007>
 --- !u!1 &1039565589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0f7886d4e6a5a4e4f8d5ad84a68b0567,
@@ -46972,7 +46973,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7147024328103525033}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+        m_MethodName: 
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
