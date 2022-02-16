@@ -69,7 +69,8 @@ namespace RhythmGameStarter
         public void AddCombo(int addCombo, float deltaDiff, int addScore)
         {
             // print(deltaDiff);
-            combo += (addCombo*comboMultiplier);
+            //combo += (addCombo*comboMultiplier);
+            combo += (addCombo);
             if (combo > maxCombo)
             {
                 maxCombo = combo;
