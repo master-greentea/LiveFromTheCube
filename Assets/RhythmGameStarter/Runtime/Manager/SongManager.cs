@@ -11,8 +11,6 @@ namespace RhythmGameStarter
     {
         [Comment("Responsible for song control, handling song related events.")]
         public AudioSource audioSource;
-
-        public GameObject suspectManager;
         public GameObject endscreen; 
         //public CatchPlayer catchPlayer;
 

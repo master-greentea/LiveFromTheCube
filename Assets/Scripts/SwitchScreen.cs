@@ -19,7 +19,6 @@ public class SwitchScreen : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             gameCanvas.SetActive(!gameCanvas.activeInHierarchy);
-            catchPlayer.playing = !catchPlayer.playing;
         }
     }
 }

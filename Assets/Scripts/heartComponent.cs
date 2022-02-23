@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class heartComponent : MonoBehaviour
 {
-    public ParticleSystem particles;
+	public ParticleSystem particles;
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.A) == true) {
-            particles.Play();
-        }
-    }
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.A) == true && particles != null)
+		{
+			particles.Play();
+		}
+	}
 
 }
