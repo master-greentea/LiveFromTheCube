@@ -18,6 +18,7 @@ public class EmailLoader : MonoBehaviour
 	[SerializeField] GameObject emailResponseSender;
 	[SerializeField] GameObject emailResponseSubject;
 	[SerializeField] GameObject emailResponseBody;
+	[SerializeField] GameObject susManager;
 
 	int emailIndex = -1;
 
@@ -176,6 +177,8 @@ public class EmailLoader : MonoBehaviour
 
 			responseComplete = false;
 			responseColoringIndex = 0;
+
+			susManager.GetComponent<CatchPlayer>().ReduceSus(10);
 		}
 	}
 }
