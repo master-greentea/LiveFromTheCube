@@ -178,7 +178,7 @@ public class EmailLoader : MonoBehaviour
 			responseComplete = false;
 			responseColoringIndex = 0;
 
-			susManager.GetComponent<CatchPlayer>().ReduceSus(10);
+			susManager.GetComponent<CatchPlayer>().ReduceSus(0);
 		}
 	}
 }

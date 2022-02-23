@@ -67,3 +67,5 @@ UserSettings/Layouts/default-2021.dwlt
 UserSettings/Layouts/CurrentMaximizeLayout.dwlt
 
 *.dwlt
+
+.DS_Store
