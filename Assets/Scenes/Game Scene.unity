@@ -6703,6 +6703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94ec22608931884a82489e24552a3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rhythmGameScreen: {fileID: 7147024328103525033}
   suspicionCount: 0
   boss: {fileID: 167583866}
   endScreen: {fileID: 0}
@@ -6716,8 +6717,8 @@ MonoBehaviour:
   maxRange: 12
   activateNum: 2
   suspicionGain: 10
-  suspicionLoss: 8
-  staringSuspicion: 10
+  suspicionLoss: 0.5
+  startingSuspicion: 10
   timeBetweenRolls: 1
 --- !u!114 &733527837
 MonoBehaviour:
@@ -44243,6 +44244,7 @@ MonoBehaviour:
   emailResponseSender: {fileID: 1728133073}
   emailResponseSubject: {fileID: 1291849433}
   emailResponseBody: {fileID: 752966216}
+  susManager: {fileID: 733527834}
   responseColor: <color=#008007>
 --- !u!1 &1039565589 stripped
 GameObject:
@@ -48817,6 +48819,7 @@ GameObject:
   - component: {fileID: 1620867275}
   - component: {fileID: 1620867277}
   - component: {fileID: 1620867276}
+  - component: {fileID: 1620867278}
   m_Layer: 5
   m_Name: Viewership Display
   m_TagString: Untagged
@@ -48942,6 +48945,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620867274}
   m_CullTransparentMesh: 0
+--- !u!114 &1620867278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620867274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046b279c14ff54af6a5a438facd4cebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1622874714
 GameObject:
   m_ObjectHideFlags: 0
@@ -57076,7 +57091,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1270975605}
-  suspectManager: {fileID: 733527834}
   endscreen: {fileID: 1093758365}
   playOnAwake: 0
   defaultSong: {fileID: 11400000, guid: f3941c32fe20f9a4fb3320f02c061969, type: 2}
@@ -58200,7 +58214,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
   onMaxComboUpdate:
     m_PersistentCalls:
       m_Calls:
