@@ -1,23 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class startButtonScript : MonoBehaviour
 {
 
-    public Button startscreen;
-    public GameObject player;
+    public Button cutScene;
 
-    Animator otherAnimator;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        startscreen.onClick.AddListener(TaskOnClick);
+    void Start() {
+        Button btn = cutScene.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
     }
 
     // Update is called once per frame
@@ -26,9 +21,7 @@ public class startButtonScript : MonoBehaviour
         
     }
     void TaskOnClick() {
-        //Output this to console when Button1 or Button3 is clicked
-        Debug.Log("You have clicked the button!");
-
-        player.GetComponent<Animation>().Play();
+        Debug.Log("Next");
+        SceneManager.LoadScene("Game Scene");
     }
  }
