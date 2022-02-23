@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChatMessage : MonoBehaviour
+public class ChatMessage
 {
+	public int index;
+	public string message;
+	public int frequency;
+	public int positivity;
+	public string game;
+	public string dependency;
+	
+	/*
 	public GameObject profilePic;
 	public GameObject profileName;
 	public GameObject chatMessage;
@@ -31,13 +39,7 @@ public class ChatMessage : MonoBehaviour
 
 	void Update()
 	{
-		//counter += 1 * Time.deltaTime;
-		//Debug.Log(Mathf.RoundToInt(counter));
-		//if (Mathf.RoundToInt(counter) > 2)
-		//{
-		//    Initalize();
-		//}
-		//Initalize();
+
 	}
 
 	public void Initalize()
@@ -46,4 +48,5 @@ public class ChatMessage : MonoBehaviour
 		profPicName.text = chatData.profileName;
 		chatBox.text = chatData.chatContent;
 	}
+	*/
 }
