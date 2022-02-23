@@ -30,7 +30,11 @@ EditorUserSettings:
       value: 5a525054550d5b0a590a5c7615250e444316482c7d7c76367f7a186ab7b56368
       flags: 0
     RecentlyUsedSceneGuid-8:
+<<<<<<< HEAD
+      value: 0106505607055c5a5858097744265e4414151a7f287d2363782b4d32b4e66d60
+=======
       value: 5254565550505b095c5b0e7046720f4446154e7d2f7e7135797e4561e1b76569
+>>>>>>> kerby
       flags: 0
     RecentlyUsedSceneGuid-9:
       value: 0106505607055c5a5858097744265e4414151a7f287d2363782b4d32b4e66d60
