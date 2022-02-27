@@ -8,6 +8,7 @@ TagManager:
   - LineArea
   - Trigger
   - RhythmGameCamera
+  - Left Hand
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Shop
   - PostProcessing
   - PlayerEyes
   - 
