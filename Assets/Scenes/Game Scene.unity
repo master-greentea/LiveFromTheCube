@@ -6465,7 +6465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -38.9, y: -28.8}
+  m_AnchoredPosition: {x: -37.4, y: -28.8}
   m_SizeDelta: {x: 19.404, y: 21.645}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679740697
@@ -49040,7 +49040,7 @@ PrefabInstance:
     - target: {fileID: 5476594674927040331, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5476594675049022136, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
@@ -50803,12 +50803,12 @@ MonoBehaviour:
       - m_Target: {fileID: 733527836}
         m_TargetAssemblyTypeName: CatchPlayer, Assembly-CSharp
         m_MethodName: ReduceSus
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
