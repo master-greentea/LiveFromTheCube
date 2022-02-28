@@ -31,6 +31,9 @@ namespace RhythmGameStarter
         int comboMultiplier = 10; 
         #endregion
 
+        // CUSTOM, added tuning for how much score you lose if you miss
+        public int scoreLostWhenMissed;
+
         [Serializable]
         public class HitLevelList : ReorderableList<HitLevel> { }
 
@@ -49,6 +52,9 @@ namespace RhythmGameStarter
         {
             missed += addMissed;
             onMissedUpdate.Invoke(missed.ToString());
+            score -= scoreLostWhenMissed;
+
+            if (score < 0) score = 0; //score clamp
         }
 
         void Start()
@@ -69,7 +75,7 @@ namespace RhythmGameStarter
         public void AddCombo(int addCombo, float deltaDiff, int addScore)
         {
             // print(deltaDiff);
-            //combo += (addCombo*comboMultiplier);
+            // combo += (addCombo*comboMultiplier);
             combo += (addCombo);
             if (combo > maxCombo)
             {
