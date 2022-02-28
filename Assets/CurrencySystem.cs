@@ -23,6 +23,7 @@ public class CurrencySystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (money < 0) {money = 0;}
         moneyDisplay.text = "" + money;
     }
 }
