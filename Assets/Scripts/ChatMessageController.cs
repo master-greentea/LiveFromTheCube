@@ -14,8 +14,8 @@ public class ChatMessageController : MonoBehaviour
     {
         nameObject = transform.GetChild(0).gameObject;
         messageObject = transform.GetChild(1).gameObject;
-        nameObject.GetComponent<TextMeshPro>().text = "test name";//myChat.name;
-        messageObject.GetComponent<TextMeshPro>().text = "test message";//myChat.message;
+        nameObject.GetComponent<TextMeshProUGUI>().text = myChat.name;
+        messageObject.GetComponent<TextMeshProUGUI>().text = myChat.message;
 
     }
 
