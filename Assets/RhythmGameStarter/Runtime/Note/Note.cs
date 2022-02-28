@@ -137,5 +137,9 @@ namespace RhythmGameStarter
                 songManager.comboSystem.BreakCombo();
             }
         }
+
+        void Update() {
+            if (transform.localScale.x > .7f) transform.localScale = new Vector3(.7f, .7f, .7f);
+        }
     }
 }
