@@ -4059,16 +4059,6 @@ MonoBehaviour:
   chatMessage: []
   timeToRollChat: 3
   listenToGame: 0
-  posResponse: []
-  negResponse: []
-  normResponse:
-  - {fileID: 11400000, guid: c4cc86dc3eabbfe4b9599b50a128f69a, type: 2}
-  - {fileID: 11400000, guid: 49c3f294603b41244aac617480bc930d, type: 2}
-  - {fileID: 11400000, guid: 6a8805fdb8ed9b542b159172dd3b6732, type: 2}
-  - {fileID: 11400000, guid: 0955a489e6f19f643a91eb97f7a0cd8d, type: 2}
-  - {fileID: 11400000, guid: e9177164a867948b09d94d15f8eceda2, type: 2}
-  - {fileID: 11400000, guid: 03880db9f76f04c12a97a595292df3df, type: 2}
-  - {fileID: 11400000, guid: 0955a489e6f19f643a91eb97f7a0cd8d, type: 2}
 --- !u!1 &361392771
 GameObject:
   m_ObjectHideFlags: 0
@@ -43847,41 +43837,6 @@ MonoBehaviour:
   chatMessage: []
   timeToRollChat: 3
   listenToGame: 0
-  posResponse:
-  - {fileID: 11400000, guid: 83691b66fc8094d6aa262493e1271bfb, type: 2}
-  - {fileID: 11400000, guid: e3e7ec7d6259d46dd81b43fc52fb3491, type: 2}
-  - {fileID: 11400000, guid: 2602449102a9e4d9eba34df4368d6ab7, type: 2}
-  - {fileID: 11400000, guid: c46b9450fe1b044039ea1421a972a1ac, type: 2}
-  negResponse:
-  - {fileID: 11400000, guid: 2ad4dfd8e34db464fb8c52cd4d2154dd, type: 2}
-  - {fileID: 11400000, guid: b17567e3fd6ed46b8acd4be3b32547aa, type: 2}
-  - {fileID: 11400000, guid: 9fd5e3b4359c14c758de7047eab68f96, type: 2}
-  normResponse:
-  - {fileID: 11400000, guid: c4cc86dc3eabbfe4b9599b50a128f69a, type: 2}
-  - {fileID: 11400000, guid: 49c3f294603b41244aac617480bc930d, type: 2}
-  - {fileID: 11400000, guid: 6a8805fdb8ed9b542b159172dd3b6732, type: 2}
-  - {fileID: 11400000, guid: 0955a489e6f19f643a91eb97f7a0cd8d, type: 2}
-  - {fileID: 11400000, guid: b17567e3fd6ed46b8acd4be3b32547aa, type: 2}
-  - {fileID: 11400000, guid: 2ad4dfd8e34db464fb8c52cd4d2154dd, type: 2}
-  - {fileID: 11400000, guid: c46b9450fe1b044039ea1421a972a1ac, type: 2}
-  - {fileID: 11400000, guid: 2602449102a9e4d9eba34df4368d6ab7, type: 2}
-  - {fileID: 11400000, guid: e3e7ec7d6259d46dd81b43fc52fb3491, type: 2}
-  - {fileID: 11400000, guid: 83691b66fc8094d6aa262493e1271bfb, type: 2}
-  - {fileID: 11400000, guid: 2ad4dfd8e34db464fb8c52cd4d2154dd, type: 2}
-  - {fileID: 11400000, guid: b17567e3fd6ed46b8acd4be3b32547aa, type: 2}
-  - {fileID: 11400000, guid: 9fd5e3b4359c14c758de7047eab68f96, type: 2}
-  - {fileID: 11400000, guid: 0177df340e264b240907d887240948db, type: 2}
-  - {fileID: 11400000, guid: 79cadb77260cf204c91569f2c6a3e9c5, type: 2}
-  - {fileID: 11400000, guid: 2318567cee4382c498023e648028db2f, type: 2}
-  - {fileID: 11400000, guid: 8647ae5e977567a49aeb62cf7a1b8dce, type: 2}
-  - {fileID: 11400000, guid: e6c5b418704e23344b8408e180c2a622, type: 2}
-  - {fileID: 11400000, guid: 9b0d6777ac254e645a702ce8ef1b77da, type: 2}
-  - {fileID: 11400000, guid: 2371d58076950cb43b77536123b1d5cc, type: 2}
-  - {fileID: 11400000, guid: a91b76b3a11eaa245a16c5dd9898043b, type: 2}
-  - {fileID: 11400000, guid: 2b6d80b2f64a6694ca7dfa6630509541, type: 2}
-  - {fileID: 11400000, guid: f95aaec5af6b1d549ac0197617066047, type: 2}
-  - {fileID: 11400000, guid: 160604c934ec760438b508ef523c55a7, type: 2}
-  - {fileID: 11400000, guid: cb6ba0dbac0fe2b4da0e005563f2cf11, type: 2}
 --- !u!1 &969932648
 GameObject:
   m_ObjectHideFlags: 0
@@ -44519,6 +44474,7 @@ MonoBehaviour:
   emailResponseSubject: {fileID: 1291849433}
   emailResponseBody: {fileID: 752966216}
   susManager: {fileID: 733527834}
+  reduceSusCount: 10
   responseColor: <color=#008007>
 --- !u!1 &1039565589 stripped
 GameObject:

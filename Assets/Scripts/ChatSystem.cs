@@ -120,7 +120,12 @@ public class ChatSystem : MonoBehaviour
 		//Debug.Log("ParseText:"+output);
 		return output;
 	}
-
+	string GenerateName()
+	{
+		string name = Random.Range(0, 2) == 0 ? "ADJ_DESCRIPTIVE" + "SUBJECT" + Random.Range(10, 100) : "SUBJECT" + "AGENT" + Random.Range(10, 100);
+		name = ParseText(name, varDictionary);
+		return name;
+	}
 	void LoadChatMessages()
 	{
 		//set up dictionary
@@ -175,8 +180,18 @@ public class ChatSystem : MonoBehaviour
 
 			chatMessage.game = row[4];
 			chatMessage.dependency = row[5];
+			chatMessage.name = GenerateName();
 
-			chatMessages.Add(chatMessage);
+
+			if (chatMessage.message != "")
+			{
+				chatMessages.Add(chatMessage);
+				if (chatMessage.frequency == 1)
+				{
+					chatMessages.Add(chatMessage);
+				}
+			}
+
 		}
 
 	}
