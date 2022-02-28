@@ -315,7 +315,9 @@ MonoBehaviour:
   rhythmGame: {fileID: 7147024328103525033}
   mailScreen: {fileID: 1029242481}
   viewerDisplay: {fileID: 1620867276}
-  defaultViewerNum: 100
+  startingViewerNum: 1
+  viewerGrowthOvertimeRange: {x: 2, y: 8}
+  viewerLostOvertimeRange: {x: 10, y: 15}
 --- !u!4 &9948272
 Transform:
   m_ObjectHideFlags: 0
@@ -58904,7 +58906,7 @@ MonoBehaviour:
     - name: Ok
       threshold: 2
       count: 0
-      scorePrecentage: 0.9
+      scorePrecentage: 0.5
       onCountUpdate:
         m_PersistentCalls:
           m_Calls:
@@ -58992,6 +58994,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  scoreLostWhenMissed: 50
 --- !u!222 &6743951597743622029
 CanvasRenderer:
   m_ObjectHideFlags: 0
