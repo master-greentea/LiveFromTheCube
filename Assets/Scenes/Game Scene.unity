@@ -4060,6 +4060,10 @@ MonoBehaviour:
   chatMessage: []
   timeToRollChat: 3
   listenToGame: 0
+  donationMultiplier: 0
+  rhythmManager: {fileID: 0}
+  moneyManager: {fileID: 0}
+  viewerManager: {fileID: 0}
 --- !u!1 &361392771
 GameObject:
   m_ObjectHideFlags: 0
@@ -43839,6 +43843,10 @@ MonoBehaviour:
   chatMessage: []
   timeToRollChat: 3
   listenToGame: 0
+  donationMultiplier: 0
+  rhythmManager: {fileID: 7147024328103525033}
+  moneyManager: {fileID: 432897624}
+  viewerManager: {fileID: 9948270}
 --- !u!1 &969932648
 GameObject:
   m_ObjectHideFlags: 0
