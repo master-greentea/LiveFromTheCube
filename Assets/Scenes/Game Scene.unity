@@ -315,6 +315,7 @@ MonoBehaviour:
   rhythmGame: {fileID: 7147024328103525033}
   mailScreen: {fileID: 1029242481}
   viewerDisplay: {fileID: 1620867276}
+  viewers: 0
   startingViewerNum: 1
   viewerGrowthOvertimeRange: {x: 2, y: 8}
   viewerLostOvertimeRange: {x: 10, y: 15}
@@ -4885,7 +4886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyDisplay: {fileID: 1193867527}
-  money: 1000
+  viewship: {fileID: 9948271}
+  money: 0
 --- !u!4 &432897626
 Transform:
   m_ObjectHideFlags: 0
