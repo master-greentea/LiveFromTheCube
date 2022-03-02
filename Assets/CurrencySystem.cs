@@ -30,7 +30,6 @@ public class CurrencySystem : MonoBehaviour
         return money; 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (money < 0) {money = 0;}
