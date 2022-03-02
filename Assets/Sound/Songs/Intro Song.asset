@@ -459,9 +459,9 @@ MonoBehaviour:
     beatLengthIndex: 0.25
   - noteName: 5
     noteOctave: 4
-    time: 34.864864
+    time: 35
     noteLength: 0.067567565
-    beatIndex: 129
+    beatIndex: 129.5
     beatLengthIndex: 0.25
   - noteName: 0
     noteOctave: 4
@@ -685,12 +685,6 @@ MonoBehaviour:
     noteLength: 0.067567565
     beatIndex: 184
     beatLengthIndex: 0.25
-  - noteName: 5
-    noteOctave: 4
-    time: 50.54054
-    noteLength: 0.067567565
-    beatIndex: 187
-    beatLengthIndex: 0.25
   - noteName: 0
     noteOctave: 4
     time: 50.81081
@@ -838,9 +832,9 @@ MonoBehaviour:
   - noteName: 2
     noteOctave: 5
     time: 67.02702
-    noteLength: 3.2432432
+    noteLength: 4.324324
     beatIndex: 248
-    beatLengthIndex: 12
+    beatLengthIndex: 16
   - noteName: 4
     noteOctave: 5
     time: 67.567566
@@ -850,9 +844,9 @@ MonoBehaviour:
   - noteName: 5
     noteOctave: 5
     time: 68.10811
-    noteLength: 2.162162
+    noteLength: 3.2432432
     beatIndex: 252
-    beatLengthIndex: 8
+    beatLengthIndex: 12
   - noteName: 0
     noteOctave: 4
     time: 70.202705
