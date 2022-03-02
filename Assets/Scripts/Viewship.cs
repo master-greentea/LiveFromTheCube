@@ -13,7 +13,7 @@ public class Viewship : MonoBehaviour
 
     public TextMeshProUGUI viewerDisplay;
 
-    public static int viewers;
+    public int viewers;
     public int startingViewerNum; 
     public Vector2 viewerGrowthOvertimeRange;
     public Vector2 viewerLostOvertimeRange;
