@@ -10,50 +10,104 @@ public class JuiceScript : MonoBehaviour
     public GameObject MoneyManager;
     CurrencySystem mmanager;
 
-    public Button juiceButton;
-    public Button kirbyButton;
-    public Button mirrorButton;
-    public Button plantButton;
+    public GameObject insult;
 
+    public Button juiceButton;
+    public GameObject juiceSoldOut;
+    public Button kirbyButton;
+    public GameObject kirbySoldOut;
+    public Button mirrorButton;
+    public GameObject mirrorSoldOut;
+    public Button plantButton;
+    public GameObject plantSoldOut;
+
+
+    // juice
+    // [SerializeField]
+    // GameObject juiceObj;
+    [SerializeField]
     int juiceprice = 15;
+    bool boughtJuice;
+
+    // kirby
+    [SerializeField]
+    GameObject kirbyObj;
+    [SerializeField]
     int kirbyprice = 250;
+    bool boughtKirby;
+
+    // mirror
+    // [SerializeField]
+    // GameObject mirrorObj;
+    [SerializeField]
     int mirrorprice = 10;
-    int plantprice = 170; 
+    bool boughtMirror;
+
+    // plant
+    [SerializeField]
+    GameObject plantObj;
+    [SerializeField]
+    int plantprice = 170;
+    bool boughtPlant;
 
     void Start(){
         mmanager = MoneyManager.GetComponent<CurrencySystem>();
 
         Button juice = juiceButton.GetComponent<Button>();
-        juice.onClick.AddListener(JuiceOnClick);
+        if (!boughtJuice && CheckMoney(juiceprice)) juice.onClick.AddListener(JuiceOnClick);
 
         Button kirby = kirbyButton.GetComponent<Button>();
-        kirby.onClick.AddListener(KirbyOnClick);
+        if (!boughtKirby) kirby.onClick.AddListener(KirbyOnClick);
 
         Button mirror = mirrorButton.GetComponent<Button>();
-        mirror.onClick.AddListener(MirrorOnClick);
+        if (!boughtMirror && CheckMoney(mirrorprice)) mirror.onClick.AddListener(MirrorOnClick);
 
         Button plant = plantButton.GetComponent<Button>();
-        plant.onClick.AddListener(PlantOnClick);
+        if (!boughtPlant) plant.onClick.AddListener(PlantOnClick);
 
+    }
+
+    void Update() {
     }
  
     void JuiceOnClick() {
         mmanager.money -= juiceprice;
-        Debug.Log(mmanager.money);
+        
     }
 
     void KirbyOnClick() {
-        mmanager.money -= kirbyprice;
-        Debug.Log(mmanager.money);
+        if (CheckMoney(kirbyprice)) {
+            boughtKirby = true;
+            mmanager.money -= kirbyprice; // deduct price
+            kirbySoldOut.SetActive(true); // say sold out
+            kirbyButton.GetComponent<Button>().enabled = false; // no click
+            kirbyObj.SetActive(true); // set plant
+        }
+        
     }
 
     void PlantOnClick() {
-        mmanager.money -= plantprice;
-        Debug.Log(mmanager.money);
+        if (CheckMoney(plantprice)) {
+            boughtPlant = true;
+            mmanager.money -= plantprice; // deduct price
+            plantSoldOut.SetActive(true); // say sold out
+            plantButton.GetComponent<Button>().enabled = false; // no click
+            plantObj.SetActive(true); // set plant
+        }
     }
 
     void MirrorOnClick() {
         mmanager.money -= mirrorprice;
-        Debug.Log(mmanager.money);
+        
+    }
+
+    bool CheckMoney(int price) {
+        if (price <= mmanager.money) {
+            return true;
+        }
+        else
+            Debug.Log("You Poor");
+            insult.SetActive(true);
+            return false;
     }
 }
