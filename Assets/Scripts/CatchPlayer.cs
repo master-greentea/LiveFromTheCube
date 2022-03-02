@@ -21,7 +21,6 @@ public class CatchPlayer : MonoBehaviour
 	bool CR_ROLL_running;
 	bool CR_BOSS_running;
 	bool firstPlayDone;
-	bool mayReduceSus; //might not need this if I just attach the tasks to if the player is not playing, aka tabbed
 	float counter;
 
 	[Header("Roll Values")]
@@ -43,7 +42,6 @@ public class CatchPlayer : MonoBehaviour
 		bossRenderer.enabled = false;
 		playing = false;
 		firstPlayDone = false;
-		mayReduceSus = false;
 		suspicionCount = startingSuspicion;
 	}
 
@@ -108,9 +106,7 @@ public class CatchPlayer : MonoBehaviour
 			while (suspicionCount < 100 && playing == true)
 			{
 				suspicionCount += suspicionGain;
-				mayReduceSus = false;
 
-				Debug.Log(suspicionCount);
 				yield return new WaitForSeconds(1);
 			}
 
@@ -118,9 +114,6 @@ public class CatchPlayer : MonoBehaviour
 			{
 				suspicionCount -= suspicionLoss;
 
-				mayReduceSus = true;
-
-				Debug.Log(suspicionCount);
 				yield return new WaitForSeconds(1);
 			}
 
@@ -161,9 +154,7 @@ public class CatchPlayer : MonoBehaviour
 
 	public void ReduceSus(float loss)
 	{
-		if (mayReduceSus == true)
-		{
-			suspicionCount -= loss;
-		}
+
+		suspicionCount -= loss;
 	}
 }
