@@ -19,6 +19,7 @@ public class EmailLoader : MonoBehaviour
 	[SerializeField] GameObject emailResponseSubject;
 	[SerializeField] GameObject emailResponseBody;
 	[SerializeField] GameObject susManager;
+	[SerializeField] float reduceSusCount;
 
 	int emailIndex = -1;
 
@@ -87,6 +88,8 @@ public class EmailLoader : MonoBehaviour
 
 		NextEmail();
 		responseComplete = false;
+
+
 	}
 
 	// Update is called once per frame
@@ -101,6 +104,7 @@ public class EmailLoader : MonoBehaviour
 					if (responseComplete)
 					{
 						NextEmail();
+						
 					}
 				}
 				else if (responseColoringIndex < emails[emailIndex].responseBody.Length)
@@ -178,7 +182,7 @@ public class EmailLoader : MonoBehaviour
 			responseComplete = false;
 			responseColoringIndex = 0;
 
-			susManager.GetComponent<CatchPlayer>().ReduceSus(0);
+			susManager.GetComponent<CatchPlayer>().ReduceSus(reduceSusCount);
 		}
 	}
 }

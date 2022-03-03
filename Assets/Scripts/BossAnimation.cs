@@ -46,7 +46,7 @@ public class BossAnimation : MonoBehaviour
         var totalHeightToMove = Vector3.Lerp(startHeight, targetHeight, lerpInterpo);
         var newHeightToMove = new Vector3(transform.position.x, totalHeightToMove.y, transform.position.z);
 
-        Debug.Log(lerpInterpo);
+//        Debug.Log(lerpInterpo);
         suspicionLevel = lerpInterpo;
 
         slider.value = suspicionLevel; 
