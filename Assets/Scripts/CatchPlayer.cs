@@ -57,14 +57,16 @@ public class CatchPlayer : MonoBehaviour
 	*/
 
 
-	void Update()
-	{
+	void Update(){
+		
+		Debug.Log(suspicionCount);
+
 
 		discoVar = discolights.GetComponent<DiscoLights>().lightSwitched;
 		playing = rhythmGameScreen.activeInHierarchy; //first play done stops the boss from firing before the player presses play the first time
 
 
-		while (bossRenderer.enabled == false && CR_ROLL_running == false && firstPlayDone == true) {
+		while (bossRenderer.enabled == false && CR_ROLL_running == false && firstPlayDone == true ) {
 			StartCoroutine(rollBoss());
 			//if game is active roll where boss should spawn 
 
@@ -73,7 +75,7 @@ public class CatchPlayer : MonoBehaviour
 		//counter += 1 * Time.deltaTime;
 		//Debug.Log("It has been " + Mathf.RoundToInt(counter) + "seconds");
 
-		if (bossRenderer.enabled == true && CR_BOSS_running == false) {
+		if (bossRenderer.enabled == true && CR_BOSS_running == false && suspicionCount > 60 == true) {
 			StartCoroutine(BossActive());
 		}
 	}
@@ -90,10 +92,13 @@ public class CatchPlayer : MonoBehaviour
 
 		while (discoVar == false) {
 			yield
+
 			return new WaitForSeconds(0.2f);
 
-			while (discoVar == true) {
-				Debug.Log("moving");
+			//while (discoVar == true) {
+			while (suspicionCount < 70 == true) {
+				suspicionCount += suspicionGain;
+
 				yield
 				return StartCoroutine(MoveObject(transform, pointA, pointB, point, speed));
 				yield
@@ -141,7 +146,6 @@ public class CatchPlayer : MonoBehaviour
 				suspicionCount += suspicionGain;
 				mayReduceSus = false;
 
-				Debug.Log(suspicionCount);
 				yield return new WaitForSeconds(1);
 			}
 

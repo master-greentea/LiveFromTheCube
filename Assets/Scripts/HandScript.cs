@@ -4,46 +4,35 @@ using UnityEngine;
 
 public class HandScript : MonoBehaviour
 {
-        public Vector3 pointB;
-        public Vector3 pointA;
+    public Vector3 pointB;
+    public Vector3 pointA;
 
     public GameObject discolights;
-    public bool discoVar; 
-    
-        bool keyboardPress = false;
+    public bool discoVar;
 
-        void Update()
-        {
-        if (Input.anyKey) {
-            keyboardPress = true;
-        } else{
-            keyboardPress = false; 
-        }
+
+    
+    void Update(){
 
         discoVar = discolights.GetComponent<DiscoLights>().lightSwitched;
-
-        if (discoVar == false) {
-
-        }else {
-
-        }
     }
 
     public void start() {
+
     }
 
-        IEnumerator Start()
-        {
-            var point = transform.position;
+    IEnumerator Start()
+    {
+        var point = transform.position;
 
-        while (discoVar == false) {
-            yield return new WaitForSeconds(0.2f);
+    while (discoVar == false) {
+        yield return new WaitForSeconds(0.2f);
 
-            while (discoVar == true) {
-                yield return StartCoroutine(MoveObject(transform, pointA, pointB, point, 3.0f));
-                yield return StartCoroutine(MoveObject(transform, pointB, pointA, point, 3.0f));
-            }
+        while (discoVar == true) {
+            yield return StartCoroutine(MoveObject(transform, pointA, pointB, point, 3.0f));
+            yield return StartCoroutine(MoveObject(transform, pointB, pointA, point, 3.0f));
         }
+    }
         
         
         yield return new WaitForSeconds(1f);
