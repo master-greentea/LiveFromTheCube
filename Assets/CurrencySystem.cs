@@ -40,6 +40,12 @@ public class CurrencySystem : MonoBehaviour
         moneyDisplay.text = "" + money;
     }
 
+    public void GainMoney(int income)
+	{
+        money += income;
+	}
+
+    
     void GetMoneyBasedOnViewers() {
         if (viewship.viewers >= viewerTier && viewship.viewers < nextViewerTier) {
             GetMoneyOvertime();
@@ -68,4 +74,5 @@ public class CurrencySystem : MonoBehaviour
         }
         getMoneyTimer += Time.deltaTime;
     }
+    
 }
