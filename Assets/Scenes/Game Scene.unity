@@ -44002,7 +44002,7 @@ MonoBehaviour:
   chatMessage: []
   timeToRollChat: 3
   listenToGame: 0
-  donationMultiplier: 0
+  donationMultiplier: 100
   rhythmManager: {fileID: 7147024328103525033}
   moneyManager: {fileID: 432897624}
   viewerManager: {fileID: 9948270}
@@ -57298,6 +57298,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1936235443578671848}
         m_TargetAssemblyTypeName: 
         m_MethodName: OnComboAdd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 962756244}
+        m_TargetAssemblyTypeName: ChatSystem, Assembly-CSharp
+        m_MethodName: ComboUpdate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
