@@ -5,7 +5,7 @@ using System;
 using Random = UnityEngine.Random;
 using System.Linq;
 using TMPro;
-
+using RhythmGameStarter;
 public class ChatSystem : MonoBehaviour
 {
 	public List<ChatMessage> chatMessages;
@@ -22,7 +22,21 @@ public class ChatSystem : MonoBehaviour
 
 	private List<GameObject> activeChatList = new List<GameObject>();
 	private bool CR_ROLL_running;
-	private float counter = 0;
+	private double counter = 2;
+
+	int currentPositivity; // 1 = pos, 0 = neg
+	int myCombo;
+	public int donationMultiplier;
+
+	[SerializeField]GameObject rhythmManager;
+	[SerializeField] GameObject moneyManager;
+	[SerializeField] GameObject viewerManager;
+	public void ComboUpdate()
+	{
+		myCombo = rhythmManager.GetComponent<StatsSystem>().combo;
+		currentPositivity = myCombo == 0 ? 0 : 1;
+		Debug.Log("currentPositivity = " + currentPositivity);
+	}
 
 	void Start()
 	{
@@ -33,21 +47,40 @@ public class ChatSystem : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		counter += 1 * Time.deltaTime;
+		counter -= Time.deltaTime;
 
 
-		if (Mathf.RoundToInt(counter) == timeToRollChat)
+		if (counter <= 0)
 		{
 			ManageChat();
-			counter = 0;
+			counter = ChatFrequency(viewerManager.GetComponent<Viewship>().viewers);
 		}
 
 	}
-
+	double ChatFrequency(int viewership)
+	{
+		double frequency = (1.00 / 300000.00) * (Math.Pow(1.0006, -1 * (viewership - 24000))) + 0.5;
+		Debug.Log("frequency" + frequency);
+		return frequency;
+	}
 	ChatMessage PickMessage()
 	{
 		ChatMessage myMessage = chatMessages[Random.Range(0, chatMessages.Count)];
-		return myMessage;
+		if (myMessage.positivity == currentPositivity)
+		{
+			if (currentPositivity == 1)
+			{
+				int income = donationMultiplier * myCombo;
+				myMessage.message = myMessage.message + "\n<color=#FF5733>Donation: $" + income + "</color>";
+				moneyManager.GetComponent<CurrencySystem>().GainMoney(income);
+			}
+			return myMessage;
+		}
+		else
+		{
+			return PickMessage();
+		}
+		
 	}
 
 	private void ManageChat()

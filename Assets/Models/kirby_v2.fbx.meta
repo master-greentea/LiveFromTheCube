@@ -3,7 +3,27 @@ guid: e18807f56ecd3f848827a8807644e84d
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn2
+    second: {fileID: 2100000, guid: faab6292b98d940228241061a66ac8d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body_pink
+    second: {fileID: 2100000, guid: a3b1080642ae64e45981a5e4451f689e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: feet
+    second: {fileID: 2100000, guid: dae329d7497a84dd9a90c1bcf72b67c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tongue
+    second: {fileID: 2100000, guid: 7979e68404c494f5c9ab22c14cb40b98, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
