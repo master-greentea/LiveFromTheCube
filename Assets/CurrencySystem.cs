@@ -34,7 +34,7 @@ public class CurrencySystem : MonoBehaviour
     {
         if (money < 0) {money = 0;}
         if (viewship.rhythmGame.activeInHierarchy) {
-            //etMoneyBasedOnViewers();
+            GetMoneyBasedOnViewers();
         }
 
         moneyDisplay.text = "" + money;
@@ -45,7 +45,7 @@ public class CurrencySystem : MonoBehaviour
         money += income;
 	}
 
-    /*
+    
     void GetMoneyBasedOnViewers() {
         if (viewship.viewers >= viewerTier && viewship.viewers < nextViewerTier) {
             GetMoneyOvertime();
@@ -74,5 +74,5 @@ public class CurrencySystem : MonoBehaviour
         }
         getMoneyTimer += Time.deltaTime;
     }
-    */
+    
 }
