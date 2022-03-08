@@ -33,9 +33,9 @@ public class CurrencySystem : MonoBehaviour
     void Update()
     {
         if (money < 0) {money = 0;}
-        if (viewship.rhythmGame.activeInHierarchy) {
+        /*if (viewship.rhythmGame.activeInHierarchy) {
             GetMoneyBasedOnViewers();
-        }
+        }*/
 
         moneyDisplay.text = "" + money;
     }
