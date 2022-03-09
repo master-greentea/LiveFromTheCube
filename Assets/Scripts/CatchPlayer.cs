@@ -21,9 +21,9 @@ public class CatchPlayer : MonoBehaviour
 	bool CR_ROLL_running;
 	bool CR_BOSS_running;
 	bool firstPlayDone;
-	bool mayReduceSus; //might not need this if I just attach the tasks to if the player is not playing, aka tabbed
 	float counter;
 
+	Vector3 point;
 	public Vector3 pointB;
 	public Vector3 pointA;
 
@@ -45,20 +45,10 @@ public class CatchPlayer : MonoBehaviour
 
 	public float timeBetweenRolls = 1.0f;
 
-	/*
-	void Start() {
-		bossRenderer.enabled = false;
-		playing = false;
-		firstPlayDone = false;
-		mayReduceSus = false;
+	
+	void Update()
+	{
 
-		suspicionCount = startingSuspicion;
-	}
-	*/
-
-
-	void Update(){
-		
 		Debug.Log(suspicionCount);
 
 
@@ -66,153 +56,187 @@ public class CatchPlayer : MonoBehaviour
 		playing = rhythmGameScreen.activeInHierarchy; //first play done stops the boss from firing before the player presses play the first time
 
 
-		while (bossRenderer.enabled == false && CR_ROLL_running == false && firstPlayDone == true ) {
+		if (bossRenderer.enabled == false && CR_ROLL_running == false && firstPlayDone == true)
+		{
 			StartCoroutine(rollBoss());
 			//if game is active roll where boss should spawn 
 
 		}
 
-		//counter += 1 * Time.deltaTime;
-		//Debug.Log("It has been " + Mathf.RoundToInt(counter) + "seconds");
-
-		if (bossRenderer.enabled == true && CR_BOSS_running == false && suspicionCount > 60 == true) {
+		/*
+		if (bossRenderer.enabled == true && CR_BOSS_running == false && suspicionCount > 60 == true)
+		{
 			StartCoroutine(BossActive());
+		}
+		*/
+
+
+		if (suspicionCount < 100 && playing && bossRenderer.enabled)
+		{
+			suspicionCount += suspicionGain * Time.deltaTime;
+		}
+		if (suspicionCount < 100 && !playing && suspicionCount > 0)
+		{
+			suspicionCount -= suspicionLoss * Time.deltaTime;
+		}
+		if (suspicionCount <= 0)
+		{
+			StopCoroutine(rollBoss());
+
+			GetComponent<AudioSource>().Stop();// stop boss audio
+			mangaLines.SetActive(false);
+			bossRenderer.enabled = false;
+			CR_BOSS_running = false;
+
+			suspicionCount = startingSuspicion;
+		}
+		else if (suspicionCount >= 100) // game ends
+		{
+			SceneManager.LoadScene("Failed Scene");
+			StopCoroutine(rollBoss());
+			CR_BOSS_running = false;
 		}
 	}
 
-	IEnumerator Start() {
-		var point = transform.position;
-
+	void Start()
+	{
+		point = transform.position;
 		bossRenderer.enabled = false;
 		playing = false;
 		firstPlayDone = false;
-		mayReduceSus = false;
 
 		suspicionCount = startingSuspicion;
-
-		while (discoVar == false) {
-			yield
-
-			return new WaitForSeconds(0.2f);
+		
+		/*
+		while (discoVar == false)
+		{
+			yield return new WaitForSeconds(0.2f);
 
 			//while (discoVar == true) {
-			while (suspicionCount < 70 == true) {
+			while (suspicionCount < 70)
+			{
 				suspicionCount += suspicionGain;
 
-				yield
-				return StartCoroutine(MoveObject(transform, pointA, pointB, point, speed));
-				yield
-				return StartCoroutine(MoveObject(transform, pointB, pointA, point, speed));
+				yield return StartCoroutine(MoveObject(transform, pointA, pointB, point, speed));
+				yield return StartCoroutine(MoveObject(transform, pointB, pointA, point, speed));
 			}
 		}
 
-		yield
-		return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(1f);
+		*/
 	}
 
-	IEnumerator rollBoss(){
+	IEnumerator rollBoss()
+	{
 		CR_ROLL_running = true;
 
 		int rollNum = 0;
 		int spawnRollNum = Random.Range(0, spawnLocations.Count);
 
-		while (rollNum != activateNum){
+		while (rollNum != activateNum)
+		{
 			rollNum = Random.Range(1, maxRange);
 			yield return new WaitForSeconds(timeBetweenRolls);
 
 		}
 
-		if (rollNum == activateNum){
+		if (rollNum == activateNum)
+		{
 			boss.transform.position = spawnLocations[spawnRollNum].transform.position;
 			bossRenderer.enabled = true;
-
-			Debug.Log(spawnRollNum);
-
+			GetComponent<AudioSource>().Play(); // play boss aduio
+			mangaLines.SetActive(true);
+			StartCoroutine(MoveObject(transform, pointA, pointB, point, speed));
 			StopCoroutine(rollBoss());
 			yield return null;
 			CR_ROLL_running = false;
 		}
 	}
 
-	IEnumerator BossActive(){
-		GetComponent<AudioSource>().Play(); // play boss aduio
+	IEnumerator BossActive()
+	{
+		
 
 		CR_BOSS_running = true;
-		while (bossRenderer.enabled == true){
+		if (bossRenderer.enabled == true)
+		{
 
-			mangaLines.SetActive(true);
+			
 
-			while (suspicionCount < 100 && playing == true){
+			/*
+			while (suspicionCount < 100 && playing == true)
+			{
 				suspicionCount += suspicionGain;
-				mayReduceSus = false;
 
 				yield return new WaitForSeconds(1);
 			}
 
-			while (suspicionCount < 100 && playing == false && suspicionCount > 0) {
+			while (suspicionCount < 100 && playing == false && suspicionCount > 0)
+			{
 				suspicionCount -= suspicionLoss;
-
-				mayReduceSus = true;
 
 				Debug.Log(suspicionCount);
 				yield return new WaitForSeconds(1);
 			}
 
 
-			if (suspicionCount <= 0){
+			if (suspicionCount <= 0)
+			{
 				Debug.Log("The boss is satisfied.");
 
 				yield return null;
 				StopCoroutine(rollBoss());
 
 				GetComponent<AudioSource>().Stop();// stop boss audio
-												   
+
 				bossRenderer.enabled = false;
 				CR_BOSS_running = false;
 
 				suspicionCount = startingSuspicion;
 
 
-			}else if (suspicionCount >= 100){
+			}
+			else if (suspicionCount >= 100)
+			{
 				SceneManager.LoadScene("Failed Scene");
 				//game should end here
 
 				yield return null;
 				StopCoroutine(rollBoss());
 				CR_BOSS_running = false;
-			}
+			}*/
 		}
-
-		mangaLines.SetActive(false);
+		
+		yield return null;
 	}
 
-	IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, Vector3 point, float time) {
+	IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, Vector3 point, float time)
+	{
 
 		var i = 0.0f;
 		var rate = 3.0f / time;
 
-		while (i < 1.0f) {
+		while (i < 1.0f)
+		{
 			i += Time.deltaTime * rate;
 			thisTransform.position = Vector3.Lerp(endPos, startPos, i);
-			yield
-			return null;
+			yield return null;
 		}
-		
+
 
 	}
 
 
 
-	public void GameStart(){
+	public void GameStart()
+	{
 		playing = true;
 		firstPlayDone = true;
 
 	}
 
-	public void ReduceSus(float loss) {
-		if (mayReduceSus == true) {
-			suspicionCount -= loss;
-
-		}
+	public void ReduceSus(float loss)
+	{
+		suspicionCount -= loss;
 	}
 }
