@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class BossAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Vector3 startHeight;
     private Vector3 targetHeight;
     private CatchPlayer sus;
@@ -38,17 +37,16 @@ public class BossAnimation : MonoBehaviour
         currentHealth = 0; 
     }
 
-    // Update is called once per frame
     void Update()
     {
         var currentPosition = transform.position;
-        var lerpInterpo = (float)sus.suspicionCount * .01f;
+        var lerpInterpo = (float)sus.suspicionCount * .01f; // higher sus the higher guy goes up 
         var totalHeightToMove = Vector3.Lerp(startHeight, targetHeight, lerpInterpo);
         var newHeightToMove = new Vector3(transform.position.x, totalHeightToMove.y, transform.position.z);
 
-//        Debug.Log(lerpInterpo);
-        suspicionLevel = lerpInterpo;
+        //Debug.Log(lerpInterpo);
 
+        suspicionLevel = lerpInterpo;
         slider.value = suspicionLevel; 
 
         transform.position = Vector3.SmoothDamp(currentPosition, newHeightToMove, ref velocity, timeBetweenPoints);

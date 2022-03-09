@@ -33,13 +33,19 @@ public class CurrencySystem : MonoBehaviour
     void Update()
     {
         if (money < 0) {money = 0;}
-        if (viewship.rhythmGame.activeInHierarchy) {
+        /*if (viewship.rhythmGame.activeInHierarchy) {
             GetMoneyBasedOnViewers();
-        }
+        }*/
 
         moneyDisplay.text = "" + money;
     }
 
+    public void GainMoney(int income)
+	{
+        money += income;
+	}
+
+    
     void GetMoneyBasedOnViewers() {
         if (viewship.viewers >= viewerTier && viewship.viewers < nextViewerTier) {
             GetMoneyOvertime();
@@ -68,4 +74,5 @@ public class CurrencySystem : MonoBehaviour
         }
         getMoneyTimer += Time.deltaTime;
     }
+    
 }
