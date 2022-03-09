@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class JuiceScript : MonoBehaviour
+public class ShopManager : MonoBehaviour
 {
 
     public GameObject MoneyManager;
     CurrencySystem mmanager;
 
-    public GameObject insult;
+    public TMPro.TextMeshProUGUI insult;
+    float insultTimer;
+    bool insulting;
 
     public Button juiceButton;
     public GameObject juiceSoldOut;
@@ -27,6 +29,8 @@ public class JuiceScript : MonoBehaviour
     // GameObject juiceObj;
     [SerializeField]
     int juiceprice = 15;
+    [SerializeField]
+    TMPro.TextMeshProUGUI juicePriceText;
     bool boughtJuice;
 
     // kirby
@@ -34,6 +38,8 @@ public class JuiceScript : MonoBehaviour
     GameObject kirbyObj;
     [SerializeField]
     int kirbyprice = 250;
+    [SerializeField]
+    TMPro.TextMeshProUGUI kirbyPriceText;
     bool boughtKirby;
 
     // mirror
@@ -41,6 +47,8 @@ public class JuiceScript : MonoBehaviour
     // GameObject mirrorObj;
     [SerializeField]
     int mirrorprice = 10;
+    [SerializeField]
+    TMPro.TextMeshProUGUI mirrorPriceText;
     bool boughtMirror;
 
     // plant
@@ -48,6 +56,8 @@ public class JuiceScript : MonoBehaviour
     GameObject plantObj;
     [SerializeField]
     int plantprice = 170;
+    [SerializeField]
+    TMPro.TextMeshProUGUI plantPriceText;
     bool boughtPlant;
 
     void Start(){
@@ -65,9 +75,34 @@ public class JuiceScript : MonoBehaviour
         Button plant = plantButton.GetComponent<Button>();
         if (!boughtPlant) plant.onClick.AddListener(PlantOnClick);
 
+
+        // set price
+        kirbyPriceText.text = "$"+kirbyprice;
+        mirrorPriceText.text = "$"+mirrorprice;
+        plantPriceText.text = "$"+plantprice;
+
+        insult.text = RandomTagline();
+        insulting = false;
     }
 
     void Update() {
+        if (insultTimer > 3f) {
+            insult.text = RandomTagline();
+            insultTimer = 0f;
+            insulting = false;
+        }
+        if (insulting) {
+            insultTimer += Time.deltaTime;
+        }
+    }
+
+    string RandomTagline() {
+        string[] insultArray = {"Our employees' wages have never been lower!", 
+        "Work hard, no fun, become history!", 
+        "All hail our great leader Beff Jezos!", 
+        "Bank account too full? Don't worry! We will drain it dry for you!"};
+        int randIndex = Random.Range(0, insultArray.Length);
+        return  insultArray[randIndex];
     }
  
     void JuiceOnClick() {
@@ -103,11 +138,15 @@ public class JuiceScript : MonoBehaviour
 
     bool CheckMoney(int price) {
         if (price <= mmanager.money) {
+            insult.text = "Item purchased. Bamazon Prime instant delievery activated!";
+            insultTimer = 0f;
+            insulting = true;
             return true;
         }
         else
-            Debug.Log("You Poor");
-            insult.SetActive(true);
+            insult.text = "You poor bastard get yourself some money first before you use our site.\n-Beff Jezos";
+            insultTimer = 0f;
+            insulting = true;
             return false;
     }
 }
