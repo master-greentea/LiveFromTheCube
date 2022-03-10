@@ -7155,10 +7155,10 @@ MonoBehaviour:
   discoVar: 0
   maxRange: 12
   activateNum: 2
-  suspicionGain: 5
+  suspicionGain: 1
   suspicionLoss: 0.5
-  startingSuspicion: 10
-  timeBetweenRolls: 1
+  startingSuspicion: 0
+  timeBetweenRolls: 2
 --- !u!114 &733527837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55815,10 +55815,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyMapping:
     values:
-    - d
     - f
+    - g
+    - h
     - j
-    - k
   up: 273
   down: 274
   left: 276
