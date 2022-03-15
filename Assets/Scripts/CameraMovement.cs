@@ -49,7 +49,8 @@ public class CameraMovement : MonoBehaviour
 	public float boundary = 10;
 	private Vector3 startPosition; 
 
-	public bool start = true; 
+	public bool start = true;
+	public bool cameraEdge = true; 
 
 	void Start()
 	{
@@ -75,45 +76,51 @@ public class CameraMovement : MonoBehaviour
 
 	void Update() {
 
-		Quaternion rotation = Quaternion.Euler(yDeg, xDeg, 0);
+		if(cameraEdge == true) {
+			Quaternion rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
-		if (Input.mousePosition.x > screenWidth - boundary) {
-			//Debug.Log("right side");
-			xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-			yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+			if (Input.mousePosition.x > screenWidth - boundary) {
+				//Debug.Log("right side");
+				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-			transform.rotation = rotation;
+				transform.rotation = rotation;
+			}
+
+			if (Input.mousePosition.x < 0 - boundary) {
+				//Debug.Log("left side");
+				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+
+				transform.rotation = rotation;
+			}
+
+			if (Input.mousePosition.y > screenHeight - boundary) {
+				//Debug.Log("up side");
+				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+
+				transform.rotation = rotation;
+			}
+
+			if (Input.mousePosition.y < 0 - boundary) {
+				//Debug.Log("down side");
+				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+
+				transform.rotation = rotation;
+			}
+
+			
 		}
-
-		if (Input.mousePosition.x < 0 - boundary) {
-			//Debug.Log("left side");
-			xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-			yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-			transform.rotation = rotation;
-		}
-
-		if (Input.mousePosition.y > screenHeight - boundary) {
-			//Debug.Log("up side");
-			xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-			yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-			transform.rotation = rotation;
-		}
-
-		if (Input.mousePosition.y < 0 - boundary) {
-			//Debug.Log("down side");
-			xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-			yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-			transform.rotation = rotation;
+		if (Input.GetKey(KeyCode.X)) {
+			cameraEdge = false; 
 		}
 
 		if (Input.GetKey(KeyCode.Z)) {
 			//mainCam.transform.rotation = Quaternion.identity;
 			transform.rotation = Quaternion.identity;
 		}
-
 	}
 
 	// Camera logic on LateUpdate to only update after all character movement logic has been handled.
