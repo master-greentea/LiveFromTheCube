@@ -47,7 +47,9 @@ public class CameraMovement : MonoBehaviour
 	public float screenWidth;
 	public float speed = 5;
 	public float boundary = 10;
-	private Vector3 startPosition; 
+
+	public float angleBoundpos;
+	public float angleBoundneg; 
 
 	public bool start = true;
 	public bool cameraEdge = true; 
@@ -71,20 +73,20 @@ public class CameraMovement : MonoBehaviour
 		screenWidth = Screen.width;
 		screenHeight = Screen.height;
 
-		startPosition = transform.position;
 	}
 
 	void Update() {
 
 		if(cameraEdge == true) {
 			Quaternion rotation = Quaternion.Euler(yDeg, xDeg, 0);
+			rotation.x = Mathf.Clamp(rotation.y, angleBoundneg, angleBoundpos);
 
 			if (Input.mousePosition.x > screenWidth - boundary) {
 				//Debug.Log("right side");
 				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				transform.rotation = rotation;
+				transform.rotation = Quaternion.Euler(0, rotation.y, 0);
 			}
 
 			if (Input.mousePosition.x < 0 - boundary) {
@@ -92,7 +94,7 @@ public class CameraMovement : MonoBehaviour
 				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				transform.rotation = rotation;
+				transform.rotation = Quaternion.Euler(0, rotation.y, 0);
 			}
 
 			if (Input.mousePosition.y > screenHeight - boundary) {
@@ -100,7 +102,7 @@ public class CameraMovement : MonoBehaviour
 				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				transform.rotation = rotation;
+				transform.rotation = Quaternion.Euler(0, rotation.y, 0);
 			}
 
 			if (Input.mousePosition.y < 0 - boundary) {
@@ -108,7 +110,7 @@ public class CameraMovement : MonoBehaviour
 				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				transform.rotation = rotation;
+				transform.rotation = Quaternion.Euler(0, rotation.y, 0);
 			}
 
 			
@@ -129,6 +131,7 @@ public class CameraMovement : MonoBehaviour
 		Vector3 vTargetOffset;
 
 		Quaternion rotation = Quaternion.Euler(yDeg, xDeg, 0);
+		//rotation.y = Mathf.Clamp(rotation.y, angleBoundneg, angleBoundpos);
 
 		if (!target)
 			return;
@@ -142,7 +145,9 @@ public class CameraMovement : MonoBehaviour
 				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
 
-				transform.rotation = rotation;
+
+				//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+				transform.rotation = Quaternion.Euler(rotation.x, angleBoundneg, angleBoundpos);
 
 			}
 
@@ -183,23 +188,9 @@ public class CameraMovement : MonoBehaviour
 		// keep within legal limits
 		currentDistance = Mathf.Clamp(currentDistance, minDistance, maxDistance);
 
-		// recalculate position based on the new currentDistance
-		position = target.position - (rotation * Vector3.forward * currentDistance + vTargetOffset);
 
 	
-		transform.position = position;
 
 
-	}
-
-	private static float ClampAngle(float angle, float min, float max)
-	{
-		if (angle < -360)
-			angle += 360;
-		if (angle > 360)
-			angle -= 360;
-		return Mathf.Clamp(angle, min, max);
 	}
 }
-
-//zoom in if on screen 
