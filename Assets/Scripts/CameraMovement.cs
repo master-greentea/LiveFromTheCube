@@ -43,8 +43,8 @@ public class CameraMovement : MonoBehaviour
 	private float desiredDistance;
 	private float correctedDistance;
 
-	public float screenHeight;
-	public float screenWidth;
+	private float screenHeight;
+	private float screenWidth;
 	public float speed = 5;
 	public float boundary = 10;
 
@@ -52,7 +52,8 @@ public class CameraMovement : MonoBehaviour
 	public float angleBoundneg; 
 
 	public bool start = true;
-	public bool cameraEdge = true; 
+	private bool cameraEdge = true;
+	private bool cameraEdgeOnce = false; 
 
 	void Start()
 	{
@@ -69,7 +70,6 @@ public class CameraMovement : MonoBehaviour
 		if (this.gameObject.GetComponent<Rigidbody>())
 			this.gameObject.GetComponent<Rigidbody>().freezeRotation = true;
 
-
 		screenWidth = Screen.width;
 		screenHeight = Screen.height;
 
@@ -79,14 +79,26 @@ public class CameraMovement : MonoBehaviour
 
 		if(cameraEdge == true) {
 			Quaternion rotation = Quaternion.Euler(yDeg, xDeg, 0);
+
+			/*
+			 * interesting effect #1 rotation.y = Mathf.Clamp(rotation.x, angleBoundneg, angleBoundpos);
+			 * if this was implemented would remove the mouse rotation 
+			 */
+
 			rotation.x = Mathf.Clamp(rotation.y, angleBoundneg, angleBoundpos);
+			rotation.y = Mathf.Clamp(rotation.y, angleBoundneg, angleBoundpos);
+			//rotation.z = Mathf.Clamp(rotation.x, angleBoundneg, angleBoundpos);
 
 			if (Input.mousePosition.x > screenWidth - boundary) {
 				//Debug.Log("right side");
 				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+			//	rotation = Quaternion.Euler(yDeg, xDeg, 0);
+
+				transform.rotation = rotation; 
+				//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, 0); // no impact 
+				//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z); 
 			}
 
 			if (Input.mousePosition.x < 0 - boundary) {
@@ -94,7 +106,13 @@ public class CameraMovement : MonoBehaviour
 				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+				//rotation = Quaternion.Euler(yDeg, xDeg, 0);
+
+				//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+				//transform.rotation = Quaternion.identity;
+				transform.rotation = rotation;
+				//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z); 
+			
 			}
 
 			if (Input.mousePosition.y > screenHeight - boundary) {
@@ -102,7 +120,10 @@ public class CameraMovement : MonoBehaviour
 				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+				rotation = Quaternion.Euler(yDeg, xDeg, 0);
+
+				//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+				transform.rotation = rotation;
 			}
 
 			if (Input.mousePosition.y < 0 - boundary) {
@@ -110,15 +131,25 @@ public class CameraMovement : MonoBehaviour
 				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+				rotation = Quaternion.Euler(yDeg, xDeg, 0);
+
+				//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+				transform.rotation = rotation;
 			}
 
 			
 		}
-		if (Input.GetKey(KeyCode.X)) {
-			cameraEdge = false; 
-		}
+		if (Input.GetKeyDown(KeyCode.X) && cameraEdgeOnce == true) {
+			Debug.Log(" edge on");
+			cameraEdge = true;
+			cameraEdgeOnce = false;
 
+		}else if (Input.GetKeyDown(KeyCode.X)) {
+			Debug.Log(" edge off");
+			cameraEdge = false;
+			cameraEdgeOnce = true; 
+
+		}
 		if (Input.GetKey(KeyCode.Z)) {
 			//mainCam.transform.rotation = Quaternion.identity;
 			transform.rotation = Quaternion.identity;
@@ -137,27 +168,35 @@ public class CameraMovement : MonoBehaviour
 			return;
 
 		// If either mouse buttons are down, let the mouse govern camera position
-		if (GUIUtility.hotControl == 0)
-		{
-			if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
-			{
-				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+		if (GUIUtility.hotControl == 0) {
+			if (cameraEdge == false) {
+				if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) {
+					xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+					yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
+					//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, 0);
+					//transform.rotation = Quaternion.Euler(rotation.x, angleBoundneg, angleBoundpos);
 
+					//transform.rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
-				//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
-				transform.rotation = Quaternion.Euler(rotation.x, angleBoundneg, angleBoundpos);
+					rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
-			}
+					var pos = transform.position;
+					pos.x = Mathf.Clamp(transform.position.x, angleBoundneg, angleBoundpos);
+					transform.position = pos;
+
+					transform.rotation = rotation;
+
+				}
 
 			// otherwise, ease behind the target if any of the directional keys are pressed
-			else if (Input.GetKey(KeyCode.W))
-			{
-				float targetRotationAngle = target.eulerAngles.y;
-				float currentRotationAngle = transform.eulerAngles.y;
-				xDeg = Mathf.LerpAngle(currentRotationAngle, targetRotationAngle, rotationDampening * Time.deltaTime);
+			else if (Input.GetKey(KeyCode.W)) {
+					float targetRotationAngle = target.eulerAngles.y;
+					float currentRotationAngle = transform.eulerAngles.y;
+					xDeg = Mathf.LerpAngle(currentRotationAngle, targetRotationAngle, rotationDampening * Time.deltaTime);
+				}
 			}
+			
 		}
 
 		correctedDistance = desiredDistance;
