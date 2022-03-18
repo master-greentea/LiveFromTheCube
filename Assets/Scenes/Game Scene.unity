@@ -3735,12 +3735,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322074519}
   m_CullTransparentMesh: 1
---- !u!1 &345450391 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2671260727447393599, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+--- !u!114 &345450393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 360497997741384871, guid: 9f73dc309a40a463ebc68b27f0e44be4,
     type: 3}
   m_PrefabInstance: {fileID: 1579409646}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &345899687
 GameObject:
   m_ObjectHideFlags: 0
@@ -4946,11 +4952,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 432897624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 870abbef2f2dd4b1b97930c1b6bb5e29, type: 3}
+  m_Script: {fileID: 11500000, guid: 29473fc328fb94c4eae3dc36eaedd83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyManager: {fileID: 432897624}
-  insult: {fileID: 345450391}
+  insult: {fileID: 345450393}
   juiceButton: {fileID: 1702014800}
   juiceSoldOut: {fileID: 2044566498}
   kirbyButton: {fileID: 625614393}
@@ -4960,11 +4966,15 @@ MonoBehaviour:
   plantButton: {fileID: 317400295}
   plantSoldOut: {fileID: 1579409647}
   juiceprice: 15
+  juicePriceText: {fileID: 911310769}
   kirbyObj: {fileID: 658191064}
   kirbyprice: 250
-  mirrorprice: 300
+  kirbyPriceText: {fileID: 1239032296}
+  mirrorprice: 10
+  mirrorPriceText: {fileID: 1579409649}
   plantObj: {fileID: 1799435027}
   plantprice: 170
+  plantPriceText: {fileID: 1579409648}
 --- !u!1 &433385298
 GameObject:
   m_ObjectHideFlags: 0
@@ -7094,7 +7104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &733527835
 Transform:
   m_ObjectHideFlags: 0
@@ -43186,6 +43196,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878409597}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &911310769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4780624248805824409, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579409646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &916374604
 GameObject:
   m_ObjectHideFlags: 0
@@ -46301,6 +46323,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1239032296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8566488590687042398, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579409646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1270975601
 GameObject:
   m_ObjectHideFlags: 0
@@ -49215,6 +49249,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1579409646}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1579409648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7088476027099617957, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579409646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1579409649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5194708492017956526, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579409646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1580347507
 GameObject:
   m_ObjectHideFlags: 0
