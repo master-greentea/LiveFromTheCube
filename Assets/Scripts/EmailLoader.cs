@@ -48,7 +48,7 @@ public class EmailLoader : MonoBehaviour
 
 		// read and parse emails
 		emails = new List<Email>();
-		var emailCSV = Resources.Load<TextAsset>("placeholderEmail");
+		var emailCSV = Resources.Load<TextAsset>("Procedural Emails");
 		string[] emailsArray = emailCSV.text.Split(new char[] { '\n' }); // split csv by row
 		for (int i = 1; i < emailsArray.Length; i++) // for every row in csv
 		{
@@ -184,6 +184,12 @@ public class EmailLoader : MonoBehaviour
 
 			susManager.GetComponent<CatchPlayer>().ReduceSus(reduceSusCount);
 		}
+	}
+
+	private void OnEnable()
+	{
+		GameObject myEventSystem = GameObject.Find("EventSystem");
+		myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
 	}
 }
 
