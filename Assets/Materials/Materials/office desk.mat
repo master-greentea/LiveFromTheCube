@@ -23,7 +23,7 @@ Material:
   m_Name: office desk
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ShaderKeywords: DR_CEL_EXTRA_ON DR_GRADIENT_ON DR_RIM_ON _CELPRIMARYMODE_SINGLE
-    _NORMALMAP _TEXTUREBLENDINGMODE_MULTIPLY
+    _NORMALMAP _TEXTUREBLENDINGMODE_MULTIPLY _UNITYSHADOW_OCCLUSION
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -121,7 +121,7 @@ Material:
     - _FlatRimLightAlign: 0
     - _FlatRimSize: 0.2
     - _FlatSpecularEdgeSmoothness: 0
-    - _FlatSpecularSize: 0.1
+    - _FlatSpecularSize: 0
     - _Flatness: 1
     - _FlatnessExtra: 1
     - _GlossMapScale: 1
@@ -133,10 +133,10 @@ Material:
     - _GradientCenterY: 0
     - _GradientEnabled: 1
     - _GradientSize: 10
-    - _LightContribution: 0
-    - _LightFalloffSize: 0
-    - _LightmapDirectionPitch: 0
-    - _LightmapDirectionYaw: 0
+    - _LightContribution: 0.41
+    - _LightFalloffSize: 0.453
+    - _LightmapDirectionPitch: 6.33
+    - _LightmapDirectionYaw: 3.17
     - _Metallic: 0.776
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -150,10 +150,10 @@ Material:
     - _ReceiveShadows: 1
     - _RimEnabled: 1
     - _SampleGI: 0
-    - _SelfShadingSize: 0.5
-    - _SelfShadingSizeExtra: 0.6
-    - _ShadowEdgeSize: 0.3
-    - _ShadowEdgeSizeExtra: 0.2
+    - _SelfShadingSize: 0.662
+    - _SelfShadingSizeExtra: 0.785
+    - _ShadowEdgeSize: 0.308
+    - _ShadowEdgeSizeExtra: 0.141
     - _Shininess: 0
     - _Smoothness: 0.5
     - _SmoothnessSource: 0
@@ -167,14 +167,14 @@ Material:
     - _TextureImpact: 1
     - _UVSec: 0
     - _UnityShadowMode: 0
-    - _UnityShadowOcclusion: 0
+    - _UnityShadowOcclusion: 1
     - _UnityShadowPower: 0.2
     - _UnityShadowSharpness: 1
     - _VertexColorsEnabled: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.1509434, g: 0.101815596, b: 0.101815596, a: 1}
+    - _BaseColor: {r: 0.4056604, g: 0.33118525, b: 0.23918656, a: 1}
     - _Color: {r: 0.24528295, g: 0.16776428, b: 0.16776428, a: 1}
     - _ColorDim: {r: 0, g: 0, b: 0, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
@@ -182,10 +182,10 @@ Material:
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
     - _ColorGradient: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlatRimColor: {r: 0.03773582, g: 0.03292984, b: 0.03292984, a: 1}
+    - _FlatRimColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlatSpecularColor: {r: 0.24528295, g: 0.16776428, b: 0.16776428, a: 1}
-    - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
+    - _LightmapDirection: {r: 0.006096945, g: 0.99390334, b: 0.110086024, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
+    - _UnityShadowColor: {r: 0.15094337, g: 0.10181556, b: 0.10181556, a: 1}
   m_BuildTextureStacks: []

@@ -19,11 +19,15 @@ public class EmailLoader : MonoBehaviour
 	[SerializeField] GameObject emailResponseSubject;
 	[SerializeField] GameObject emailResponseBody;
 	[SerializeField] GameObject susManager;
+	[SerializeField] float reduceSusCount;
 
-	int emailIndex = -1;
+	public int emailIndex = -1;
 
 	int responseColoringIndex = 0;
+
 	public string responseColor;
+	public int emailsSent = 0;
+
 	bool responseComplete = true;
 
 	// Start is called before the first frame update
@@ -47,7 +51,7 @@ public class EmailLoader : MonoBehaviour
 
 		// read and parse emails
 		emails = new List<Email>();
-		var emailCSV = Resources.Load<TextAsset>("placeholderEmail");
+		var emailCSV = Resources.Load<TextAsset>("Procedural Emails");
 		string[] emailsArray = emailCSV.text.Split(new char[] { '\n' }); // split csv by row
 		for (int i = 1; i < emailsArray.Length; i++) // for every row in csv
 		{
@@ -87,6 +91,8 @@ public class EmailLoader : MonoBehaviour
 
 		NextEmail();
 		responseComplete = false;
+
+
 	}
 
 	// Update is called once per frame
@@ -101,6 +107,7 @@ public class EmailLoader : MonoBehaviour
 					if (responseComplete)
 					{
 						NextEmail();
+						
 					}
 				}
 				else if (responseColoringIndex < emails[emailIndex].responseBody.Length)
@@ -178,8 +185,14 @@ public class EmailLoader : MonoBehaviour
 			responseComplete = false;
 			responseColoringIndex = 0;
 
-			susManager.GetComponent<CatchPlayer>().ReduceSus(0);
+			susManager.GetComponent<CatchPlayer>().ReduceSus(reduceSusCount);
 		}
+	}
+
+	private void OnEnable()
+	{
+		GameObject myEventSystem = GameObject.Find("EventSystem");
+		myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
 	}
 }
 
