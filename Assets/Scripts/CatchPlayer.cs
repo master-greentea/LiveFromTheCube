@@ -79,6 +79,7 @@ public class CatchPlayer : MonoBehaviour
 		{
 			suspicionCount -= suspicionLoss * Time.deltaTime;
 		}
+
 		if (suspicionCount <= 0)
 		{
 			StopCoroutine(rollBoss());

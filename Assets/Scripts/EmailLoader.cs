@@ -21,10 +21,13 @@ public class EmailLoader : MonoBehaviour
 	[SerializeField] GameObject susManager;
 	[SerializeField] float reduceSusCount;
 
-	int emailIndex = -1;
+	public int emailIndex = -1;
 
 	int responseColoringIndex = 0;
+
 	public string responseColor;
+	public int emailsSent = 0;
+
 	bool responseComplete = true;
 
 	// Start is called before the first frame update
