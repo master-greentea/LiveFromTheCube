@@ -111,6 +111,11 @@ public class ShopManager : MonoBehaviour
     }
 
     void KirbyOnClick() {
+        kirbyButton.gameObject.transform.parent.transform.Find("detes_k").gameObject.SetActive(true);
+        
+    }
+
+    public void KirbyBuys() {
         if (CheckMoney(kirbyprice)) {
             boughtKirby = true;
             mmanager.money -= kirbyprice; // deduct price
@@ -118,7 +123,6 @@ public class ShopManager : MonoBehaviour
             kirbyButton.GetComponent<Button>().enabled = false; // no click
             kirbyObj.SetActive(true); // set plant
         }
-        
     }
 
     void PlantOnClick() {

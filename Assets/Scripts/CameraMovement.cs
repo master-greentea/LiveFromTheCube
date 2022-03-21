@@ -78,6 +78,7 @@ public class CameraMovement : MonoBehaviour
 	void Update() {
 
 		if(cameraEdge == true) {
+			Cursor.visible = false;
 			Quaternion rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
 			/*
@@ -89,53 +90,58 @@ public class CameraMovement : MonoBehaviour
 			rotation.y = Mathf.Clamp(rotation.y, angleBoundneg, angleBoundpos);
 			//rotation.z = Mathf.Clamp(rotation.x, angleBoundneg, angleBoundpos);
 
-			if (Input.mousePosition.x > screenWidth - boundary) {
-				//Debug.Log("right side");
-				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+			// if (Input.mousePosition.x > screenWidth - boundary) {
+			// 	Debug.Log("right side");
+			// 	xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+			// 	yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-			//	rotation = Quaternion.Euler(yDeg, xDeg, 0);
+			// 	rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
-				transform.rotation = rotation; 
-				//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, 0); // no impact 
-				//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z); 
-			}
+			// 	transform.rotation = rotation; 
+			// 	//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, 0); // no impact 
+			// 	//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z); 
+			// }
 
-			if (Input.mousePosition.x < 0 - boundary) {
-				//Debug.Log("left side");
-				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+			// if (Input.mousePosition.x < 0 - boundary) {
+			// 	Debug.Log("left side");
+			// 	xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+			// 	yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				//rotation = Quaternion.Euler(yDeg, xDeg, 0);
+			// 	rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
-				//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
-				//transform.rotation = Quaternion.identity;
-				transform.rotation = rotation;
-				//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z); 
+			// 	//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+			// 	//transform.rotation = Quaternion.identity;
+			// 	transform.rotation = rotation;
+			// 	//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z); 
 			
-			}
+			// }
 
-			if (Input.mousePosition.y > screenHeight - boundary) {
-				//Debug.Log("up side");
-				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+			// if (Input.mousePosition.y > screenHeight - boundary) {
+			// 	Debug.Log("up side");
+			// 	xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+			// 	yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				rotation = Quaternion.Euler(yDeg, xDeg, 0);
+			// 	rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
-				//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
-				transform.rotation = rotation;
-			}
+			// 	//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+			// 	transform.rotation = rotation;
+			// }
 
-			if (Input.mousePosition.y < 0 - boundary) {
-				//Debug.Log("down side");
-				xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-				yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+			// if (Input.mousePosition.y < 0 - boundary) {
+			// 	Debug.Log("down side");
+			// 	xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+			// 	yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-				rotation = Quaternion.Euler(yDeg, xDeg, 0);
+			// 	rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
-				//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
-				transform.rotation = rotation;
-			}
+			// 	//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+			// 	transform.rotation = rotation;
+			// }
+			xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+			yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+
+			rotation = Quaternion.Euler(yDeg, xDeg, 0);
+			transform.rotation = rotation; 
 
 			
 		}
@@ -147,7 +153,7 @@ public class CameraMovement : MonoBehaviour
 		}else if (Input.GetKeyDown(KeyCode.X)) {
 			Debug.Log(" edge off");
 			cameraEdge = false;
-			cameraEdgeOnce = true; 
+			cameraEdgeOnce = true;
 
 		}
 		if (Input.GetKey(KeyCode.Z)) {
@@ -170,6 +176,7 @@ public class CameraMovement : MonoBehaviour
 		// If either mouse buttons are down, let the mouse govern camera position
 		if (GUIUtility.hotControl == 0) {
 			if (cameraEdge == false) {
+				Cursor.visible = true;
 				if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) {
 					xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 					yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
