@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 using Random = UnityEngine.Random;
 using TMPro;
 
@@ -19,10 +20,12 @@ public struct Solution
 
 public class ClientMatching : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI[] solutionChoiceButtonTexts;
-    [SerializeField] private ClientMatchingLoader loader;
-    [SerializeField] private TextMeshProUGUI clientText;
-    [SerializeField] private TextMeshProUGUI lookingToText;
+    [SerializeField] private TextMeshProUGUI[] _solutionChoiceButtonTexts;
+    [SerializeField] private ClientMatchingLoader _loader;
+    [SerializeField] private TextMeshProUGUI _clientText;
+    [SerializeField] private TextMeshProUGUI _lookingToText;
+    [SerializeField] private ClientSuspicion _clientSuspicion;
+    [SerializeField] private float _reduceSusCount;
 
     private int _correctChoice;
 
@@ -41,23 +44,24 @@ public class ClientMatching : MonoBehaviour
     /// </summary>
     private void GenerateChoice()
     {
-        clientText.text = GetRandomElement(loader.Clients);
-        int correctIndustryId = GetRandomElement(loader.Industries);
-        Solution[] correctPotentialLookingTos = Array.FindAll(loader.LookingTos, x => x.IndustryId == correctIndustryId);
-        lookingToText.text = GetRandomElement(correctPotentialLookingTos).Name;
-        _correctChoice = Random.Range(0, solutionChoiceButtonTexts.Length);
-        Solution[] correctPotentialSolutions = Array.FindAll(loader.PotentialSolutions, x => x.IndustryId == correctIndustryId);
+        _clientText.text = GetRandomElement(_loader.Clients);
+        int correctIndustryId = GetRandomElement(_loader.Industries);
+        Solution[] correctPotentialLookingTos = Array.FindAll(_loader.LookingTos, x => x.IndustryId == correctIndustryId);
+        _lookingToText.text = GetRandomElement(correctPotentialLookingTos).Name;
+        _correctChoice = Random.Range(0, _solutionChoiceButtonTexts.Length);
+        Solution[] correctPotentialSolutions = Array.FindAll(_loader.PotentialSolutions, x => x.IndustryId == correctIndustryId);
         Solution correctSolution = GetRandomElement(correctPotentialSolutions);
-        solutionChoiceButtonTexts[_correctChoice].text = correctSolution.Name;
-        Solution[] incorrectPotentialSolutions = Array.FindAll(loader.PotentialSolutions, x => x.IndustryId != correctIndustryId);
-        for (int i = 0; i < solutionChoiceButtonTexts.Length; i++)
+        _solutionChoiceButtonTexts[_correctChoice].text = correctSolution.Name;
+        List<Solution> incorrectPotentialSolutions = Array.FindAll(_loader.PotentialSolutions, x => x.IndustryId != correctIndustryId).ToList();
+        for (int i = 0; i < _solutionChoiceButtonTexts.Length; i++)
         {
             if(i == _correctChoice)
             {
                 continue;
             }
             Solution incorrectSolution = GetRandomElement(incorrectPotentialSolutions);
-            solutionChoiceButtonTexts[i].text = incorrectSolution.Name;
+            incorrectPotentialSolutions.Remove(incorrectSolution);
+            _solutionChoiceButtonTexts[i].text = incorrectSolution.Name;
         }
     }
 
@@ -76,12 +80,20 @@ public class ClientMatching : MonoBehaviour
 
     private void MatchClient()
     {
+        //player got match correct
         Debug.Log("Correct!");
+        _clientSuspicion.ReduceSus(_reduceSusCount);
     }
 
-    public T GetRandomElement<T>(T[] deck)
+    private T GetRandomElement<T>(T[] deck)
     {
         int randomIndex = Random.Range(0, deck.Length);
+        return deck[randomIndex];
+    }
+
+    private T GetRandomElement<T>(List<T> deck)
+    {
+        int randomIndex = Random.Range(0, deck.Count);
         return deck[randomIndex];
     }
 }

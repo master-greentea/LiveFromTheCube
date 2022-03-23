@@ -5,9 +5,9 @@ using System;
 
 public class ClientMatchingLoader : MonoBehaviour
 {
-    [SerializeField] private TextAsset clientList;
-    [SerializeField] private TextAsset solutionList;
-    [SerializeField] private TextAsset lookingToList;
+    [SerializeField] private TextAsset _clientList;
+    [SerializeField] private TextAsset _solutionList;
+    [SerializeField] private TextAsset _lookingToList;
 
     public int[] Industries { get; private set; }
     public Solution[] PotentialSolutions { get; private set; }
@@ -17,10 +17,10 @@ public class ClientMatchingLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Industries = ParseIndustriesCsv(solutionList.text);
-        PotentialSolutions = ParseSolutionsCsv(solutionList.text);
-        LookingTos = ParseSolutionsCsv(lookingToList.text);
-        Clients = ParseClientsCsv(clientList.text);
+        Industries = ParseIndustriesCsv(_solutionList.text);
+        PotentialSolutions = ParseSolutionsCsv(_solutionList.text);
+        LookingTos = ParseSolutionsCsv(_lookingToList.text);
+        Clients = ParseClientsCsv(_clientList.text);
     }
 
     // Update is called once per frame
@@ -79,7 +79,7 @@ public class ClientMatchingLoader : MonoBehaviour
                 }
                 Solution newSolution = new(row[j], id);
                 solutions.Add(newSolution);
-                Debug.Log("Name: " + newSolution.Name + ", id: " + newSolution.IndustryId);
+                //Debug.Log("Name: " + newSolution.Name + ", id: " + newSolution.IndustryId);
             }
         }
         return solutions.ToArray();
