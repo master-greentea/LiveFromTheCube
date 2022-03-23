@@ -63,6 +63,7 @@ namespace RhythmGameStarter
             //catchPlayer = suspectManager.GetComponent<catchPlayer>();
 
             trackManager.Init(this);
+            currentSongItem = defaultSong;
         }
 
         private void Start()
@@ -75,8 +76,8 @@ namespace RhythmGameStarter
 
         public void PlaySong()
         {
-            if (defaultSong)
-                PlaySong(defaultSong);
+            if (currentSongItem)
+                PlaySong(currentSongItem);
             else
                 Debug.LogWarning("Default song is not set!");
         }
@@ -89,6 +90,11 @@ namespace RhythmGameStarter
         public void SetDefaultSong(SongItem songItem)
         {
             defaultSong = songItem;
+        }
+
+        public void SetSong(SongItem songItem)
+        {
+            currentSongItem = songItem;
         }
 
         public void PlaySong(SongItem songItem, double specificStartTime = 0)

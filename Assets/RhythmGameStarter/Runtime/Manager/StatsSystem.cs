@@ -107,5 +107,23 @@ namespace RhythmGameStarter
         {
             onScoreUpdate.Invoke(score.ToString());
         }
+
+        public void ClearEverything()
+        {
+            combo = 0;
+            maxCombo = 0;
+            missed = 0;
+            score = 0;
+            foreach (HitLevel hitLevel in levels)
+            {
+                hitLevel.count = 0;
+                hitLevel.onCountUpdate.Invoke(hitLevel.count.ToString());
+            }
+
+            UpdateScoreDisplay();
+            onMissedUpdate.Invoke(missed.ToString());
+            onMaxComboUpdate.Invoke(maxCombo.ToString());
+            onComboStatusUpdate.Invoke("");
+        }
     }
 }
