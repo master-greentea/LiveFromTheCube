@@ -45349,7 +45349,9 @@ MonoBehaviour:
   emailResponseBody: {fileID: 752966216}
   susManager: {fileID: 733527834}
   reduceSusCount: 10
+  emailIndex: -1
   responseColor: <color=#008007>
+  emailsSent: 0
 --- !u!1 &1039565589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0f7886d4e6a5a4e4f8d5ad84a68b0567,
@@ -47165,6 +47167,7 @@ MonoBehaviour:
   targetHeight: 3
   distance: 5
   offsetFromWall: 0.1
+  mainCam: {fileID: 0}
   maxDistance: 5
   minDistance: 0
   speedDistance: 5
@@ -47180,6 +47183,11 @@ MonoBehaviour:
   collisionLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  speed: 5
+  boundary: 10
+  angleBoundpos: 0
+  angleBoundneg: 0
+  start: 1
 --- !u!114 &1270975608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59152,8 +59160,8 @@ MonoBehaviour:
   audioSource: {fileID: 1270975605}
   endscreen: {fileID: 1093758365}
   playOnAwake: 0
-  defaultSong: {fileID: 11400000, guid: 963f3f16eb8baf649b302b0c54755c5e, type: 2}
-  delay: 2
+  defaultSong: {fileID: 11400000, guid: 4c1b0eb1680cf4369855970d2df85e19, type: 2}
+  delay: 4
   looping: 0
   autoTimeScalePause: 0
   progressAsPercentage: 0
