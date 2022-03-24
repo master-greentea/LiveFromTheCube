@@ -31,8 +31,6 @@ public class ClientSuspicion : MonoBehaviour
             _suspicionCount -= _suspicionLoss * Time.deltaTime;
         }
         _susSlider.value = _suspicionCount / 100f;
-        Debug.Log(_suspicionCount);
-        Debug.Log(_susSlider.value);
     }
 
     public void ReduceSus(float loss)
