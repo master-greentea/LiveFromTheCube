@@ -96,18 +96,32 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    public void NewRandomTagline(){
+        insult.text = RandomTagline();
+    }
+
     string RandomTagline() {
         string[] insultArray = {"Our employees' wages have never been lower!", 
         "Work hard, no fun, become history!", 
         "All hail our great leader Beff Jezos!", 
-        "Bank account too full? Don't worry! We will drain it dry for you!"};
+        "Bank account too full? Don't worry! We will drain it dry for you!",
+        "Everything from B to Z!",
+        "Let's destroy brick and mortar together!",
+        "Thanks for all your data!",
+        "Bamazing!",
+        "We know you so well, we finish each other's purchases!",
+        "Get one month of Bamazon Brime on us!",
+        "Our employees don't need bathroom breaks; we don't let them hydrate!"};
         int randIndex = Random.Range(0, insultArray.Length);
         return  insultArray[randIndex];
     }
  
     void JuiceOnClick() {
+        juiceButton.gameObject.transform.parent.transform.Find("detes_s").gameObject.SetActive(true);
+    }
+
+    public void JuiceBuys() {
         mmanager.money -= juiceprice;
-        
     }
 
     void KirbyOnClick() {
@@ -126,6 +140,10 @@ public class ShopManager : MonoBehaviour
     }
 
     void PlantOnClick() {
+        plantButton.gameObject.transform.parent.transform.Find("detes_p").gameObject.SetActive(true);
+    }
+
+    public void PlantBuys() {
         if (CheckMoney(plantprice)) {
             boughtPlant = true;
             mmanager.money -= plantprice; // deduct price
@@ -136,8 +154,11 @@ public class ShopManager : MonoBehaviour
     }
 
     void MirrorOnClick() {
+        mirrorButton.gameObject.transform.parent.transform.Find("detes_m").gameObject.SetActive(true);
+    }
+
+    public void MirrorBuys() {
         mmanager.money -= mirrorprice;
-        
     }
 
     bool CheckMoney(int price) {
