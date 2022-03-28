@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046b279c14ff54af6a5a438facd4cebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rhythmGame: {fileID: 0}
+  rhythmGame: {fileID: 181682938}
   mailScreen: {fileID: 1029242481}
   viewerDisplay: {fileID: 1620867276}
   viewers: 0
@@ -12895,7 +12895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94ec22608931884a82489e24552a3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rhythmGameScreen: {fileID: 0}
+  rhythmGameScreen: {fileID: 181682938}
   suspicionCount: 0
   boss: {fileID: 167583866}
   endScreen: {fileID: 1093758365}
