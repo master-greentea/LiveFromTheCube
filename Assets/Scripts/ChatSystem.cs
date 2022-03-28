@@ -70,9 +70,9 @@ public class ChatSystem : MonoBehaviour
 		{
 			if (currentPositivity == 1)
 			{
-				int income = donationMultiplier * myCombo;
+				int income = moneyManager.GetComponent<CurrencySystem>().getMoneyRange * moneyManager.GetComponent<CurrencySystem>().tierIndex;
 				myMessage.message = myMessage.message + "\n<color=#FF5733>Donation: $" + income + "</color>";
-				moneyManager.GetComponent<CurrencySystem>().GainMoney(income);
+				// moneyManager.GetComponent<CurrencySystem>().GainMoney(income);
 			}
 			return myMessage;
 		}
