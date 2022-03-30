@@ -23,6 +23,9 @@ public class ObjectiveManager : MonoBehaviour
 	public TMPro.TextMeshProUGUI task3;
 	public TMPro.TextMeshProUGUI task4;
 
+	public TMPro.TextMeshProUGUI UItime;
+	public TMPro.TextMeshProUGUI UIviews; 
+
 	private bool task1complete = false;
 	private bool task2complete = false;
 	private bool task3complete = false;
@@ -69,8 +72,8 @@ public class ObjectiveManager : MonoBehaviour
 	{
 
 
-		task4.text = " - reach " + viewBenchmark + " views. View num: " + views;
 
+		DAY1();
 
 		string hourStr;
 		string minuteStr;
@@ -91,14 +94,16 @@ public class ObjectiveManager : MonoBehaviour
 			 minuteStr = minute.ToString();
 		}
 		timeText.text = hourStr + ":" + minuteStr;
+		UItime.text = hourStr + ":" + minuteStr;
+
 		TimeProgress();
 
 
 		views = viewership.viewers;
+		UIviews.text = viewership.viewers + ""; 
 		sentmails = emailloader.emailIndex;
 
-		if (views > viewBenchmark)
-		{
+		if (views > viewBenchmark){
 			task4complete = true;
 
 		}
@@ -109,60 +114,16 @@ public class ObjectiveManager : MonoBehaviour
 		}
 	}
 
-	void TimeProgress()
-	{
-		
-		timer -= Time.deltaTime;
-		if (timer <= 0)
-		{
-			
-			minute++;
-			if (minute >= 60)
-			{
-				
-				hour++;
-				if (hour >= 15)
-				{
-					hour = 9;
-					DayProgress();
-				}
-				minute = 0;
-			}
-			timer = 1f;
-		}
 
-	}
-	void DayProgress()
-	{
-		switch (day)
-		{
-			case 1:
-				DAY1();
-				break;
-			case 2:
-				DAY2();
-				break;
-			case 3:
-				DAY3();
-				break;
-			case 4:
-				DAY4();
-				break;
-			case 5:
-				DAY5();
-				break;
-			default:
-				break;
-		}
-	}
 	void DAY1()
 	{
 		objList.text = "";
 		task1.text = " - " + emailNumBenchmark + " emails";
 		task2.text = " - Use phone less than 3 times but make 2 calls";
 		task3.text = " - Don't get Caught";
+		task4.text = " - reach " + viewBenchmark + " views. View num: " + views;
 
-
+		//TASK ONE 
 		if (task1complete == true)
 		{
 			task1.fontStyle = FontStyles.Strikethrough;
@@ -172,6 +133,8 @@ public class ObjectiveManager : MonoBehaviour
 		{
 			task1.fontStyle = FontStyles.Bold;
 		}
+
+		//TASK TWO 
 
 		if (task2complete == true)
 		{
@@ -183,6 +146,8 @@ public class ObjectiveManager : MonoBehaviour
 			task2.fontStyle = FontStyles.Bold;
 		}
 
+
+		//TASK THREE 
 		if (task3complete == true)
 		{
 			task3.fontStyle = FontStyles.Strikethrough;
@@ -192,6 +157,8 @@ public class ObjectiveManager : MonoBehaviour
 		{
 			task3.fontStyle = FontStyles.Bold;
 		}
+
+		//TASK FOUR 
 
 		if (task4complete == true)
 		{
@@ -224,6 +191,47 @@ public class ObjectiveManager : MonoBehaviour
 	void DAY5()
 	{
 
+	}
+
+	void TimeProgress() {
+
+		timer -= Time.deltaTime;
+		if (timer <= 0) {
+
+			minute++;
+			if (minute >= 60) {
+
+				hour++;
+				if (hour >= 15) {
+					hour = 9;
+					DayProgress();
+				}
+				minute = 0;
+			}
+			timer = 1f;
+		}
+
+	}
+	void DayProgress() {
+		switch (day) {
+			case 1:
+			DAY1();
+			break;
+			case 2:
+			DAY2();
+			break;
+			case 3:
+			DAY3();
+			break;
+			case 4:
+			DAY4();
+			break;
+			case 5:
+			DAY5();
+			break;
+			default:
+			break;
+		}
 	}
 
 }
