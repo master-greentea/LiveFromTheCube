@@ -49,7 +49,7 @@ public class CatchPlayer : MonoBehaviour
 	void Update()
 	{
 
-		Debug.Log(suspicionCount);
+		Debug.Log("sus "+ suspicionCount);
 
 
 		discoVar = discolights.GetComponent<DiscoLights>().lightSwitched;
@@ -58,6 +58,7 @@ public class CatchPlayer : MonoBehaviour
 
 		if (bossRenderer.enabled == false && CR_ROLL_running == false && firstPlayDone == true)
 		{
+			Debug.Log("roll boss");
 			StartCoroutine(rollBoss());
 			//if game is active roll where boss should spawn 
 
@@ -69,7 +70,6 @@ public class CatchPlayer : MonoBehaviour
 			StartCoroutine(BossActive());
 		}
 		*/
-
 
 		if (suspicionCount < 100 && playing && bossRenderer.enabled)
 		{

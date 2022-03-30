@@ -2884,7 +2884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &181682939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13034,7 +13034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rhythmGameScreen: {fileID: 181682938}
-  suspicionCount: 0
+  suspicionCount: 5
   boss: {fileID: 167583866}
   endScreen: {fileID: 1093758365}
   mangaLines: {fileID: 322074519}
@@ -56128,7 +56128,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 733527836}
         m_TargetAssemblyTypeName: CatchPlayer, Assembly-CSharp
         m_MethodName: GameStart
         m_Mode: 1
