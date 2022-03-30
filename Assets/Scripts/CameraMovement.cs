@@ -55,6 +55,15 @@ public class CameraMovement : MonoBehaviour
 	private bool cameraEdge = true;
 	private bool cameraEdgeOnce = false; 
 
+
+
+	public float MIN_X;
+	public float MAX_X;
+	public float MIN_Y;
+	public float MAX_Y;
+	public float MIN_Z;
+	public float MAX_Z;
+
 	void Start()
 	{
 		Vector3 angles = transform.eulerAngles;
@@ -88,55 +97,7 @@ public class CameraMovement : MonoBehaviour
 
 			rotation.x = Mathf.Clamp(rotation.y, angleBoundneg, angleBoundpos);
 			rotation.y = Mathf.Clamp(rotation.y, angleBoundneg, angleBoundpos);
-			//rotation.z = Mathf.Clamp(rotation.x, angleBoundneg, angleBoundpos);
-
-			// if (Input.mousePosition.x > screenWidth - boundary) {
-			// 	Debug.Log("right side");
-			// 	xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-			// 	yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-			// 	rotation = Quaternion.Euler(yDeg, xDeg, 0);
-
-			// 	transform.rotation = rotation; 
-			// 	//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, 0); // no impact 
-			// 	//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z); 
-			// }
-
-			// if (Input.mousePosition.x < 0 - boundary) {
-			// 	Debug.Log("left side");
-			// 	xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-			// 	yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-			// 	rotation = Quaternion.Euler(yDeg, xDeg, 0);
-
-			// 	//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
-			// 	//transform.rotation = Quaternion.identity;
-			// 	transform.rotation = rotation;
-			// 	//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z); 
 			
-			// }
-
-			// if (Input.mousePosition.y > screenHeight - boundary) {
-			// 	Debug.Log("up side");
-			// 	xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-			// 	yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-			// 	rotation = Quaternion.Euler(yDeg, xDeg, 0);
-
-			// 	//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
-			// 	transform.rotation = rotation;
-			// }
-
-			// if (Input.mousePosition.y < 0 - boundary) {
-			// 	Debug.Log("down side");
-			// 	xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-			// 	yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-			// 	rotation = Quaternion.Euler(yDeg, xDeg, 0);
-
-			// 	//transform.rotation = Quaternion.Euler(0, rotation.y, 0);
-			// 	transform.rotation = rotation;
-			// }
 			xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 			yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
@@ -157,9 +118,16 @@ public class CameraMovement : MonoBehaviour
 
 		}
 		if (Input.GetKey(KeyCode.Z)) {
-			//mainCam.transform.rotation = Quaternion.identity;
 			transform.rotation = Quaternion.identity;
 		}
+
+
+
+		// clamping
+		// transform.rotation = new Vector3(
+		// 	Mathf.Clamp(transform.rotation.x, MIN_X, MAX_X),
+		// 	Mathf.Clamp(transform.rotation.y, MIN_Y, MAX_Y),
+		// 	Mathf.Clamp(transform.rotation.z, MIN_Z, MAX_Z));
 	}
 
 	// Camera logic on LateUpdate to only update after all character movement logic has been handled.
@@ -181,11 +149,6 @@ public class CameraMovement : MonoBehaviour
 					xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 					yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-					//transform.rotation = Quaternion.Euler(rotation.x, rotation.y, 0);
-					//transform.rotation = Quaternion.Euler(rotation.x, angleBoundneg, angleBoundpos);
-
-					//transform.rotation = Quaternion.Euler(yDeg, xDeg, 0);
-
 					rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
 					var pos = transform.position;
@@ -195,15 +158,7 @@ public class CameraMovement : MonoBehaviour
 					transform.rotation = rotation;
 
 				}
-
-			// otherwise, ease behind the target if any of the directional keys are pressed
-			else if (Input.GetKey(KeyCode.W)) {
-					float targetRotationAngle = target.eulerAngles.y;
-					float currentRotationAngle = transform.eulerAngles.y;
-					xDeg = Mathf.LerpAngle(currentRotationAngle, targetRotationAngle, rotationDampening * Time.deltaTime);
-				}
 			}
-			
 		}
 
 		correctedDistance = desiredDistance;
@@ -233,10 +188,5 @@ public class CameraMovement : MonoBehaviour
 
 		// keep within legal limits
 		currentDistance = Mathf.Clamp(currentDistance, minDistance, maxDistance);
-
-
-	
-
-
 	}
 }
