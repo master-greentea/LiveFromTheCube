@@ -60,7 +60,7 @@ public class ChatSystem : MonoBehaviour
 	double ChatFrequency(int viewership)
 	{
 		double frequency = (1.00 / 300000.00) * (Math.Pow(1.0006, -1 * (viewership - 24000))) + 0.5;
-		Debug.Log("frequency" + frequency);
+		//Debug.Log("frequency" + frequency);
 		return frequency;
 	}
 	ChatMessage PickMessage()
