@@ -16,9 +16,9 @@ public class CurrencySystem : MonoBehaviour
     int nextViewerTier = 200;
 
     float getMoneyTimer;
-    int getMoneyRange;
+    public int getMoneyRange;
 
-    int tierIndex = 1;
+    public int tierIndex = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +33,9 @@ public class CurrencySystem : MonoBehaviour
     void Update()
     {
         if (money < 0) {money = 0;}
-        /*if (viewship.rhythmGame.activeInHierarchy) {
+        if (viewship.rhythmGame.activeInHierarchy) {
             GetMoneyBasedOnViewers();
-        }*/
+        }
 
         moneyDisplay.text = "" + money;
     }

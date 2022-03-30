@@ -47,7 +47,8 @@ public class BossAnimation : MonoBehaviour
         //Debug.Log(lerpInterpo);
 
         suspicionLevel = lerpInterpo;
-        slider.value = suspicionLevel; 
+        slider.value = suspicionLevel;
+        Debug.Log(suspicionLevel);
 
         transform.position = Vector3.SmoothDamp(currentPosition, newHeightToMove, ref velocity, timeBetweenPoints);
     }
