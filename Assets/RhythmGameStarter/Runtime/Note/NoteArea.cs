@@ -14,7 +14,12 @@ namespace RhythmGameStarter
         [CollapsedEvent] public UnityEvent OnInteractionEnd;
 
         [Title("Effect")]
-        public NoteEffect sustainEffect;
+        public List<NoteEffect> sustainEffect;
+
+        public List<NoteEffect> pEffect;
+        public List<NoteEffect> oEffect;
+        public List<NoteEffect> bEffect;
+        public List<NoteEffect> longEffect;
 
         private TapEffectPool effect;
 
@@ -24,12 +29,16 @@ namespace RhythmGameStarter
 
         private SongManager songManager;
 
+        public string currentAccuracy;
+
         void Start()
         {
             track = GetComponentInParent<Track>();
             effect = GetComponentInParent<TapEffectPool>();
             songManager = GetComponentInParent<SongManager>();
             _camera = Camera.main;
+
+            currentAccuracy = null;
         }
 
         private List<Note> notesInRange = new List<Note>();
@@ -60,6 +69,8 @@ namespace RhythmGameStarter
 
         void Update()
         {
+            
+
             if (keyboardInputHandler)
             {
                 if (keyboardInputHandler.GetTrackActionKeyDown(track, track.transform.GetSiblingIndex()))
@@ -171,7 +182,11 @@ namespace RhythmGameStarter
                                 longNoteDetecter = null;
                                 currentNote = null;
 
-                                sustainEffect.StopEffect();
+                                foreach (var e in sustainEffect)
+                                {
+                                    e.StopEffect();
+                                }
+                                
                             }
 
                         }
@@ -192,7 +207,11 @@ namespace RhythmGameStarter
                             longNoteDetecter = null;
                             currentNote = null;
 
-                            sustainEffect.StopEffect();
+                            foreach (var e in sustainEffect)
+                            {
+                                e.StopEffect();
+                            }
+                                
                         }
                         break;
                     case Note.NoteAction.Swipe:
@@ -287,19 +306,27 @@ namespace RhythmGameStarter
                         if (touch.phase != TouchPhase.Began) break;
 
                         if (effect && !note.noTapEffect)
-                            effect.EmitEffects(note.transform);
+                            //effect.EmitEffects(note.transform);
 
                         PlayHitSound(note);
-                        AddCombo(note, note.transform.position);
+                        currentAccuracy = AddCombo(note, note.transform.position);
+
+                        EffectOnAccuracy();
 
                         KillNote(note);
+
+                        foreach (var e in sustainEffect)
+                        {
+                            e.StartEffect(null);
+                        }
+                        
 
                         break;
                     case Note.NoteAction.LongPress:
                         if (touch.phase != TouchPhase.Began) break;
 
                         if (effect && !note.noTapEffect)
-                            effect.EmitEffects(note.transform);
+                            //effect.EmitEffects(note.transform);
 
                         currentNote = note;
                         note.inInteraction = true;
@@ -312,8 +339,14 @@ namespace RhythmGameStarter
                         PlayHitSound(note);
 
                         notesInRange.Remove(note);
+                        currentAccuracy = "Long";
 
-                        sustainEffect.StartEffect(null);
+                        EffectOnAccuracy();
+
+                        foreach (var e in sustainEffect)
+                        {
+                            e.StartEffect(null);
+                        }
 
                         break;
                     case Note.NoteAction.Swipe:
@@ -340,11 +373,11 @@ namespace RhythmGameStarter
             }
         }
 
-        private void AddCombo(Note note, Vector3 touchDownPosition)
+        private string AddCombo(Note note, Vector3 touchDownPosition)
         {
             var noteLocalPositionInTrack = note.transform.parent.parent.InverseTransformPoint(touchDownPosition);
             var diff = track.lineArea.localPosition.y - noteLocalPositionInTrack.y;
-            songManager.comboSystem.AddCombo(1, Mathf.Abs(diff), note.score);
+            return songManager.comboSystem.AddCombo(1, Mathf.Abs(diff), note.score);
             songManager.trackManager.onNoteTriggered.Invoke(note);
         }
 
@@ -402,6 +435,30 @@ namespace RhythmGameStarter
                     {
                         currentNote = null;
                     }
+            }
+        }
+
+        private void EffectOnAccuracy()
+        {
+            if (currentAccuracy == "Perfect")
+            {
+                sustainEffect = pEffect;
+            }
+            else if (currentAccuracy == "OK")
+            {
+                sustainEffect = oEffect;
+            }
+            else if (currentAccuracy == "Bad")
+            {
+                sustainEffect = bEffect;
+            }
+            else if (currentAccuracy == "Long")
+            {
+                sustainEffect = longEffect;
+            }
+            else
+            {
+                sustainEffect = null;
             }
         }
     }

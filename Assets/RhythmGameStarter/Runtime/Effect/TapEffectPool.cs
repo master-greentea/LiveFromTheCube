@@ -65,5 +65,7 @@ namespace RhythmGameStarter
             effect.StartEffect(target);
             return effect;
         }
+
+        
     }
 }

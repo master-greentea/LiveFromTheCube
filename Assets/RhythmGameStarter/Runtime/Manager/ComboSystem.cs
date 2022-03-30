@@ -35,9 +35,9 @@ namespace RhythmGameStarter
             }
         }
 
-        public void AddCombo(int addCombo, float deltaDiff, int score)
+        public string AddCombo(int addCombo, float deltaDiff, int score)
         {
-            statsSystem.AddCombo(addCombo, deltaDiff, score);
+            return statsSystem.AddCombo(addCombo, deltaDiff, score);
 
             if (!isShowing)
             {
