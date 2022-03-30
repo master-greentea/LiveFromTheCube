@@ -57,19 +57,21 @@ public class ObjectiveManager : MonoBehaviour
 		objList.text = "vibe. no objectives yet";
 		day1 = true;
 
-		DAY1();
-
 		viewBenchmark = 1000;
-		emailNumBenchmark = 1;
+		emailNumBenchmark = 3;
 		task2complete = true;
 
-		
-
+		DAY1();
 
 	}
 
 	void Update()
 	{
+
+
+		task4.text = " - reach " + viewBenchmark + " views. View num: " + views;
+
+
 		string hourStr;
 		string minuteStr;
 		if (hour<10)
@@ -135,7 +137,7 @@ public class ObjectiveManager : MonoBehaviour
 		switch (day)
 		{
 			case 1:
-
+				DAY1();
 				break;
 			case 2:
 				DAY2();
@@ -159,7 +161,6 @@ public class ObjectiveManager : MonoBehaviour
 		task1.text = " - " + emailNumBenchmark + " emails";
 		task2.text = " - Use phone less than 3 times but make 2 calls";
 		task3.text = " - Don't get Caught";
-		task4.text = " - reach " + viewBenchmark + " views. View num: " + views;
 
 
 		if (task1complete == true)
