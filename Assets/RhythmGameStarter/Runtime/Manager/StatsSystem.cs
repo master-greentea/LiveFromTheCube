@@ -72,7 +72,7 @@ namespace RhythmGameStarter
             }
         }
 
-        public void AddCombo(int addCombo, float deltaDiff, int addScore)
+        public string AddCombo(int addCombo, float deltaDiff, int addScore)
         {
             // print(deltaDiff);
             // combo += (addCombo*comboMultiplier);
@@ -94,13 +94,13 @@ namespace RhythmGameStarter
                     UpdateScoreDisplay();
                     onComboStatusUpdate.Invoke(x.name);
                     // print(x.name);
-                    return;
+                    return x.name;
                 }
             }
 
             //When no level matched
             onComboStatusUpdate.Invoke("");
-
+            return null;
         }
 
         public void UpdateScoreDisplay()

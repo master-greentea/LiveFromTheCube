@@ -12,7 +12,7 @@ namespace RhythmGameStarter
         public bool inUse;
 
         private List<NoteEffect> nestedEffects = new List<NoteEffect>();
-        private List<ParticleSystem> particleSys = new List<ParticleSystem>();
+        public List<ParticleSystem> particleSys = new List<ParticleSystem>();
 
         private NoteEffect effectParent;
 
@@ -35,6 +35,7 @@ namespace RhythmGameStarter
             {
                 effectParent = transform.parent.GetComponent<NoteEffect>();
             }
+
         }
 
         public void SeeIfEffectStillAlive()
@@ -76,8 +77,25 @@ namespace RhythmGameStarter
             }
             foreach (var s in particleSys)
             {
+                
                 s.Play();
             }
+        }
+
+        public void StartEffectOnce(Transform target)
+        {
+            if (target)
+            {
+                transform.position = target.position;
+                transform.rotation = target.rotation;
+            }
+
+            foreach (var s in particleSys)
+            {
+
+                s.Play();
+            }
+
         }
 
         public void StopEffect()
