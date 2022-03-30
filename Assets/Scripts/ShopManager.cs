@@ -22,6 +22,8 @@ public class ShopManager : MonoBehaviour
     public GameObject mirrorSoldOut;
     public Button plantButton;
     public GameObject plantSoldOut;
+    public Button mugButton;
+    public GameObject mugSoldOut;
 
 
     // juice
@@ -60,6 +62,15 @@ public class ShopManager : MonoBehaviour
     TMPro.TextMeshProUGUI plantPriceText;
     bool boughtPlant;
 
+    // mug
+    [SerializeField]
+    GameObject mugObj;
+    [SerializeField]
+    int mugprice = 20000;
+    [SerializeField]
+    TMPro.TextMeshProUGUI mugPriceText;
+    bool boughtMug;
+
     void Start(){
         mmanager = MoneyManager.GetComponent<CurrencySystem>();
 
@@ -75,11 +86,15 @@ public class ShopManager : MonoBehaviour
         Button plant = plantButton.GetComponent<Button>();
         if (!boughtPlant) plant.onClick.AddListener(PlantOnClick);
 
+        Button mug = mugButton.GetComponent<Button>();
+        if (!boughtMug) mug.onClick.AddListener(MugOnClick);
+
 
         // set price
         kirbyPriceText.text = "$"+kirbyprice;
         mirrorPriceText.text = "$"+mirrorprice;
         plantPriceText.text = "$"+plantprice;
+        mugPriceText.text = "$"+mugprice;
 
         insult.text = RandomTagline();
         insulting = false;
@@ -159,6 +174,20 @@ public class ShopManager : MonoBehaviour
 
     public void MirrorBuys() {
         mmanager.money -= mirrorprice;
+    }
+
+    void MugOnClick() {
+        mugButton.gameObject.transform.parent.transform.Find("detes_mug").gameObject.SetActive(true);
+    }
+
+    public void MugBuys() {
+        if (CheckMoney(mugprice)) {
+            boughtMug = true;
+            mmanager.money -= mugprice; // deduct price
+            mugSoldOut.SetActive(true); // say sold out
+            mugButton.GetComponent<Button>().enabled = false; // no click
+            mugObj.SetActive(true); // set plant
+        }
     }
 
     bool CheckMoney(int price) {
