@@ -7765,6 +7765,8 @@ MonoBehaviour:
   moneyDisplay: {fileID: 1193867527}
   viewship: {fileID: 9948271}
   money: 470
+  getMoneyRange: 0
+  tierIndex: 1
 --- !u!4 &432897626
 Transform:
   m_ObjectHideFlags: 0
@@ -55593,6 +55595,7 @@ GameObject:
   - component: {fileID: 1270975605}
   - component: {fileID: 1270975606}
   - component: {fileID: 1270975607}
+  - component: {fileID: 1270975608}
   m_Layer: 0
   m_Name: RhythmGameCamera (MAIN)
   m_TagString: MainCamera
@@ -55633,7 +55636,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40.3
+  field of view: 60
   orthographic: 0
   orthographic size: 6
   m_Depth: -1
@@ -55802,7 +55805,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270975601}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4a18c2a385507a4ba68b2293b5f54af, type: 3}
   m_Name: 
@@ -55840,6 +55843,19 @@ MonoBehaviour:
   MAX_Y: 0
   MIN_Z: 0
   MAX_Z: 0
+--- !u!114 &1270975608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270975601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038e40b19ac354501a575d0b61f0f474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: {x: -200, y: 200}
 --- !u!1 &1272549744
 GameObject:
   m_ObjectHideFlags: 0
@@ -67926,7 +67942,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937719451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a4466f32d9b3044aab68b25e7a072b6, type: 3}
   m_Name: 
@@ -67939,7 +67955,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937719451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 98dcfefb6981c463e89526213797dea1, type: 2}
   m_CullingMode: 1
@@ -67958,7 +67974,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937719451}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 44f75d1e9491e44e0820955dea2eb8b8, type: 2}
   m_Animations:
