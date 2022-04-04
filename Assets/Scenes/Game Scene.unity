@@ -56755,6 +56755,7 @@ GameObject:
   - component: {fileID: 1270975605}
   - component: {fileID: 1270975606}
   - component: {fileID: 1270975607}
+  - component: {fileID: 1270975608}
   m_Layer: 0
   m_Name: RhythmGameCamera (MAIN)
   m_TagString: MainCamera
@@ -56795,7 +56796,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40.3
+  field of view: 55
   orthographic: 0
   orthographic size: 6
   m_Depth: -1
@@ -56820,14 +56821,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270975601}
-  m_LocalRotation: {x: 0.023119058, y: 0.004094811, z: -0.00009469427, w: 0.9997244}
-  m_LocalPosition: {x: -0.205, y: 0.39999992, z: -0.33499995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.20500001, y: 0.39999974, z: -0.3349999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1937719453}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 2.65, y: 0.469, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1270975605
 AudioSource:
   m_ObjectHideFlags: 0
@@ -56964,7 +56965,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270975601}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4a18c2a385507a4ba68b2293b5f54af, type: 3}
   m_Name: 
@@ -57002,6 +57003,27 @@ MonoBehaviour:
   MAX_Y: 0
   MIN_Z: 0
   MAX_Z: 0
+--- !u!114 &1270975608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270975601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038e40b19ac354501a575d0b61f0f474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: {x: 300, y: -300}
+  maxVerticalAngleFromHorizon: 60
+  homingSpeedMultiplier: 2
+  apps:
+  - {fileID: 181682938}
+  - {fileID: 1932721911}
+  - {fileID: 713748372}
+  - {fileID: 1029242481}
+  - {fileID: 1166133510}
 --- !u!1 &1272549744
 GameObject:
   m_ObjectHideFlags: 0
@@ -60267,7 +60289,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181682938}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -69655,6 +69677,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932499735}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1932721911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7603414718128765900, guid: c96b9a797ded84a318e0a2c38875d1a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 995687415}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1934311238 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 567712773769198629, guid: 9f73dc309a40a463ebc68b27f0e44be4,
@@ -69740,15 +69768,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937719451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.51, y: 7.45, z: -15.949}
+  m_LocalRotation: {x: -0, y: -0.13702281, z: -0, w: 0.9905679}
+  m_LocalPosition: {x: -7.371151, y: 7.5604987, z: -16.011234}
   m_LocalScale: {x: 4.708, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1270975604}
   m_Father: {fileID: 0}
   m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -15.751, z: 0}
 --- !u!114 &1937719454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69756,7 +69784,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937719451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a4466f32d9b3044aab68b25e7a072b6, type: 3}
   m_Name: 
