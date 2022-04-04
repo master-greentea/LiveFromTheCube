@@ -56,7 +56,19 @@ namespace RhythmGameStarter
 
         #endregion
 
-        private void Awake()
+
+
+        #region RESUME_DELAY
+
+
+        float resumeTimer;
+        [SerializeField] float resumeDelay;
+        bool isResuming;
+        [SerializeField] GameObject resumeUI;
+
+		#endregion
+
+		private void Awake()
         {
             trackManager = GetComponent<TrackManager>();
             comboSystem = GetComponent<ComboSystem>();
@@ -72,6 +84,7 @@ namespace RhythmGameStarter
             {
                 PlaySong(defaultSong);
             }
+            resumeTimer = resumeDelay;
         }
 
         public void PlaySong()
@@ -136,6 +149,11 @@ namespace RhythmGameStarter
             dspPausedTime = AudioSettings.dspTime;
         }
 
+        public void ResumeSongWrapped()
+		{
+            isResuming = true;
+            resumeUI.SetActive(true);
+		}
         public void ResumeSong()
         {
             if (!songHasStarted)
@@ -225,6 +243,25 @@ namespace RhythmGameStarter
                 if (looping)
                     PlaySong(currentSongItem);
             }
+
+            // resume delay
+            if (isResuming)
+			{
+                if (resumeTimer>=0)
+				{
+                    resumeTimer -= Time.deltaTime;
+                }
+                else
+				{
+                    ResumeSong();
+                    resumeUI.SetActive(false);
+                    resumeTimer = resumeDelay;
+                    isResuming = false;
+				}
+                    
+            }
+            
+
         }
 
         void OnDisable()

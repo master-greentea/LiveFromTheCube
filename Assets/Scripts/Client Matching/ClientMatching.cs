@@ -7,6 +7,7 @@ using System.Linq;
 using Random = UnityEngine.Random;
 using TMPro;
 
+
 public struct Solution
 {
     public Solution(string name, int industryId)
@@ -27,11 +28,21 @@ public class ClientMatching : MonoBehaviour
     [SerializeField] private ClientSuspicion _clientSuspicion;
     [SerializeField] private float _reduceSusCount;
 
+
+    public GameObject currencyManager;
+
+    CurrencySystem currensys; 
+
     private int _correctChoice;
+    public int clientMatched = 0;
 
     void Start()
     {
+        clientMatched = 0;
         GenerateChoice();
+
+        currensys = currencyManager.GetComponent<CurrencySystem>();
+
     }
 
     void Update()
@@ -70,10 +81,12 @@ public class ClientMatching : MonoBehaviour
         if (choice == _correctChoice)
         {
             MatchClient();
+            clientMatched++; 
         }
         else
         {
             Debug.Log("Incorrect.");
+            currensys.money -= 100; 
         }
         GenerateChoice();
     }
