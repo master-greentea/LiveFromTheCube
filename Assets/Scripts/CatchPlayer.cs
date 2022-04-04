@@ -49,7 +49,7 @@ public class CatchPlayer : MonoBehaviour
 	void Update()
 	{
 
-		Debug.Log("sus "+ suspicionCount);
+//		Debug.Log("sus "+ suspicionCount);
 
 
 		discoVar = discolights.GetComponent<DiscoLights>().lightSwitched;

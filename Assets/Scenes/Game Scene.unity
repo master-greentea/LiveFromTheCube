@@ -661,6 +661,7 @@ Transform:
   - {fileID: 9948272}
   - {fileID: 432897626}
   - {fileID: 980722653}
+  - {fileID: 1378343784}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2884,7 +2885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &181682939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13542,7 +13543,6 @@ GameObject:
   m_Component:
   - component: {fileID: 733527835}
   - component: {fileID: 733527836}
-  - component: {fileID: 733527837}
   - component: {fileID: 733527838}
   m_Layer: 0
   m_Name: SuspectManager
@@ -13603,19 +13603,6 @@ MonoBehaviour:
   suspicionLoss: 0.5
   startingSuspicion: 0
   timeBetweenRolls: 2
---- !u!114 &733527837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733527834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1146986d3e9b6b445b3bf29f91b46465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameCanvas: {fileID: 181682938}
 --- !u!82 &733527838
 AudioSource:
   m_ObjectHideFlags: 0
@@ -52908,6 +52895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Client Matcher
       objectReference: {fileID: 0}
+    - target: {fileID: 7603414718128765900, guid: c96b9a797ded84a318e0a2c38875d1a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8013915044198020434, guid: c96b9a797ded84a318e0a2c38875d1a1,
         type: 3}
       propertyPath: m_IsActive
@@ -57020,7 +57012,7 @@ MonoBehaviour:
   homingSpeedMultiplier: 2
   apps:
   - {fileID: 181682938}
-  - {fileID: 1932721911}
+  - {fileID: 1809361001}
   - {fileID: 713748372}
   - {fileID: 1029242481}
   - {fileID: 1166133510}
@@ -59113,6 +59105,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359970664}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1378343783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1378343784}
+  - component: {fileID: 1378343785}
+  m_Layer: 0
+  m_Name: Screen Cycle Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1378343784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378343783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 53405823}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1378343785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378343783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1146986d3e9b6b445b3bf29f91b46465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apps:
+  - {fileID: 143322692}
+  - {fileID: 181682938}
+  - {fileID: 1809361001}
+  - {fileID: 1029242481}
+  - {fileID: 1166133510}
 --- !u!1 &1379175778
 GameObject:
   m_ObjectHideFlags: 0
@@ -69677,12 +69719,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932499735}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1932721911 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7603414718128765900, guid: c96b9a797ded84a318e0a2c38875d1a1,
-    type: 3}
-  m_PrefabInstance: {fileID: 995687415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1934311238 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 567712773769198629, guid: 9f73dc309a40a463ebc68b27f0e44be4,
