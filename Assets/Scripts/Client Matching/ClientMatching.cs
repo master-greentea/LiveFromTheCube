@@ -35,6 +35,7 @@ public class ClientMatching : MonoBehaviour
 
     private int _correctChoice;
     public int clientMatched = 0;
+    public int moneyDecreased = 100; 
 
     void Start()
     {
@@ -86,7 +87,7 @@ public class ClientMatching : MonoBehaviour
         else
         {
             Debug.Log("Incorrect.");
-            currensys.money -= 100; 
+            currensys.money -= moneyDecreased; 
         }
         GenerateChoice();
     }
