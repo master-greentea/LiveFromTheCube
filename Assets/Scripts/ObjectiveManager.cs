@@ -31,6 +31,10 @@ public class ObjectiveManager : MonoBehaviour
 	private bool task3complete = false;
 	private bool task4complete = false;
 
+	public GameObject task1circle;
+	public GameObject task2circle;
+	public GameObject task3circle;
+	public GameObject task4circle;
 
 	//in theory i would import the days from the day manager 
 	private bool day1 = false;
@@ -65,6 +69,12 @@ public class ObjectiveManager : MonoBehaviour
 		task2complete = true;
 
 		DAY1();
+
+		byte cc = 163; 
+		task1circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
+		task2circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
+		task3circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
+		task4circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
 
 	}
 
@@ -118,15 +128,16 @@ public class ObjectiveManager : MonoBehaviour
 	void DAY1()
 	{
 		objList.text = "";
-		task1.text = " - " + emailNumBenchmark + " emails";
-		task2.text = " - Use phone less than 3 times but make 2 calls";
-		task3.text = " - Don't get Caught";
-		task4.text = " - reach " + viewBenchmark + " views. View num: " + views;
+		task1.text = "Send" + emailNumBenchmark + " emails";
+		task2.text = "Use phone less than 3 times but make 2 calls";
+		task3.text = "Don't get Caught";
+		task4.text = "Reach " + viewBenchmark + " views. View num: " + views;
 
 		//TASK ONE 
 		if (task1complete == true)
 		{
 			task1.fontStyle = FontStyles.Strikethrough;
+			task1circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
 
 		}
 		else if (task1complete == false)
@@ -139,6 +150,7 @@ public class ObjectiveManager : MonoBehaviour
 		if (task2complete == true)
 		{
 			task2.fontStyle = FontStyles.Strikethrough;
+			task2circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
 
 		}
 		else if (task2complete == false)
@@ -151,6 +163,7 @@ public class ObjectiveManager : MonoBehaviour
 		if (task3complete == true)
 		{
 			task3.fontStyle = FontStyles.Strikethrough;
+			task3circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
 
 		}
 		else if (task3complete == false)
@@ -163,6 +176,7 @@ public class ObjectiveManager : MonoBehaviour
 		if (task4complete == true)
 		{
 			task4.fontStyle = FontStyles.Strikethrough;
+			task4circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
 
 		}
 		else if (task4complete == false)
