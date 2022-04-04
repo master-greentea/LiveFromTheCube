@@ -24,6 +24,14 @@ public class ShopManager : MonoBehaviour
     public GameObject plantSoldOut;
     public Button mugButton;
     public GameObject mugSoldOut;
+    public Button redButton;
+    public GameObject redSoldOut;
+    public Button frameButton;
+    public GameObject frameSoldOut;
+    public Button earButton;
+    public GameObject earSoldOut;
+    public Button dressButton;
+    public GameObject dressSoldOut;
 
 
     // juice
@@ -71,6 +79,38 @@ public class ShopManager : MonoBehaviour
     TMPro.TextMeshProUGUI mugPriceText;
     bool boughtMug;
 
+    // red
+    // [SerializeField]
+    // GameObject redObj;
+    [SerializeField]
+    int redprice = 20000;
+    [SerializeField]
+    TMPro.TextMeshProUGUI redPriceText;
+    bool boughtRed;
+
+    // frame
+    // [SerializeField]
+    // GameObject frameObj;
+    [SerializeField]
+    int frameprice = 20000;
+    [SerializeField]
+    TMPro.TextMeshProUGUI framePriceText;
+    bool boughtFrame;
+
+    // ear
+    [SerializeField]
+    int earprice = 20000;
+    [SerializeField]
+    TMPro.TextMeshProUGUI earPriceText;
+    bool boughtEar;
+
+    // dress
+    [SerializeField]
+    int dressprice = 20000;
+    [SerializeField]
+    TMPro.TextMeshProUGUI dressPriceText;
+    bool boughtDress;
+
     void Start(){
         mmanager = MoneyManager.GetComponent<CurrencySystem>();
 
@@ -89,12 +129,28 @@ public class ShopManager : MonoBehaviour
         Button mug = mugButton.GetComponent<Button>();
         if (!boughtMug) mug.onClick.AddListener(MugOnClick);
 
+        Button red = redButton.GetComponent<Button>();
+        if (!boughtRed) red.onClick.AddListener(RedOnClick);
+
+        Button frame = frameButton.GetComponent<Button>();
+        if (!boughtFrame) frame.onClick.AddListener(FrameOnClick);
+
+        Button ear = earButton.GetComponent<Button>();
+        if (!boughtEar) ear.onClick.AddListener(EarOnClick);
+
+        Button dress = dressButton.GetComponent<Button>();
+        if (!boughtDress) dress.onClick.AddListener(DressOnClick);
+
 
         // set price
         kirbyPriceText.text = "$"+kirbyprice;
         mirrorPriceText.text = "$"+mirrorprice;
         plantPriceText.text = "$"+plantprice;
         mugPriceText.text = "$"+mugprice;
+        redPriceText.text = "$"+redprice;
+        framePriceText.text = "$"+frameprice;
+        earPriceText.text = "$"+earprice;
+        dressPriceText.text = "$"+dressprice;
 
         insult.text = RandomTagline();
         insulting = false;
@@ -188,6 +244,22 @@ public class ShopManager : MonoBehaviour
             mugButton.GetComponent<Button>().enabled = false; // no click
             mugObj.SetActive(true); // set plant
         }
+    }
+
+    void RedOnClick() {
+        redButton.gameObject.transform.parent.transform.Find("detes_rb").gameObject.SetActive(true);
+    }
+
+    void FrameOnClick() {
+        frameButton.gameObject.transform.parent.transform.Find("detes_f").gameObject.SetActive(true);
+    }
+
+    void EarOnClick() {
+        earButton.gameObject.transform.parent.transform.Find("detes_e").gameObject.SetActive(true);
+    }
+
+    void DressOnClick() {
+        dressButton.gameObject.transform.parent.transform.Find("detes_d").gameObject.SetActive(true);
     }
 
     bool CheckMoney(int price) {
