@@ -81,7 +81,7 @@ public class EmailLoader : MonoBehaviour
 		// debug
 		foreach (Email email in emails)
 		{
-			Debug.Log(email.index + email.sender + email.subject + email.body + email.responseSubject + email.responseBody);
+//			Debug.Log(email.index + email.sender + email.subject + email.body + email.responseSubject + email.responseBody);
 		}
 
 		// text boxes setup
