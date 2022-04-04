@@ -15,7 +15,7 @@ public class CameraMovementRedo : MonoBehaviour
 	float FOVFrom;
 	float FOVTarget;
 	float t = 0;
-
+	int currentFOV = 0;
 	Vector2 GetInput()
 	{
 		Vector2 input = new Vector2
@@ -32,30 +32,28 @@ public class CameraMovementRedo : MonoBehaviour
 		return Mathf.Clamp(angle, -maxVerticalAngleFromHorizon, maxVerticalAngleFromHorizon);
 	}
 
-	void SetViewMode()
+	int SetViewMode()
 	{
 		if (apps[0].activeInHierarchy) // bosu
 		{
 			homingTo = new Vector3(0, 5, 0);
 			FOVTarget = 40;
+			return 1;
 		}
-		else if (apps[3].activeInHierarchy || apps[4].activeInHierarchy) // mail, bamazon
+		else if (apps[3].activeInHierarchy || apps[4].activeInHierarchy || apps[1].activeInHierarchy) // mail, bamazon, client
 		{
 			homingTo = new Vector3(0, 15, 0);
 			FOVTarget = 40;
+			return 2;
 		}
-		/*
-		else if (apps[2].activeInHierarchy) // notes
-		{
-			homingTo = new Vector3(0, -15, 0);
-			FOVTarget = 40;
-		}*/
 		else // desktop
 		{
 			homingTo = Vector3.zero;
 			FOVTarget = 55;
+			return 0;
 		}
 
+		// 0 = desktop, 1 = bosu, 2 = mail bamazon client
 
 	}
 
@@ -87,7 +85,12 @@ public class CameraMovementRedo : MonoBehaviour
 		}
 		else // resetting to 0,0,0
 		{
-			SetViewMode();
+			int tempFOV = SetViewMode();
+			if (currentFOV != tempFOV)
+			{
+				isReleasing = false;
+				currentFOV = tempFOV;
+			}
 			if (!isReleasing)
 			{
 				rotation.x = homingTo.y;

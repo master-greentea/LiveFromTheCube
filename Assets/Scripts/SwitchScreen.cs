@@ -4,21 +4,41 @@ using UnityEngine;
 
 public class SwitchScreen : MonoBehaviour
 {
-    public GameObject gameCanvas;
-    private CatchPlayer catchPlayer;
+	[SerializeField] GameObject[] apps;
+	int index;
+	// Start is called before the first frame update
+	void Start()
+	{
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        catchPlayer = GetComponent<CatchPlayer>();
-    }
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            gameCanvas.SetActive(!gameCanvas.activeInHierarchy);
-        }
-    }
+	// Update is called once per frame
+	void Update()
+	{
+	
+		for (int i = 0; i < apps.Length; i++)
+		{
+			if (apps[i].activeInHierarchy)
+			{
+				index = i;
+			}
+		}
+		if (Input.GetKeyDown(KeyCode.Tab))
+		{
+			if (index != 0)
+			{
+				apps[index].SetActive(false);
+			}
+			if (index < apps.Length - 1)
+			{
+				apps[index + 1].SetActive(true);
+			}
+			else
+			{
+				apps[0].SetActive(true);
+			}
+
+		}
+		Debug.Log(index);
+	}
 }
