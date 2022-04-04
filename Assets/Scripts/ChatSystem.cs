@@ -35,7 +35,7 @@ public class ChatSystem : MonoBehaviour
 	{
 		myCombo = rhythmManager.GetComponent<StatsSystem>().combo;
 		currentPositivity = myCombo == 0 ? 0 : 1;
-		Debug.Log("currentPositivity = " + currentPositivity);
+//		Debug.Log("currentPositivity = " + currentPositivity);
 	}
 
 	void Start()
