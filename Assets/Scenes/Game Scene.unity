@@ -3271,6 +3271,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  resumeDelay: 3
+  resumeUI: {fileID: 0}
 --- !u!114 &181682946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53603,8 +53605,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 181682945}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ResumeSong
+        m_TargetAssemblyTypeName: RhythmGameStarter.SongManager, com.bennykok.rgs.runtime
+        m_MethodName: ResumeSongWrapped
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
