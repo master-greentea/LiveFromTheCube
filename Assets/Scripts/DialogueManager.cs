@@ -17,14 +17,15 @@ public class DialogueManager : MonoBehaviour {
 
     public Animator animator;
 
-    private bool openedOnce = false;
+    public bool IsDialoguePlaying { get; private set; }
 
     private void Start() {
-        openedOnce = false;
         sentences = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue dialogue) {
+        IsDialoguePlaying = true;
+
         animator.SetBool("IsOpen", true);
 
         nameText.text = dialogue.name;
@@ -81,7 +82,8 @@ public class DialogueManager : MonoBehaviour {
     }
 
     public void EndDialogue() {
+        IsDialoguePlaying = false;
+
         animator.SetBool("IsOpen", false);
-        openedOnce = true;
     }
 }
