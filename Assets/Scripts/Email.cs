@@ -11,4 +11,5 @@ public class Email
     public string responseSender = "YOU";
     public string responseSubject;
     public string responseBody;
+    public bool isSent = false;
 }
