@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Bosu
+    name: BOSU
     sentences:
     - Uh oh! Looks like the boss is onto you!
     - Send an email so it looks like you're on task!

@@ -99,14 +99,17 @@ public class TutorialManager : MonoBehaviour
         _bosuIcon.enabled = false;
         _mailIcon.enabled = true;
         float suspicionGain = _susManager.suspicionGain;
-        _susManager.suspicionGain = 0;
+        _susManager.suspicionGain = 0f;
+        float suspicionLoss = _susManager.suspicionLoss;
+        _susManager.suspicionLoss = 0f;
         yield return new WaitUntil(() => _dialogueManager.IsDialoguePlaying == false);
 
         _bosuScreen.SetActive(false);
-        _susManager.suspicionGain = suspicionGain;
         yield return new WaitUntil(() => mailSentCount > tutorialEmailsPostBosu);
 
         _whew.TriggerDialogue();
+        _susManager.suspicionGain = suspicionGain;
+        _susManager.suspicionLoss = suspicionLoss;
         _mailIcon.enabled = false;
         _notesIcon.enabled = true;
         notesNotification.SetActive(true);
@@ -122,9 +125,6 @@ public class TutorialManager : MonoBehaviour
         _excelIcon.enabled = true;
         excelNotification.SetActive(true);
         excelImage.color = excelColor;
-        yield return new WaitUntil(() => _dialogueManager.IsDialoguePlaying == false);
-
-        _notesScreen.SetActive(false);
         yield return new WaitUntil(() => excelHasBeenTutorialized == true);
 
         if (correctClientMatch)
@@ -151,7 +151,6 @@ public class TutorialManager : MonoBehaviour
         _bosuIcon.enabled = true;
         _excelIcon.enabled = true;
         _notesIcon.enabled = true;
-
         yield break;
     }
 }
