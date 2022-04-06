@@ -174,7 +174,8 @@ namespace RhythmGameStarter
                         {
                             if (longNoteDetecter && longNoteDetecter.exitedLineArea)
                             {
-                                // print("noteFinished");
+                                print("noteFinished");
+
 
                                 AddCombo(currentNote, touchDownNotePosition);
 
@@ -194,12 +195,13 @@ namespace RhythmGameStarter
                         {
                             if (longNoteDetecter.exitedLineArea)
                             {
-                                // print("noteFinished");
+                                print("noteFinished");
                                 AddCombo(currentNote, touchDownNotePosition);
                             }
                             else
                             {
-                                // print("noteFailed");
+                                print("noteFailed");
+                                currentAccuracy = "Miss";
                                 songManager.comboSystem.BreakCombo();
                             }
 
@@ -339,7 +341,8 @@ namespace RhythmGameStarter
                         PlayHitSound(note);
 
                         notesInRange.Remove(note);
-                        currentAccuracy = "Long";
+                        currentAccuracy = AddCombo(note, note.transform.position);
+                        //currentAccuracy = "Perfect";
 
                         EffectOnAccuracy();
 

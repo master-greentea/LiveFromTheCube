@@ -37,7 +37,7 @@ namespace RhythmGameStarter
 
         public string AddCombo(int addCombo, float deltaDiff, int score)
         {
-            return statsSystem.AddCombo(addCombo, deltaDiff, score);
+            
 
             if (!isShowing)
             {
@@ -46,6 +46,8 @@ namespace RhythmGameStarter
             }
 
             UpdateComboDisplay();
+
+            return statsSystem.AddCombo(addCombo, deltaDiff, score);
         }
 
         public void BreakCombo()
@@ -59,7 +61,7 @@ namespace RhythmGameStarter
 
         public void UpdateComboDisplay()
         {
-            onComboUpdate.Invoke(statsSystem.combo.ToString());
+            onComboUpdate.Invoke((statsSystem.combo+1).ToString());
         }
     }
 }
