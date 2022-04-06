@@ -35,6 +35,7 @@ public class ClientMatching : MonoBehaviour
 
     private int _correctChoice;
     public int clientMatched = 0;
+    public int moneyDecreased = 100; 
 
     void Start()
     {
@@ -81,12 +82,18 @@ public class ClientMatching : MonoBehaviour
         if (choice == _correctChoice)
         {
             MatchClient();
-            clientMatched++; 
+            clientMatched++;
         }
         else
         {
             Debug.Log("Incorrect.");
-            currensys.money -= 100; 
+            currensys.money -= moneyDecreased;
+
+            if (!TutorialManager.Instance.excelHasBeenTutorialized)
+            {
+                TutorialManager.Instance.correctClientMatch = false;
+                TutorialManager.Instance.excelHasBeenTutorialized = true;
+            }
         }
         GenerateChoice();
     }
@@ -96,6 +103,12 @@ public class ClientMatching : MonoBehaviour
         //player got match correct
         Debug.Log("Correct!");
         _clientSuspicion.ReduceSus(_reduceSusCount);
+
+        if (!TutorialManager.Instance.excelHasBeenTutorialized)
+        {
+            TutorialManager.Instance.correctClientMatch = true;
+            TutorialManager.Instance.excelHasBeenTutorialized = true;
+        }
     }
 
     private T GetRandomElement<T>(T[] deck)

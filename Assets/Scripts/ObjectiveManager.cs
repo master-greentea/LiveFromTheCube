@@ -3,23 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using RhythmGameStarter;
+using System;
 
 public class ObjectiveManager : MonoBehaviour
 {
 	public TMPro.TextMeshProUGUI objList;
+	public GameObject rhythmGame;
 
-	public int hour; // from 9 to 17 [System.NonSerialized] 
-	public int minute; // 0 - 59 [System.NonSerialized]
-	public int day = 1; // 1-5 [System.NonSerialized]
+	[NonSerialized] public int hour; // from 9 to 17 [System.NonSerialized] 
+	[NonSerialized] public int minute; // 0 - 59 [System.NonSerialized]
+	[NonSerialized] public int day = 1; // 1-5 [System.NonSerialized]
 
 	[SerializeField] TextMeshProUGUI timeText;
 	public GameObject viewrshipManager;
-	public GameObject clientSusManager; 
+	public GameObject clientSusManager;
+	public GameObject currencyManager;
 	public GameObject mailScreen;
+	public GameObject fade;
 
 	EmailLoader emailloader;
-	ClientMatching clientmatch; 
+	ClientMatching clientmatch;
 	Viewship viewership;
+	CurrencySystem currensys;
+
+
+
+	StatsSystem statsystem;
 
 	public TMPro.TextMeshProUGUI task1;
 	public TMPro.TextMeshProUGUI task2;
@@ -27,9 +37,18 @@ public class ObjectiveManager : MonoBehaviour
 	public TMPro.TextMeshProUGUI task4;
 	public TMPro.TextMeshProUGUI task5;
 
+	public TMPro.TextMeshProUGUI maxComboUI;
+	public TMPro.TextMeshProUGUI highestViewsUI;
+	public TMPro.TextMeshProUGUI moneyEarnedUI;
+	public TMPro.TextMeshProUGUI susReportUI;
+
+	private int maxCombo;
+	private float highestView;
+	private int moneyEarned;
+
 
 	public TMPro.TextMeshProUGUI UItime;
-	public TMPro.TextMeshProUGUI UIviews; 
+	public TMPro.TextMeshProUGUI UIviews;
 
 	private bool task1complete = false;
 	private bool task2complete = false;
@@ -43,6 +62,7 @@ public class ObjectiveManager : MonoBehaviour
 	public GameObject task4circle;
 	public GameObject task5circle;
 
+
 	//in theory i would import the days from the day manager 
 	private bool day1 = false;
 	private bool day2 = false;
@@ -53,13 +73,16 @@ public class ObjectiveManager : MonoBehaviour
 	private float viewBenchmark = 0;
 	private int emailNumBenchmark = 0;
 	private int phoneNumBenchmark = 0;
-	private int clientNumBenchmark = 0; 
+	private int clientNumBenchmark = 0;
 	private bool caught = false;
 
 	private float views = 0;
 	private float sentmails = 0;
-	private float clientMatched = 0; 
+	private float clientMatched = 0;
 	float timer = 1f; //seconds
+
+
+
 
 	void Start()
 	{
@@ -68,7 +91,8 @@ public class ObjectiveManager : MonoBehaviour
 		viewership = viewrshipManager.GetComponent<Viewship>();
 		emailloader = mailScreen.GetComponent<EmailLoader>();
 		clientmatch = clientSusManager.GetComponent<ClientMatching>();
-
+		currensys = currencyManager.GetComponent<CurrencySystem>();
+		statsystem = rhythmGame.GetComponent<StatsSystem>();
 
 		sentmails = emailloader.emailIndex;
 
@@ -76,13 +100,15 @@ public class ObjectiveManager : MonoBehaviour
 		day1 = true;
 
 		viewBenchmark = 1000;
-		emailNumBenchmark = 3;
+		emailNumBenchmark = 5;
 		task2complete = true;
+		task3complete = true;
+
 		clientNumBenchmark = 2;
 
 		DAY1();
 
-		byte cc = 163; 
+		byte cc = 163;
 		task1circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
 		task2circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
 		task3circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
@@ -91,25 +117,32 @@ public class ObjectiveManager : MonoBehaviour
 
 	}
 
-	void Update(){
+	void Update()
+	{
 
 		DAY1();
 
 		string hourStr;
 		string minuteStr;
 
-		if (hour<10){
-			 hourStr = "0"+hour.ToString();
+		if (hour < 10)
+		{
+			hourStr = "0" + hour.ToString();
 
-		}else{
-			 hourStr = hour.ToString();
+		}
+		else
+		{
+			hourStr = hour.ToString();
 		}
 
-		if (minute<10) {
-			 minuteStr = "0" + minute.ToString();
+		if (minute < 10)
+		{
+			minuteStr = "0" + minute.ToString();
 
-		}else {
-			 minuteStr = minute.ToString();
+		}
+		else
+		{
+			minuteStr = minute.ToString();
 		}
 
 		timeText.text = hourStr + ":" + minuteStr;
@@ -119,24 +152,71 @@ public class ObjectiveManager : MonoBehaviour
 
 
 		views = viewership.viewers;
-		UIviews.text = viewership.viewers + ""; 
+		UIviews.text = viewership.viewers + "";
 		sentmails = emailloader.emailIndex;
 		clientMatched = clientmatch.clientMatched;
 
-		if (views > viewBenchmark){
+		if (views > viewBenchmark)
+		{
 			task4complete = true;
 
 		}
 
-		if (sentmails > emailNumBenchmark)
+
+		//END SCREEN STUFF 
+		if (highestView < views)
 		{
-			task1complete = true;
+			highestView = views;
 		}
 
-		if(clientMatched >= clientNumBenchmark) {
-			task5complete = true; 
-        }
+		// END SCREEN STUFF STOPS HERE 
+		bool specialEmailsSent = true;
+		List<Email> specialEmails = new List<Email>();
+		specialEmails.AddRange(emailloader.morningEmails[day]);
+		specialEmails.AddRange(emailloader.eveningEmails[day]);
+		foreach(Email e in specialEmails)
+		{
+			if (!e.isSent)
+			{
+				specialEmailsSent = false;
+				break;
+			}	
+		}
+		if (specialEmailsSent)
+		{
+			if (sentmails > emailNumBenchmark)
+			{
+				task1complete = true;
+			}
+		}
+
+
+
+
+		//TASK STUFF 
+		if (clientMatched >= clientNumBenchmark)
+		{
+			task5complete = true;
+		}
+
+		if (task1complete == true && task2complete == true && task3complete == true && task4complete == true && task5complete == true)
+		{
+			dayEnd();
+		}
 	}
+
+	//MORE END SCREEN STUFF
+	void dayEnd()
+	{
+		fade.SetActive(true);
+
+		maxComboUI.text = statsystem.maxCombo + "!";
+		highestViewsUI.text = highestView + " views";
+		moneyEarnedUI.text = "$" + currensys.money + "";
+		susReportUI.text = "sussy baka";
+	}
+
+
 
 
 	void DAY1()
@@ -146,7 +226,7 @@ public class ObjectiveManager : MonoBehaviour
 		task2.text = "Use phone less than 3 times but make 2 calls";
 		task3.text = "Don't get Caught";
 		task4.text = "Reach " + viewBenchmark + " views. View num: " + views;
-		task5.text = "Match "+clientNumBenchmark+" Client Tasks"; 
+		task5.text = "Match " + clientNumBenchmark + " Client Tasks";
 
 		//TASK ONE 
 		if (task1complete == true)
@@ -200,11 +280,14 @@ public class ObjectiveManager : MonoBehaviour
 		}
 
 		//TASK FIVE
-		if (task5complete == true) {
+		if (task5complete == true)
+		{
 			task5.fontStyle = FontStyles.Strikethrough;
 			task5circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
 
-		} else if (task5complete == false) {
+		}
+		else if (task5complete == false)
+		{
 			task4.fontStyle = FontStyles.Bold;
 		}
 	}
@@ -230,16 +313,20 @@ public class ObjectiveManager : MonoBehaviour
 
 	}
 
-	void TimeProgress() {
+	void TimeProgress()
+	{
 
 		timer -= Time.deltaTime;
-		if (timer <= 0) {
+		if (timer <= 0)
+		{
 
 			minute++;
-			if (minute >= 60) {
+			if (minute >= 60)
+			{
 
 				hour++;
-				if (hour >= 15) {
+				if (hour >= 15)
+				{
 					hour = 9;
 					DayProgress();
 				}
@@ -249,25 +336,28 @@ public class ObjectiveManager : MonoBehaviour
 		}
 
 	}
-	void DayProgress() {
-		switch (day) {
+	void DayProgress()
+	{
+		emailloader.ResetDay();
+		switch (day)
+		{
 			case 1:
-			DAY1();
-			break;
+				DAY1();
+				break;
 			case 2:
-			DAY2();
-			break;
+				DAY2();
+				break;
 			case 3:
-			DAY3();
-			break;
+				DAY3();
+				break;
 			case 4:
-			DAY4();
-			break;
+				DAY4();
+				break;
 			case 5:
-			DAY5();
-			break;
+				DAY5();
+				break;
 			default:
-			break;
+				break;
 		}
 	}
 

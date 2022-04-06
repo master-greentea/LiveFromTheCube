@@ -80,8 +80,8 @@ public class ShopManager : MonoBehaviour
     bool boughtMug;
 
     // red
-    // [SerializeField]
-    // GameObject redObj;
+    [SerializeField]
+    GameObject redObj;
     [SerializeField]
     int redprice = 20000;
     [SerializeField]
@@ -89,8 +89,8 @@ public class ShopManager : MonoBehaviour
     bool boughtRed;
 
     // frame
-    // [SerializeField]
-    // GameObject frameObj;
+    [SerializeField]
+    GameObject frameObj;
     [SerializeField]
     int frameprice = 20000;
     [SerializeField]
@@ -250,8 +250,28 @@ public class ShopManager : MonoBehaviour
         redButton.gameObject.transform.parent.transform.Find("detes_rb").gameObject.SetActive(true);
     }
 
+    public void RedBuys() {
+        if (CheckMoney(redprice)) {
+            boughtRed = true;
+            mmanager.money -= redprice;
+            redSoldOut.SetActive(true);
+            redButton.GetComponent<Button>().enabled = false;
+            redObj.SetActive(true);
+        }
+    }
+
     void FrameOnClick() {
         frameButton.gameObject.transform.parent.transform.Find("detes_f").gameObject.SetActive(true);
+    }
+
+    public void FrameBuys() {
+        if (CheckMoney(frameprice)) {
+            boughtFrame = true;
+            mmanager.money -= frameprice;
+            frameSoldOut.SetActive(true);
+            frameButton.GetComponent<Button>().enabled = false;
+            frameObj.SetActive(true);
+        }
     }
 
     void EarOnClick() {
