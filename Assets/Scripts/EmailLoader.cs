@@ -107,7 +107,6 @@ public class EmailLoader : MonoBehaviour
 					if (responseComplete)
 					{
 						NextEmail();
-						
 					}
 				}
 				else if (responseColoringIndex < emails[emailIndex].responseBody.Length)
@@ -167,6 +166,16 @@ public class EmailLoader : MonoBehaviour
 	{
 		if (responseComplete)
 		{
+			if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPreBosu)
+			{
+				TutorialManager.Instance.mailSentCount++;
+			}
+			else if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPostBosu)
+            {
+				susManager.GetComponent<CatchPlayer>().ReduceSus(100);
+				TutorialManager.Instance.mailSentCount++;
+			}
+
 			if (emailIndex < emails.Count - 1)
 			{
 				emailIndex++;
