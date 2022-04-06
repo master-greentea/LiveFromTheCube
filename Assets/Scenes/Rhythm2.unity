@@ -3374,10 +3374,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyMapping:
     values:
-    - d
     - f
+    - g
+    - h
     - j
-    - k
   up: 273
   down: 274
   left: 276
@@ -3707,8 +3707,8 @@ MonoBehaviour:
   onSongFinished:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1063144790}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 565062596}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -3717,7 +3717,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 791234871}
         m_TargetAssemblyTypeName: 
@@ -3731,6 +3731,116 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1069683343}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1008651953}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 791234870}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1008651955}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 72438325}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 694676260}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 275806248}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1636583624}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 912878736}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resumeDelay: 0
+  resumeUI: {fileID: 0}
 --- !u!114 &181682946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6166,7 +6276,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: 21300000, guid: a5e82512be86a0e4f8ead2b578efac40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abb56841aff104b9380919de02357a8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8695,6 +8805,14 @@ MonoBehaviour:
   plantSoldOut: {fileID: 1579409647}
   mugButton: {fileID: 0}
   mugSoldOut: {fileID: 0}
+  redButton: {fileID: 0}
+  redSoldOut: {fileID: 0}
+  frameButton: {fileID: 0}
+  frameSoldOut: {fileID: 0}
+  earButton: {fileID: 0}
+  earSoldOut: {fileID: 0}
+  dressButton: {fileID: 0}
+  dressSoldOut: {fileID: 0}
   juiceprice: 15
   juicePriceText: {fileID: 911310769}
   kirbyObj: {fileID: 658191064}
@@ -8708,6 +8826,14 @@ MonoBehaviour:
   mugObj: {fileID: 0}
   mugprice: 20000
   mugPriceText: {fileID: 0}
+  redprice: 20000
+  redPriceText: {fileID: 0}
+  frameprice: 20000
+  framePriceText: {fileID: 0}
+  earprice: 20000
+  earPriceText: {fileID: 0}
+  dressprice: 20000
+  dressPriceText: {fileID: 0}
 --- !u!1 &437574233
 GameObject:
   m_ObjectHideFlags: 0
@@ -12595,7 +12721,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: 21300000, guid: 69587c73af2be2343879cf9a28415c57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5e82512be86a0e4f8ead2b578efac40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13549,7 +13675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1146986d3e9b6b445b3bf29f91b46465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCanvas: {fileID: 7147024328103525033}
+  apps: []
 --- !u!82 &733527838
 AudioSource:
   m_ObjectHideFlags: 0
@@ -51175,7 +51301,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: 21300000, guid: e60d7f323a3b3d64c96881fab020c7f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb1b4a5f48dc408409f1b4c2a6b715c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -57190,18 +57316,6 @@ MonoBehaviour:
       - m_Target: {fileID: 181682945}
         m_TargetAssemblyTypeName: 
         m_MethodName: PlaySong
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CatchPlayer, Assembly-CSharp
-        m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -64157,7 +64271,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: 21300000, guid: eb1b4a5f48dc408409f1b4c2a6b715c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af6021def0e084986b102be021785c09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -67365,11 +67479,20 @@ MonoBehaviour:
   day: 1
   timeText: {fileID: 496222207}
   viewrshipManager: {fileID: 9948270}
+  clientSusManager: {fileID: 0}
   mailScreen: {fileID: 1029242481}
   task1: {fileID: 588031832}
   task2: {fileID: 1474939459}
   task3: {fileID: 786030852}
   task4: {fileID: 474178949}
+  task5: {fileID: 0}
+  UItime: {fileID: 0}
+  UIviews: {fileID: 0}
+  task1circle: {fileID: 0}
+  task2circle: {fileID: 0}
+  task3circle: {fileID: 0}
+  task4circle: {fileID: 0}
+  task5circle: {fileID: 0}
 --- !u!4 &1832876589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7812488517002309824, guid: 0ef169194a8583e44a372c70faf5f712,
@@ -75827,6 +75950,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  resumeDelay: 0
+  resumeUI: {fileID: 0}
 --- !u!114 &4661416337484062907
 MonoBehaviour:
   m_ObjectHideFlags: 0
