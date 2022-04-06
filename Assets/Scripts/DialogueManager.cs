@@ -17,8 +17,6 @@ public class DialogueManager : MonoBehaviour {
 
     public Animator animator;
 
-    private bool openedOnce = false;
-
     private void Start() {
         openedOnce = false;
         sentences = new Queue<string>();
