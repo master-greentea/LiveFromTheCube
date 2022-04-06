@@ -17,10 +17,7 @@ public class DialogueManager : MonoBehaviour {
 
     public Animator animator;
 
-    private bool openedOnce = false;
-
     private void Start() {
-        openedOnce = false;
         sentences = new Queue<string>();
     }
 
@@ -82,6 +79,5 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue() {
         animator.SetBool("IsOpen", false);
-        openedOnce = true;
     }
 }
