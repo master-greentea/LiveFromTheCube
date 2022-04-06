@@ -30,14 +30,30 @@ public class EmailLoader : MonoBehaviour
 
 	bool responseComplete = true;
 
+	public List<Email>[] morningEmails; // 5 lists of morning emails for 5 days
+	public List<Email>[] eveningEmails; // 5 lists of evening emails for 5 days
+	[SerializeField] int[] morningEmailIndexesDay1;
+	[SerializeField] int[] morningEmailIndexesDay2;
+	[SerializeField] int[] morningEmailIndexesDay3;
+	[SerializeField] int[] morningEmailIndexesDay4;
+	[SerializeField] int[] morningEmailIndexesDay5;
+	[SerializeField] int[] eveningEmailIndexesDay1;
+	[SerializeField] int[] eveningEmailIndexesDay2;
+	[SerializeField] int[] eveningEmailIndexesDay3;
+	[SerializeField] int[] eveningEmailIndexesDay4;
+	[SerializeField] int[] eveningEmailIndexesDay5;
+	[SerializeField] GameObject objectiveManager;
+	ObjectiveManager objectiveManagerScr;
+	bool canUpdateEmailMorning = true;
+	bool canUpdateEmailEvening = true;
 	// Start is called before the first frame update
 	void Start()
 	{
+
 		//set up dictionary
 		var dictionaryCSV = Resources.Load<TextAsset>("variableDictionary");
 		varDictionary = new Dictionary<string, string[]>();
 		string[] dictionaryArray = dictionaryCSV.text.Split(new char[] { '\n' });
-		//Debug.Log("dict has " + dictionaryArray.Length + "rows");
 		for (int i = 0; i < dictionaryArray.Length; i++)
 		{
 			string[] row = dictionaryArray[i].Split(new char[] { ',' });
@@ -77,20 +93,55 @@ public class EmailLoader : MonoBehaviour
 			emails.Add(email);
 		}
 
-
-		// debug
-		foreach (Email email in emails)
-		{
-			Debug.Log(email.index + email.sender + email.subject + email.body + email.responseSubject + email.responseBody);
-		}
-
 		// text boxes setup
 		emailIndex = 0;
 		emailResponseBody.GetComponent<TextMeshProUGUI>().color = new Color(180, 180, 180);
-
-
-		NextEmail();
+		emailSubject.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].subject;
+		emailSender.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].sender;
+		emailBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].body;
+		emailResponseSender.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseSender;
+		emailResponseSubject.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseSubject;
+		emailResponseBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseBody;
 		responseComplete = false;
+
+		// special emails
+
+		int[][] morningEmailIndexes = new int[5][];
+		morningEmailIndexes[0] = morningEmailIndexesDay1;
+		morningEmailIndexes[1] = morningEmailIndexesDay2;
+		morningEmailIndexes[2] = morningEmailIndexesDay3;
+		morningEmailIndexes[3] = morningEmailIndexesDay4;
+		morningEmailIndexes[4] = morningEmailIndexesDay5;
+
+		int[][] eveningEmailIndexes = new int[5][];
+		eveningEmailIndexes[0] = morningEmailIndexesDay1;
+		eveningEmailIndexes[1] = morningEmailIndexesDay2;
+		eveningEmailIndexes[2] = morningEmailIndexesDay3;
+		eveningEmailIndexes[3] = morningEmailIndexesDay4;
+		eveningEmailIndexes[4] = morningEmailIndexesDay5;
+
+		morningEmails = new List<Email>[5];
+		for (int i = 0; i < morningEmails.Length; i++)
+		{
+			for (int j = 0; j < morningEmailIndexes[i].Length; j++)
+			{
+				morningEmails[i].Add(emails[morningEmailIndexes[i][j]]);
+				emails.RemoveAt(morningEmailIndexes[i][j]);
+			}
+		}
+		eveningEmails = new List<Email>[5];
+		for (int i = 0; i < eveningEmails.Length; i++)
+		{
+			for (int j = 0; j < eveningEmailIndexes[i].Length; j++)
+			{
+				eveningEmails[i].Add(emails[eveningEmailIndexes[i][j]]);
+				emails.RemoveAt(eveningEmailIndexes[i][j]);
+			}
+		}
+
+
+		//set up objectives and days
+		objectiveManagerScr = objectiveManager.GetComponent<ObjectiveManager>();
 
 
 	}
@@ -98,20 +149,35 @@ public class EmailLoader : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		// day 
+		if (objectiveManagerScr.hour == 9 && canUpdateEmailMorning)
+		{
+			emails.InsertRange(0, morningEmails[objectiveManagerScr.day]);
+			canUpdateEmailMorning = false;
+		}
+		else if (objectiveManagerScr.hour == 16 && canUpdateEmailEvening)
+		{
+			emails.InsertRange(0, morningEmails[objectiveManagerScr.day]);
+			canUpdateEmailEvening = false;
+		}
+
+
+
 		if (Input.inputString.Length > 0) // typing
 		{
-			foreach(char inputChar in Input.inputString)
+			foreach (char inputChar in Input.inputString)
 			{
 				if (inputChar == '\n')
 				{
 					if (responseComplete)
 					{
 						NextEmail();
+
 					}
 				}
 				else if (responseColoringIndex < emails[emailIndex].responseBody.Length)
 				{
-					responseColoringIndex ++;
+					responseColoringIndex++;
 					emailResponseBody.GetComponent<TextMeshProUGUI>().text = ColorizeResponse();
 				}
 				else
@@ -119,10 +185,10 @@ public class EmailLoader : MonoBehaviour
 					responseComplete = true;
 					break;
 				}
-				
+
 			}
-			
-			
+
+
 		}
 	}
 
@@ -166,16 +232,8 @@ public class EmailLoader : MonoBehaviour
 	{
 		if (responseComplete)
 		{
-			if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPreBosu)
-			{
-				TutorialManager.Instance.mailSentCount++;
-			}
-			else if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPostBosu)
-            {
-				susManager.GetComponent<CatchPlayer>().ReduceSus(100);
-				TutorialManager.Instance.mailSentCount++;
-			}
-
+			emails[emailIndex].isSent = true;
+			emails.RemoveAt(emailIndex);
 			if (emailIndex < emails.Count - 1)
 			{
 				emailIndex++;
@@ -202,6 +260,12 @@ public class EmailLoader : MonoBehaviour
 	{
 		GameObject myEventSystem = GameObject.Find("EventSystem");
 		myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+	}
+
+	public void ResetDay()
+	{
+		canUpdateEmailMorning = true;
+		canUpdateEmailEvening = false;
 	}
 }
 
