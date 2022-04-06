@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using RhythmGameStarter;
 
 public class ObjectiveManager : MonoBehaviour
 {
 	public TMPro.TextMeshProUGUI objList;
+	public GameObject rhythmGame;
 
 	public int hour; // from 9 to 17 [System.NonSerialized] 
 	public int minute; // 0 - 59 [System.NonSerialized]
@@ -14,18 +16,34 @@ public class ObjectiveManager : MonoBehaviour
 
 	[SerializeField] TextMeshProUGUI timeText;
 	public GameObject viewrshipManager;
-	public GameObject clientSusManager; 
+	public GameObject clientSusManager;
+	public GameObject currencyManager;
 	public GameObject mailScreen;
+	public GameObject fade; 
 
 	EmailLoader emailloader;
 	ClientMatching clientmatch; 
 	Viewship viewership;
+	CurrencySystem currensys;
+
+
+
+	StatsSystem statsystem;
 
 	public TMPro.TextMeshProUGUI task1;
 	public TMPro.TextMeshProUGUI task2;
 	public TMPro.TextMeshProUGUI task3;
 	public TMPro.TextMeshProUGUI task4;
 	public TMPro.TextMeshProUGUI task5;
+
+	public TMPro.TextMeshProUGUI maxComboUI;
+	public TMPro.TextMeshProUGUI highestViewsUI;
+	public TMPro.TextMeshProUGUI moneyEarnedUI;
+	public TMPro.TextMeshProUGUI susReportUI;
+
+	private int maxCombo;
+	private float highestView;
+	private int moneyEarned;
 
 
 	public TMPro.TextMeshProUGUI UItime;
@@ -42,6 +60,7 @@ public class ObjectiveManager : MonoBehaviour
 	public GameObject task3circle;
 	public GameObject task4circle;
 	public GameObject task5circle;
+
 
 	//in theory i would import the days from the day manager 
 	private bool day1 = false;
@@ -61,6 +80,9 @@ public class ObjectiveManager : MonoBehaviour
 	private float clientMatched = 0; 
 	float timer = 1f; //seconds
 
+
+
+
 	void Start()
 	{
 		hour = 9;
@@ -68,7 +90,8 @@ public class ObjectiveManager : MonoBehaviour
 		viewership = viewrshipManager.GetComponent<Viewship>();
 		emailloader = mailScreen.GetComponent<EmailLoader>();
 		clientmatch = clientSusManager.GetComponent<ClientMatching>();
-
+		currensys = currencyManager.GetComponent<CurrencySystem>();
+		statsystem = rhythmGame.GetComponent<StatsSystem>();
 
 		sentmails = emailloader.emailIndex;
 
@@ -78,6 +101,8 @@ public class ObjectiveManager : MonoBehaviour
 		viewBenchmark = 1000;
 		emailNumBenchmark = 3;
 		task2complete = true;
+		task3complete = true;
+
 		clientNumBenchmark = 2;
 
 		DAY1();
@@ -128,15 +153,41 @@ public class ObjectiveManager : MonoBehaviour
 
 		}
 
+
+		//END SCREEN STUFF 
+		if(highestView < views) {
+			highestView = views; 
+        }
+
+		// END SCREEN STUFF STOPS HERE 
+
 		if (sentmails > emailNumBenchmark)
 		{
 			task1complete = true;
 		}
 
+
+		//TASK STUFF 
 		if(clientMatched >= clientNumBenchmark) {
 			task5complete = true; 
         }
+
+		if(task1complete == true && task2complete == true && task3complete == true && task4complete == true && task5complete == true) {
+			dayEnd(); 
+        }
 	}
+
+	//MORE END SCREEN STUFF
+	void dayEnd() {
+		fade.SetActive(true);
+
+		maxComboUI.text = statsystem.maxCombo+"!";
+		highestViewsUI.text = highestView+ " views";
+		moneyEarnedUI.text = "$"+currensys.money+"";
+		susReportUI.text = "sussy baka";
+	}
+
+
 
 
 	void DAY1()
