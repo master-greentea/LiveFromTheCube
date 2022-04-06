@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7031866241245518987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7031866241245518985}
+  - component: {fileID: 7031866241245518990}
+  - component: {fileID: 7031866241245518984}
+  - component: {fileID: 7031866241245518988}
+  - component: {fileID: 7031866241245518991}
+  m_Layer: 0
+  m_Name: Tutorial Triggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7031866241245518985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031866241245518987}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7031866242856478865}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7031866241245518990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031866241245518987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb147c9ecfed24b0c82f0fe095067e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Bosu
+    sentences:
+    - Uh oh! Looks like the boss is onto you!
+    - Send an email so it looks like you're on task!
+--- !u!114 &7031866241245518984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031866241245518987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb147c9ecfed24b0c82f0fe095067e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Bmail
+    sentences:
+    - Whew! Looks like you're in the clear for now.
+    - Remember to send emails periodically so you can keep your job!
+    - Now let's check out some other apps.
+--- !u!114 &7031866241245518988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031866241245518987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb147c9ecfed24b0c82f0fe095067e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Client Match
+    sentences:
+    - Great job! Looks like the client loves the solutions company you chose!
+    - Matching clients with the wrong solutions companies will result in a pay cut,
+      so be careful!
+--- !u!114 &7031866241245518991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031866241245518987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb147c9ecfed24b0c82f0fe095067e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Client Match
+    sentences:
+    - Oops! Looks like that solutions company wasn't quite what the client was looking
+      for.
+    - Matching clients with the wrong solutions companies will result in a pay cut,
+      so be careful!
+--- !u!1 &7031866242856478867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7031866242856478865}
+  - component: {fileID: 7031866242856478864}
+  m_Layer: 0
+  m_Name: Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7031866242856478865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031866242856478867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7031866241245518985}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7031866242856478864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031866242856478867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3d8c37663db49f89d71504ab0f3462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mailIcon: {fileID: 0}
+  _bosuIcon: {fileID: 0}
+  _bamazonIcon: {fileID: 0}
+  _excelIcon: {fileID: 0}
+  _notesIcon: {fileID: 0}
+  _mailScreen: {fileID: 0}
+  _bosuScreen: {fileID: 0}
+  _notesScreen: {fileID: 0}
+  _bamazonScreen: {fileID: 0}
+  _excelScreen: {fileID: 0}
+  _songManager: {fileID: 0}
+  _susManager: {fileID: 0}
+  _dialogueManager: {fileID: 0}
+  _watchOutForBoss: {fileID: 7031866241245518990}
+  _correctSolution: {fileID: 7031866241245518988}
+  _incorrectSolution: {fileID: 7031866241245518991}
+  _whew: {fileID: 7031866241245518984}
+  _grayedOutColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
+  mailSentCount: 0
+  tutorialEmailsPreBosu: 1
+  tutorialEmailsPostBosu: 2
+  excelHasBeenTutorialized: 0
+  correctClientMatch: 0
