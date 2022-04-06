@@ -517,9 +517,10 @@ MonoBehaviour:
   dialogue:
     name: Bmail
     sentences:
-    - 'Send messages to your coworkers by pressing any key on the keyboard.  '
-    - 'Click Enter to Press send. Emails will only be sent when all words are typed. '
-    - 'Important messages may be relayed here so be careful! '
+    - Respond to work emails by pressing any key on the keyboard.
+    - Once you've finished typing, press ENTER to send!
+    - Important messages may be relayed here so make sure to pay attention to starred
+      emails!
 --- !u!1001 &39600440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1996,9 +1997,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Client
+    name: Client Match
     sentences:
-    - 'Client Matching system for work. Match things to the right category. '
+    - Part of your job at BS Solutions is to match clients with solutions companies
+      that suit their needs.
+    - Take a look at what each client is looking for and pick the solutions company
+      with the best fit!
 --- !u!1 &143322692
 GameObject:
   m_ObjectHideFlags: 0
@@ -12470,13 +12474,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Bmail
+    name: Bamazon
     sentences:
-    - 'Welcome to Bamazon by Beff Jezos. We aim to keep your wallet high and dry! '
-    - 'You can view powerup items and cosmetic changes,  and purchase them here.
-      with the money you''ve earned '
-    - 'all purchases will be instantly delivered through Bamazon Brime. And will
-      be shuttled with our latest drone tech and delivered via ceiling. '
+    - This is the Bamazon store.
+    - Here, you can purchase power-up items and cosmetic changes with the money you've
+      earned.
+    - All purchases will be instantly fulfilled with Bamazon Brime using drone tech
+      and delivered via ceiling.
+    - Now you're ready to start the game! Stream, email, and match your way to the
+      top!
+    - You can also press TAB to switch between open apps.
 --- !u!1001 &686767405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13178,7 +13185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &713748373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51775,6 +51782,140 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1739037157}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &931250991
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _bosuIcon
+      value: 
+      objectReference: {fileID: 1428310136}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _mailIcon
+      value: 
+      objectReference: {fileID: 29600008}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _excelIcon
+      value: 
+      objectReference: {fileID: 140479096}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _notesIcon
+      value: 
+      objectReference: {fileID: 1567760981}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _bosuScreen
+      value: 
+      objectReference: {fileID: 181682938}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _mailScreen
+      value: 
+      objectReference: {fileID: 1029242481}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _susManager
+      value: 
+      objectReference: {fileID: 733527836}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _bamazonIcon
+      value: 
+      objectReference: {fileID: 679740697}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _excelScreen
+      value: 
+      objectReference: {fileID: 1809361001}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _notesScreen
+      value: 
+      objectReference: {fileID: 713748372}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _songManager
+      value: 
+      objectReference: {fileID: 181682945}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _bamazonScreen
+      value: 
+      objectReference: {fileID: 1166133510}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 980722654}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478865, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866242856478867, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_Name
+      value: Tutorial
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1698f7408ff624952b953c707286ca19, type: 3}
 --- !u!1 &932850411
 GameObject:
   m_ObjectHideFlags: 0
@@ -61334,11 +61475,9 @@ MonoBehaviour:
   dialogue:
     name: BOSU
     sentences:
-    - 'The hottest game of 2077! Play various songs, and get a high score! '
-    - The higher your score, the more your glitch.tv views will increase, and the
-      more money you will earn
-    - Press "TAB" to switch between applications quickly
-    - 'be careful the boss doesn''t catch you playing games! '
+    - The hottest game of the year! Play various songs, and get a high score!
+    - The higher your score, the more viewers you'll get, and the more money you'll
+      earn!
 --- !u!1 &1429531952
 GameObject:
   m_ObjectHideFlags: 0
@@ -63484,10 +63623,9 @@ MonoBehaviour:
   dialogue:
     name: BNotes
     sentences:
-    - 'An objective system to keep track of all your work tasks for the day. '
-    - 'Finish everything before the day ends to sucessfully go onto the next day. '
-    - Oh also hint! Press X to toggle between using the mouse and using the edges
-      of the screen to navigate. d
+    - These are your objectives for each day.
+    - Complete everything before the day ends to sucessfully progress to the next
+      day.
 --- !u!1 &1569844613
 GameObject:
   m_ObjectHideFlags: 0
