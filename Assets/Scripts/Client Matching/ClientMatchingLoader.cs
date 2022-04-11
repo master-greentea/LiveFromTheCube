@@ -31,7 +31,7 @@ public class ClientMatchingLoader : MonoBehaviour
 
     private int[] ParseIndustriesCsv(string csvText)
     {
-        string[] rows = csvText.Split(Environment.NewLine.ToCharArray());
+        string[] rows = csvText.Split('\n');
         if (rows.Length == 0)
         {
             throw new Exception("CSV File is empty.");
@@ -97,7 +97,7 @@ public class ClientMatchingLoader : MonoBehaviour
         for (int i = 1; i < rows.Length; i++)
         {
             string[] row = rows[i].Split(',');
-            if (row[1].Length < 2)
+            if (row[1]?.Length < 2)
             {
                 //reached the end of csv
                 break;
@@ -105,5 +105,5 @@ public class ClientMatchingLoader : MonoBehaviour
             clients.Add(row[1]);
         }
         return clients.ToArray();
-    }
+    } 
 }
