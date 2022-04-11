@@ -319,7 +319,7 @@ namespace RhythmGameStarter
 
                         foreach (var e in sustainEffect)
                         {
-                            e.StartEffect(transform);
+                            e.StartEffect(null);
                         }
                         
 
