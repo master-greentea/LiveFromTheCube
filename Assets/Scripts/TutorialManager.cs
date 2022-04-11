@@ -47,16 +47,14 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Instructions());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        StopAllCoroutines();
     }
 
     private IEnumerator Instructions()
@@ -85,7 +83,7 @@ public class TutorialManager : MonoBehaviour
         _notesIcon.enabled = false;
         GameObject notesNotification = _notesIcon.gameObject.transform.Find("Notification Img").gameObject;
         notesNotification.SetActive(false);
-        yield return new WaitUntil(() => mailSentCount > tutorialEmailsPreBosu);
+        yield return new WaitUntil(() => mailSentCount >= tutorialEmailsPreBosu);
 
         _mailScreen.SetActive(false);
         _mailIcon.enabled = false;
@@ -105,7 +103,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitUntil(() => _dialogueManager.IsDialoguePlaying == false);
 
         _bosuScreen.SetActive(false);
-        yield return new WaitUntil(() => mailSentCount > tutorialEmailsPostBosu);
+        yield return new WaitUntil(() => mailSentCount >= tutorialEmailsPostBosu);
 
         _whew.TriggerDialogue();
         _susManager.suspicionGain = suspicionGain;
@@ -151,6 +149,7 @@ public class TutorialManager : MonoBehaviour
         _bosuIcon.enabled = true;
         _excelIcon.enabled = true;
         _notesIcon.enabled = true;
+        Destroy(this);
         yield break;
     }
 }
