@@ -81,6 +81,7 @@ public class ObjectiveManager : MonoBehaviour
 	private float clientMatched = 0;
 	float timer = 1f; //seconds
 
+	List<Email> specialEmails;
 
 
 
@@ -169,26 +170,29 @@ public class ObjectiveManager : MonoBehaviour
 			highestView = views;
 		}
 
-		// END SCREEN STUFF STOPS HERE 
+		// END SCREEN STUFF STOPS HERE
+
 		bool specialEmailsSent = true;
-		List<Email> specialEmails = new List<Email>();
-		specialEmails.AddRange(emailloader.morningEmails[day]);
-		specialEmails.AddRange(emailloader.eveningEmails[day]);
-		foreach(Email e in specialEmails)
+
+		if (specialEmails != null)
 		{
-			if (!e.isSent)
+			foreach (Email e in specialEmails)
 			{
-				specialEmailsSent = false;
-				break;
-			}	
-		}
-		if (specialEmailsSent)
-		{
-			if (sentmails > emailNumBenchmark)
+				if (!e.isSent)
+				{
+					specialEmailsSent = false;
+					break;
+				}
+			}
+			if (specialEmailsSent)
 			{
-				task1complete = true;
+				if (sentmails > emailNumBenchmark)
+				{
+					task1complete = true;
+				}
 			}
 		}
+
 
 
 
@@ -339,6 +343,10 @@ public class ObjectiveManager : MonoBehaviour
 	void DayProgress()
 	{
 		emailloader.ResetDay();
+		specialEmails = new List<Email>();
+		specialEmails.AddRange(emailloader.morningEmails[day]);
+		specialEmails.AddRange(emailloader.eveningEmails[day]);
+
 		switch (day)
 		{
 			case 1:

@@ -46,6 +46,8 @@ public class EmailLoader : MonoBehaviour
 	ObjectiveManager objectiveManagerScr;
 	bool canUpdateEmailMorning = true;
 	bool canUpdateEmailEvening = true;
+	int[][] morningEmailIndexes;
+	int[][] eveningEmailIndexes;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -106,14 +108,14 @@ public class EmailLoader : MonoBehaviour
 
 		// special emails
 
-		int[][] morningEmailIndexes = new int[5][];
+		morningEmailIndexes = new int[5][];
 		morningEmailIndexes[0] = morningEmailIndexesDay1;
 		morningEmailIndexes[1] = morningEmailIndexesDay2;
 		morningEmailIndexes[2] = morningEmailIndexesDay3;
 		morningEmailIndexes[3] = morningEmailIndexesDay4;
 		morningEmailIndexes[4] = morningEmailIndexesDay5;
 
-		int[][] eveningEmailIndexes = new int[5][];
+		eveningEmailIndexes = new int[5][];
 		eveningEmailIndexes[0] = morningEmailIndexesDay1;
 		eveningEmailIndexes[1] = morningEmailIndexesDay2;
 		eveningEmailIndexes[2] = morningEmailIndexesDay3;
@@ -123,19 +125,21 @@ public class EmailLoader : MonoBehaviour
 		morningEmails = new List<Email>[5];
 		for (int i = 0; i < morningEmails.Length; i++)
 		{
+			morningEmails[i] = new List<Email>();
 			for (int j = 0; j < morningEmailIndexes[i].Length; j++)
 			{
 				morningEmails[i].Add(emails[morningEmailIndexes[i][j]]);
-				emails.RemoveAt(morningEmailIndexes[i][j]);
+				//emails.RemoveAt(morningEmailIndexes[i][j]);
 			}
 		}
 		eveningEmails = new List<Email>[5];
 		for (int i = 0; i < eveningEmails.Length; i++)
 		{
+			eveningEmails[i] = new List<Email>();
 			for (int j = 0; j < eveningEmailIndexes[i].Length; j++)
 			{
 				eveningEmails[i].Add(emails[eveningEmailIndexes[i][j]]);
-				emails.RemoveAt(eveningEmailIndexes[i][j]);
+				//emails.RemoveAt(eveningEmailIndexes[i][j]);
 			}
 		}
 
@@ -149,18 +153,19 @@ public class EmailLoader : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		// day 
+		// day
+		/*
 		if (objectiveManagerScr.hour == 9 && canUpdateEmailMorning)
 		{
-			emails.InsertRange(0, morningEmails[objectiveManagerScr.day]);
+			emails.InsertRange(0, morningEmails[objectiveManagerScr.day-1]);
 			canUpdateEmailMorning = false;
 		}
 		else if (objectiveManagerScr.hour == 16 && canUpdateEmailEvening)
 		{
-			emails.InsertRange(0, morningEmails[objectiveManagerScr.day]);
+			emails.InsertRange(0, morningEmails[objectiveManagerScr.day-1]);
 			canUpdateEmailEvening = false;
 		}
-
+		*/
 
 
 		if (Input.inputString.Length > 0) // typing
@@ -234,6 +239,18 @@ public class EmailLoader : MonoBehaviour
 		{
 			emails[emailIndex].isSent = true;
 			emails.RemoveAt(emailIndex);
+
+			if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPreBosu)
+			{
+				TutorialManager.Instance.mailSentCount++;
+			}
+			else if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPostBosu)
+			{
+				susManager.GetComponent<CatchPlayer>().ReduceSus(100);
+				TutorialManager.Instance.mailSentCount++;
+			}
+
+
 			if (emailIndex < emails.Count - 1)
 			{
 				emailIndex++;
