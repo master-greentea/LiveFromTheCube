@@ -29,7 +29,7 @@ public class ClientMatching : MonoBehaviour
     [SerializeField] private float _reduceSusCount;
 
 
-    public GameObject currencyManager;
+    [SerializeField] GameObject currencyManager;
 
     CurrencySystem currensys; 
 

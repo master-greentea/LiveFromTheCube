@@ -319,7 +319,7 @@ namespace RhythmGameStarter
 
                         foreach (var e in sustainEffect)
                         {
-                            e.StartEffect(null);
+                            e.StartEffect(transform);
                         }
                         
 
@@ -461,7 +461,7 @@ namespace RhythmGameStarter
             }
             else
             {
-                sustainEffect = null;
+                //sustainEffect = null;
             }
         }
     }
