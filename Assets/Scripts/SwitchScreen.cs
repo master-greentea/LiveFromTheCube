@@ -39,6 +39,6 @@ public class SwitchScreen : MonoBehaviour
 			}
 
 		}
-		Debug.Log(index);
+//		Debug.Log(index);
 	}
 }

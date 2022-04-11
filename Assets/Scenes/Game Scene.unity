@@ -17581,7 +17581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94ec22608931884a82489e24552a3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rhythmGameScreen: {fileID: 181682938}
+  rhythmGameScreen: {fileID: 1266650856}
   suspicionCount: 5
   boss: {fileID: 167583866}
   endScreen: {fileID: 1093758365}
