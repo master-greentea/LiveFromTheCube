@@ -8,6 +8,8 @@ public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance { get; private set; }
 
+    [SerializeField] private bool _isTutorialShown = true;
+
     [SerializeField] private Button _mailIcon;
     [SerializeField] private Button _bosuIcon;
     [SerializeField] private Button _bamazonIcon;
@@ -45,16 +47,15 @@ public class TutorialManager : MonoBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
-        StartCoroutine(Instructions());
-    }
-
-    private void OnDestroy()
-    {
-        StopAllCoroutines();
+        if (_isTutorialShown)
+        {
+            StartCoroutine(Instructions());
+        }
     }
 
     private IEnumerator Instructions()
@@ -149,7 +150,6 @@ public class TutorialManager : MonoBehaviour
         _bosuIcon.enabled = true;
         _excelIcon.enabled = true;
         _notesIcon.enabled = true;
-        Destroy(this);
         yield break;
     }
 }
