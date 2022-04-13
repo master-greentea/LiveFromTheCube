@@ -9,7 +9,7 @@ public class CeilingLights : MonoBehaviour
     public DiscoLights discoLights;
 
     float timer;
-    float gapTime = .1f;
+    float gapTime = .001f;
     void Start()
     {
         childrenLights = GetComponentsInChildren<Renderer>();
@@ -22,18 +22,21 @@ public class CeilingLights : MonoBehaviour
         // light show
         if (discoLights.lightSwitched) {
             int randIndex = Random.Range(0, childrenLights.Length);
-            if (timer > gapTime) {
-                float randR = Random.Range(0.5f, 1f);
-                float randG = Random.Range(0.5f, 1f);
-                float randB = Random.Range(0.5f, 1f);
-                // childrenLights[randIndex].material.SetColor("_EmissionColor", new Color(randR, randG, randB, 1) * 12f);
-                childrenLights[randIndex].material.SetColor("_EmissionColor", Random.ColorHSV(0, 1, 1, 1, .5f, 1, 1, 1) * 3f);
-                if (childrenLightsTransform[randIndex] != transform) {
-                    childrenLightsTransform[randIndex].rotation = Quaternion.Euler(-180, 0, 0);;
+            // float randR = Random.Range(0.5f, 1f);
+            // float randG = Random.Range(0.5f, 1f);
+            // float randB = Random.Range(0.5f, 1f);
+            // childrenLights[randIndex].material.SetColor("_EmissionColor", Random.ColorHSV(0, 1, 1, 1, .5f, 1, 1, 1) * 13f);
+            // childrenLights[randIndex].GetComponent<HueShift>().shifting = true;
+            // if (childrenLightsTransform[randIndex] != transform) {
+            //     childrenLightsTransform[randIndex].rotation = Quaternion.Euler(-180, 0, 0);;
+            // }
+            for (int i = 0; i < childrenLights.Length; i++) {
+                childrenLights[i].GetComponent<HueShift>().shifting = true;
+                if (childrenLightsTransform[i] != transform) {
+                    childrenLightsTransform[i].rotation = Quaternion.Euler(-180, 0, 0);
                 }
-                timer = 0;
+                // childrenLights[i].material.SetColor("_EmissionColor", Color.white);s
             }
-            timer += Time.deltaTime;
         }
 
         else {
