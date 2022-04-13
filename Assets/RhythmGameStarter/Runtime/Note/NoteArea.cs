@@ -165,11 +165,19 @@ namespace RhythmGameStarter
                 return;
             }
 
+            Debug.Log(currentNote);
             if (currentNote || (currentNote && keyboardInputHandler))
             {
                 switch (currentNote.action)
                 {
                     case Note.NoteAction.LongPress:
+
+                        foreach (var e in sustainEffect)
+                        {
+                            e.StartEffect(null);
+                        }
+                     
+
                         if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary || (keyboardInputHandler && keyboardInputHandler.GetTrackActionKey(track, track.transform.GetSiblingIndex())))
                         {
                             if (longNoteDetecter && longNoteDetecter.exitedLineArea)
@@ -202,7 +210,9 @@ namespace RhythmGameStarter
                             {
                                 print("noteFailed");
                                 currentAccuracy = "Miss";
+                                
                                 songManager.comboSystem.BreakCombo();
+                                currentNote.alreadyMissed = true;
                             }
 
                             longNoteDetecter.OnTouchUp();
@@ -302,6 +312,7 @@ namespace RhythmGameStarter
 
             if (note)
             {
+                currentNote = note;
                 switch (note.action)
                 {
                     case Note.NoteAction.Tap:
@@ -341,8 +352,8 @@ namespace RhythmGameStarter
                         PlayHitSound(note);
 
                         notesInRange.Remove(note);
-                        currentAccuracy = AddCombo(note, note.transform.position);
-                        //currentAccuracy = "Perfect";
+                        //currentAccuracy = AddCombo(note, note.transform.position);
+                        currentAccuracy = "Perfect";
 
                         EffectOnAccuracy();
 

@@ -8826,8 +8826,10 @@ MonoBehaviour:
   mugObj: {fileID: 0}
   mugprice: 20000
   mugPriceText: {fileID: 0}
+  redObj: {fileID: 0}
   redprice: 20000
   redPriceText: {fileID: 0}
+  frameObj: {fileID: 0}
   frameprice: 20000
   framePriceText: {fileID: 0}
   earprice: 20000
@@ -54499,6 +54501,17 @@ MonoBehaviour:
   emailIndex: -1
   responseColor: <color=#008007>
   emailsSent: 0
+  morningEmailIndexesDay1: 
+  morningEmailIndexesDay2: 
+  morningEmailIndexesDay3: 
+  morningEmailIndexesDay4: 
+  morningEmailIndexesDay5: 
+  eveningEmailIndexesDay1: 
+  eveningEmailIndexesDay2: 
+  eveningEmailIndexesDay3: 
+  eveningEmailIndexesDay4: 
+  eveningEmailIndexesDay5: 
+  objectiveManager: {fileID: 0}
 --- !u!4 &1034353650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5171086623827658261, guid: 0ef169194a8583e44a372c70faf5f712,
@@ -67440,7 +67453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1825420209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -67474,18 +67487,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objList: {fileID: 1524108974}
-  hour: 0
-  minute: 0
-  day: 1
+  rhythmGame: {fileID: 0}
   timeText: {fileID: 496222207}
   viewrshipManager: {fileID: 9948270}
   clientSusManager: {fileID: 0}
+  currencyManager: {fileID: 0}
   mailScreen: {fileID: 1029242481}
+  fade: {fileID: 0}
   task1: {fileID: 588031832}
   task2: {fileID: 1474939459}
   task3: {fileID: 786030852}
   task4: {fileID: 474178949}
   task5: {fileID: 0}
+  maxComboUI: {fileID: 0}
+  highestViewsUI: {fileID: 0}
+  moneyEarnedUI: {fileID: 0}
+  susReportUI: {fileID: 0}
   UItime: {fileID: 0}
   UIviews: {fileID: 0}
   task1circle: {fileID: 0}
