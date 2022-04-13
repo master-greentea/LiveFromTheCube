@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 47042177}
   - component: {fileID: 47042176}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: TaskCircle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,7 +833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.450002, y: -9.16}
+  m_AnchoredPosition: {x: -12.450002, y: -11}
   m_SizeDelta: {x: 2.429, y: 3.525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &47042176
@@ -7017,7 +7017,7 @@ GameObject:
   - component: {fileID: 284198770}
   - component: {fileID: 284198769}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: TaskCircle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7040,7 +7040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.450002, y: 1.7624989}
+  m_AnchoredPosition: {x: -12.450002, y: 5.6}
   m_SizeDelta: {x: 2.429, y: 3.525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &284198769
@@ -11527,7 +11527,7 @@ GameObject:
   - component: {fileID: 474178950}
   - component: {fileID: 474178949}
   m_Layer: 5
-  m_Name: Task 4
+  m_Name: Task 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11550,7 +11550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -1.694, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.100004, y: -61.2}
+  m_AnchoredPosition: {x: 12.100004, y: -50.5}
   m_SizeDelta: {x: 28.138, y: 49.647}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &474178949
@@ -12536,6 +12536,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511332098}
   m_CullTransparentMesh: 0
+--- !u!115 &512165498
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 5
+  m_Script: 
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_ExecutionOrder: 0
+  m_ClassName: ObjectiveManager/Day
+  m_Namespace: 
 --- !u!1 &517639407
 GameObject:
   m_ObjectHideFlags: 0
@@ -14266,7 +14280,7 @@ GameObject:
   - component: {fileID: 588031833}
   - component: {fileID: 588031832}
   m_Layer: 5
-  m_Name: Task 1
+  m_Name: Task 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14280,7 +14294,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588031830}
   m_LocalRotation: {x: 0, y: 0.014780132, z: -0, w: -0.9998908}
-  m_LocalPosition: {x: 0, y: 0, z: 2.1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1.4141318, y: 1.5999726, z: 0.71969527}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14289,7 +14303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -1.694, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.7, y: -12.4}
+  m_AnchoredPosition: {x: 10, y: -12.4}
   m_SizeDelta: {x: 24.789, y: 49.127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588031832
@@ -18933,7 +18947,7 @@ GameObject:
   - component: {fileID: 786030853}
   - component: {fileID: 786030852}
   m_Layer: 5
-  m_Name: Task 3
+  m_Name: Task 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18956,7 +18970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -1.694, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.100004, y: -43.7}
+  m_AnchoredPosition: {x: 12.100004, y: -37.2}
   m_SizeDelta: {x: 28.138, y: 49.647}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &786030852
@@ -58569,7 +58583,7 @@ GameObject:
   - component: {fileID: 1007726011}
   - component: {fileID: 1007726010}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: TaskCircle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58592,7 +58606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.450002, y: -9.16}
+  m_AnchoredPosition: {x: -12.450002, y: -2.4}
   m_SizeDelta: {x: 2.429, y: 3.525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007726010
@@ -60220,7 +60234,7 @@ GameObject:
   - component: {fileID: 1081391391}
   - component: {fileID: 1081391390}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: TaskCircle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60243,7 +60257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.31, y: 11.9}
+  m_AnchoredPosition: {x: -12.31, y: 14}
   m_SizeDelta: {x: 2.429, y: 3.525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1081391390
@@ -60297,7 +60311,7 @@ GameObject:
   - component: {fileID: 1085196879}
   - component: {fileID: 1085196878}
   m_Layer: 5
-  m_Name: Task 5
+  m_Name: Task 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60320,7 +60334,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -1.694, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.100004, y: -61.2}
+  m_AnchoredPosition: {x: 12.100004, y: -63.1}
   m_SizeDelta: {x: 28.138, y: 49.647}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085196878
@@ -69674,7 +69688,7 @@ GameObject:
   - component: {fileID: 1474939460}
   - component: {fileID: 1474939459}
   m_Layer: 5
-  m_Name: Task 2
+  m_Name: Task 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69688,7 +69702,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474939457}
   m_LocalRotation: {x: 0, y: 0.014780132, z: -0, w: -0.9998908}
-  m_LocalPosition: {x: 0, y: 0, z: 2.2}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1.4141318, y: 1.5999726, z: 0.71969527}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -69697,7 +69711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -1.694, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.1, y: -27.4}
+  m_AnchoredPosition: {x: 12.5, y: -23.25}
   m_SizeDelta: {x: 28.138, y: 49.647}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1474939459
@@ -70341,7 +70355,7 @@ GameObject:
   - component: {fileID: 1522223833}
   - component: {fileID: 1522223832}
   m_Layer: 5
-  m_Name: Image
+  m_Name: TaskCircle0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70545,7 +70559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'List '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -78365,6 +78379,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1825420209}
   - component: {fileID: 1825420210}
+  - component: {fileID: 1825420215}
+  - component: {fileID: 1825420214}
+  - component: {fileID: 1825420213}
+  - component: {fileID: 1825420212}
+  - component: {fileID: 1825420211}
   m_Layer: 5
   m_Name: Objective Manager
   m_TagString: Untagged
@@ -78404,30 +78423,133 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54268d30d9d5f4068abfdfcca21dc111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  days:
+  - {fileID: 1825420215}
+  - {fileID: 1825420214}
+  - {fileID: 1825420213}
+  - {fileID: 1825420212}
+  - {fileID: 1825420211}
   objList: {fileID: 1524108974}
-  rhythmGame: {fileID: 1266650856}
+  BOSU: {fileID: 1266650856}
   timeText: {fileID: 496222207}
   viewrshipManager: {fileID: 9948270}
-  clientSusManager: {fileID: 1410679085}
+  clientManager: {fileID: 1410679085}
   currencyManager: {fileID: 432897624}
   mailScreen: {fileID: 1029242481}
   fade: {fileID: 1606802451}
-  task1: {fileID: 588031832}
-  task2: {fileID: 1474939459}
-  task3: {fileID: 786030852}
-  task4: {fileID: 474178949}
-  task5: {fileID: 1085196878}
   maxComboUI: {fileID: 2078816073}
   highestViewsUI: {fileID: 938396294}
   moneyEarnedUI: {fileID: 1169003048}
   susReportUI: {fileID: 906893972}
   UItime: {fileID: 628291203}
   UIviews: {fileID: 196701257}
-  task1circle: {fileID: 1522223830}
-  task2circle: {fileID: 1081391388}
-  task3circle: {fileID: 284198767}
-  task4circle: {fileID: 1007726008}
-  task5circle: {fileID: 47042174}
+  taskCircles:
+  - {fileID: 1522223830}
+  - {fileID: 1081391388}
+  - {fileID: 284198767}
+  - {fileID: 1007726008}
+  - {fileID: 47042174}
+  taskTexts:
+  - {fileID: 588031832}
+  - {fileID: 1474939459}
+  - {fileID: 786030852}
+  - {fileID: 474178949}
+  - {fileID: 1085196878}
+--- !u!114 &1825420211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825420208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 512165498}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 4
+  tasks: 5
+  viewersNeeded: 3000
+  clientMatchesNeeded: 5
+  emailsNeeded: 10
+  morningEmailIDs: 
+  eveningEmailIDs: 
+--- !u!114 &1825420212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825420208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 512165498}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 3
+  tasks: 5
+  viewersNeeded: 3000
+  clientMatchesNeeded: 5
+  emailsNeeded: 10
+  morningEmailIDs: 
+  eveningEmailIDs: 
+--- !u!114 &1825420213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825420208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 512165498}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 2
+  tasks: 5
+  viewersNeeded: 3000
+  clientMatchesNeeded: 5
+  emailsNeeded: 10
+  morningEmailIDs: 
+  eveningEmailIDs: 
+--- !u!114 &1825420214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825420208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 512165498}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1
+  tasks: 5
+  viewersNeeded: 3000
+  clientMatchesNeeded: 5
+  emailsNeeded: 10
+  morningEmailIDs: 
+  eveningEmailIDs: 
+--- !u!114 &1825420215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825420208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 512165498}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  tasks: 5
+  viewersNeeded: 3000
+  clientMatchesNeeded: 5
+  emailsNeeded: 10
+  morningEmailIDs: 
+  eveningEmailIDs: 
 --- !u!1 &1835213152
 GameObject:
   m_ObjectHideFlags: 0
