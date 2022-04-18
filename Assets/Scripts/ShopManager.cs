@@ -37,79 +37,62 @@ public class ShopManager : MonoBehaviour
     // juice
     // [SerializeField]
     // GameObject juiceObj;
-    [SerializeField]
-    int juiceprice = 15;
-    [SerializeField]
-    TMPro.TextMeshProUGUI juicePriceText;
+    [SerializeField] int juiceprice = 15;
+    [SerializeField] TMPro.TextMeshProUGUI juicePriceText;
     bool boughtJuice;
 
     // kirby
-    [SerializeField]
-    GameObject kirbyObj;
-    [SerializeField]
-    int kirbyprice = 250;
-    [SerializeField]
-    TMPro.TextMeshProUGUI kirbyPriceText;
+    [SerializeField] GameObject kirbyObj;
+    [SerializeField] int kirbyprice = 250;
+    [SerializeField] TMPro.TextMeshProUGUI kirbyPriceText;
     bool boughtKirby;
 
     // mirror
     // [SerializeField]
     // GameObject mirrorObj;
-    [SerializeField]
-    int mirrorprice = 10;
-    [SerializeField]
-    TMPro.TextMeshProUGUI mirrorPriceText;
+    [SerializeField] int mirrorprice = 10;
+    [SerializeField] TMPro.TextMeshProUGUI mirrorPriceText;
     bool boughtMirror;
 
     // plant
-    [SerializeField]
-    GameObject plantObj;
-    [SerializeField]
-    int plantprice = 170;
-    [SerializeField]
-    TMPro.TextMeshProUGUI plantPriceText;
+    [SerializeField] GameObject plantObj;
+    [SerializeField] int plantprice = 170;
+    [SerializeField] TMPro.TextMeshProUGUI plantPriceText;
     bool boughtPlant;
 
     // mug
-    [SerializeField]
-    GameObject mugObj;
-    [SerializeField]
-    int mugprice = 20000;
-    [SerializeField]
-    TMPro.TextMeshProUGUI mugPriceText;
+    [SerializeField] GameObject mugObj;
+    [SerializeField] int mugprice = 20000;
+    [SerializeField] TMPro.TextMeshProUGUI mugPriceText;
     bool boughtMug;
 
     // red
-    [SerializeField]
-    GameObject redObj;
-    [SerializeField]
-    int redprice = 20000;
-    [SerializeField]
-    TMPro.TextMeshProUGUI redPriceText;
+    [SerializeField] GameObject redObj;
+    [SerializeField] int redprice = 20000;
+    [SerializeField] TMPro.TextMeshProUGUI redPriceText;
     bool boughtRed;
 
     // frame
-    [SerializeField]
-    GameObject frameObj;
-    [SerializeField]
-    int frameprice = 20000;
-    [SerializeField]
-    TMPro.TextMeshProUGUI framePriceText;
+    [SerializeField] GameObject frameObj;
+    [SerializeField] int frameprice = 20000;
+    [SerializeField] TMPro.TextMeshProUGUI framePriceText;
     bool boughtFrame;
 
     // ear
-    [SerializeField]
-    int earprice = 20000;
-    [SerializeField]
-    TMPro.TextMeshProUGUI earPriceText;
+    [SerializeField] int earprice = 20000;
+    [SerializeField] TMPro.TextMeshProUGUI earPriceText;
     bool boughtEar;
+    [SerializeField] Sprite earSprite;
 
     // dress
-    [SerializeField]
-    int dressprice = 20000;
-    [SerializeField]
-    TMPro.TextMeshProUGUI dressPriceText;
+    [SerializeField] int dressprice = 20000;
+    [SerializeField] TMPro.TextMeshProUGUI dressPriceText;
     bool boughtDress;
+    [SerializeField] Sprite dressSprite;
+
+    // PLYAER APPERANCE
+    [SerializeField] SpriteRenderer player;
+    [SerializeField] Sprite bothSprite;
 
     void Start(){
         mmanager = MoneyManager.GetComponent<CurrencySystem>();
@@ -278,8 +261,35 @@ public class ShopManager : MonoBehaviour
         earButton.gameObject.transform.parent.transform.Find("detes_e").gameObject.SetActive(true);
     }
 
+    public void EarBuys() {
+        if (CheckMoney(earprice)) {
+            boughtEar = true;
+            mmanager.money -= earprice;
+            earSoldOut.SetActive(true);
+            earButton.GetComponent<Button>().enabled = false;
+            PlayerApperanceChange();
+        }
+    }
+
     void DressOnClick() {
         dressButton.gameObject.transform.parent.transform.Find("detes_d").gameObject.SetActive(true);
+    }
+
+    public void DressBuys() {
+        if (CheckMoney(dressprice)) {
+            boughtDress = true;
+            mmanager.money -= dressprice;
+            dressSoldOut.SetActive(true);
+            dressButton.GetComponent<Button>().enabled = false;
+            PlayerApperanceChange();
+        }
+    }
+
+    void PlayerApperanceChange()
+    {
+        if (boughtDress && !boughtEar) player.sprite = dressSprite;
+        else if (!boughtDress && boughtEar) player.sprite = earSprite;
+        else if (boughtDress && boughtEar) player.sprite = bothSprite;
     }
 
     bool CheckMoney(int price) {

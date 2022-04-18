@@ -26,7 +26,7 @@ public class DiscoLights : MonoBehaviour
         }
 
         if (lightSwitched) {
-            light.color = Color.HSVToRGB(Mathf.PingPong(Time.time * .85f, 1), 1f, 1f);
+            light.color = Color.HSVToRGB(Mathf.PingPong(Time.time * .25f, 1), .85f, 1f);
         }
         else {
             light.color = Color.black;
