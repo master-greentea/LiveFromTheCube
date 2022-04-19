@@ -3646,7 +3646,7 @@ MonoBehaviour:
   endscreen: {fileID: 1093758365}
   playOnAwake: 0
   defaultSong: {fileID: 11400000, guid: 4c1b0eb1680cf4369855970d2df85e19, type: 2}
-  delay: 4
+  delay: 3
   looping: 0
   autoTimeScalePause: 0
   progressAsPercentage: 0
