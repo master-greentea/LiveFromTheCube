@@ -37,7 +37,7 @@ public class CameraMovementRedo : MonoBehaviour
 		if (apps[0].activeInHierarchy) // bosu
 		{
 			homingTo = new Vector3(0, 5, 0);
-			FOVTarget = 40;
+			FOVTarget = 50;
 			return 1;
 		}
 		else if (apps[3].activeInHierarchy || apps[4].activeInHierarchy || apps[1].activeInHierarchy) // mail, bamazon, client
