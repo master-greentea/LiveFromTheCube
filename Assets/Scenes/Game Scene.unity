@@ -16062,6 +16062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rhythmGame: {fileID: 2135508171}
   susManager: {fileID: 733527836}
+  lightsoff: {fileID: 2024205151}
   lightSwitched: 0
 --- !u!114 &563187283
 MonoBehaviour:
@@ -24875,7 +24876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &841652857
 Transform:
   m_ObjectHideFlags: 0
