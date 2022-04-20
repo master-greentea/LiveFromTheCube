@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Computer
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
-  m_ShaderKeywords: DR_CEL_EXTRA_ON DR_ENABLE_LIGHTMAP_DIR DR_SPECULAR_ON _CELPRIMARYMODE_SINGLE
+  m_ShaderKeywords: DR_CEL_EXTRA_ON DR_RIM_ON DR_SPECULAR_ON _CELPRIMARYMODE_SINGLE
     _TEXTUREBLENDINGMODE_MULTIPLY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -116,11 +116,11 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FlatRimEdgeSmoothness: 1
-    - _FlatRimLightAlign: 0
-    - _FlatRimSize: 0.624
+    - _FlatRimEdgeSmoothness: 0.212
+    - _FlatRimLightAlign: 0.482
+    - _FlatRimSize: 0.58
     - _FlatSpecularEdgeSmoothness: 0
-    - _FlatSpecularSize: 0.1
+    - _FlatSpecularSize: 0.122
     - _Flatness: 1
     - _FlatnessExtra: 1
     - _GlossMapScale: 0
@@ -131,25 +131,25 @@ Material:
     - _GradientCenterY: 0
     - _GradientEnabled: 0
     - _GradientSize: 10
-    - _LightContribution: 1
-    - _LightFalloffSize: 1
+    - _LightContribution: 0.776
+    - _LightFalloffSize: 0.144
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 6
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineDepthOffset: 0
+    - _OutlineDepthOffset: 0.024
     - _OutlineEnabled: 0
     - _OutlineScale: 1
     - _OutlineWidth: 1
-    - _OverrideLightmapDir: 1
+    - _OverrideLightmapDir: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimEnabled: 0
-    - _SelfShadingSize: 0.515
-    - _SelfShadingSizeExtra: 0.608
-    - _ShadowEdgeSize: 0.004
-    - _ShadowEdgeSizeExtra: 0.021
+    - _RimEnabled: 1
+    - _SelfShadingSize: 0.621
+    - _SelfShadingSizeExtra: 0.216
+    - _ShadowEdgeSize: 0
+    - _ShadowEdgeSizeExtra: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 1
@@ -166,7 +166,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
+    - _BaseColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDim: {r: 0.103773594, g: 0.09741012, b: 0.09741012, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
