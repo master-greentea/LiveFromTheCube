@@ -16,9 +16,9 @@ public class ObjectiveManager : MonoBehaviour
 		[SerializeField] public int viewersNeeded; // task 0
 		[SerializeField] public int clientMatchesNeeded; // task 1
 		[SerializeField] public int emailsNeeded; // task 2
-		[SerializeField] public int[] morningEmailIDs; // task 3
-		[SerializeField] public int[] eveningEmailIDs; // task 4
-		[NonSerialized] public bool[] taskComplete;
+		[NonSerialized] public int[] morningEmailIDs; // task 3
+		[NonSerialized] public int[] eveningEmailIDs; // task 4
+		[NonSerialized] public bool[] tasksComplete;
 
 	}
 
@@ -29,7 +29,7 @@ public class ObjectiveManager : MonoBehaviour
 	}
 
 
-	[SerializeField] Day[] days;
+	[SerializeField]  Day[] days;
 	Day today;
 	int dateOfToday = 0;
 
@@ -47,7 +47,7 @@ public class ObjectiveManager : MonoBehaviour
 	[SerializeField] GameObject mailScreen;
 	[SerializeField] GameObject fade;
 
-	EmailLoader emailloader;
+	EmailLoader emailLoader;
 	ClientMatching clientmatch;
 	Viewship viewership;
 	CurrencySystem currensys;
@@ -72,35 +72,7 @@ public class ObjectiveManager : MonoBehaviour
 	// the list of tasks
 	[SerializeField] GameObject[] taskCircles;
 	[SerializeField] TextMeshProUGUI[] taskTexts;
-	/*
-	private bool task1complete = false;
-	private bool task2complete = false;
-	private bool task3complete = false;
-	private bool task4complete = false;
-	private bool task5complete = false;
 
-
-	public GameObject task1circle;
-	public GameObject task2circle;
-	public GameObject task3circle;
-	public GameObject task4circle;
-	public GameObject task5circle;
-
-
-	//in theory i would import the days from the day manager 
-	private bool day1 = false;
-	private bool day2 = false;
-	private bool day3 = false;
-	private bool day4 = false;
-	private bool day5 = false;
-
-	public TMPro.TextMeshProUGUI task1;
-	public TMPro.TextMeshProUGUI task2;
-	public TMPro.TextMeshProUGUI task3;
-	public TMPro.TextMeshProUGUI task4;
-	public TMPro.TextMeshProUGUI task5;
-
-	*/
 
 	private float viewBenchmark = 0;
 	private int emailNumBenchmark = 0;
@@ -113,15 +85,12 @@ public class ObjectiveManager : MonoBehaviour
 	private float clientsMatched = 0;
 	float timer = 1f; //seconds
 
-	List<Email> specialEmails;
-
-
 
 	void Start()
 	{
 		// Objects initialize 
 		viewership = viewrshipManager.GetComponent<Viewship>();
-		emailloader = mailScreen.GetComponent<EmailLoader>();
+		emailLoader = mailScreen.GetComponent<EmailLoader>();
 		clientmatch = clientManager.GetComponent<ClientMatching>();
 		currensys = currencyManager.GetComponent<CurrencySystem>();
 		statsystem = BOSU.GetComponent<StatsSystem>();
@@ -137,25 +106,8 @@ public class ObjectiveManager : MonoBehaviour
 		// day setup
 		days = days.OrderBy(c => c.index).ToArray(); // sort the days, in case they are placed in the wrong order
 		DayProgress();
-		today.taskComplete = new bool[today.tasks];
+		today.tasksComplete = new bool[today.tasks];
 
-		
-
-		
-
-
-		/*
-		viewBenchmark = 1000;
-		emailNumBenchmark = 5;
-		clientNumBenchmark = 2;
-
-		
-		task1circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
-		task2circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
-		task3circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
-		task4circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
-		task5circle.GetComponent<Image>().color = new Color32(cc, cc, cc, 100);
-		*/
 	}
 
 	void Update()
@@ -165,10 +117,6 @@ public class ObjectiveManager : MonoBehaviour
 		TimeProgress();
 		UpdateText();
 
-		views = viewership.viewers;
-		UIviews.text = viewership.viewers + "";
-		emailsSent = emailloader.emailIndex;
-		clientsMatched = clientmatch.clientMatched;
 
 		if (views > viewBenchmark)
 		{
@@ -327,33 +275,60 @@ public class ObjectiveManager : MonoBehaviour
 		{
 
 			minute++;
+			ThingsToDoByMinute();
+			views = viewership.viewers;
+			UIviews.text = viewership.viewers + "";
+			clientsMatched = clientmatch.clientMatched;
+			CheckTasksComplete();
+			
 			if (minute >= 60)
 			{
 
 				hour++;
-				if (hour >= 15)
-				{
-					hour = 9;
-					DayProgress();
-				}
+				
 				minute = 0;
 			}
 			timer = 1f;
 		}
 
 	}
+
+	private void ThingsToDoByMinute()
+	{
+		if (hour == 15 && minute == 0)
+		{
+			emailLoader.InsertStoryEmails(day, 15); // add evening emails at 15:00
+		}
+		if (hour == 9 && minute == 1)
+		{
+			emailLoader.InsertStoryEmails(day, 9);
+			Debug.Log("morning emails inserted");
+		}
+		if (hour >= 17 && minute == 0) // day ends at 17:00
+		{
+			hour = 9;
+			DayProgress();
+		}
+	}
+
 	void DayProgress()
 	{
 		today = days[dateOfToday];
-		emailloader.ResetDay();
+		today.tasksComplete = new bool[today.tasks];
+		emailsSent = 0;
+		clientsMatched = 0;
 
 
 	}
+	public void EmailSent()
+	{
+		emailsSent++;
+	}
 	void UpdateText()
 	{
-		taskTexts[0].text = "Send" + today.emailsNeeded + " emails";
-		taskTexts[1].text = "Use phone less than 3 times but make 2 calls";
-		taskTexts[2].text = "Don't get Caught";
+		taskTexts[0].text = "Send" + today.emailsNeeded + " emails. Emails sent: "+emailsSent;
+		taskTexts[1].text = "Treat yourself with a new decor!";
+		taskTexts[2].text = "Reply to your morning and evening emails!";
 		taskTexts[3].text = "Reach " + today.viewersNeeded + " views. View num: " + views;
 		taskTexts[4].text = "Match " + today.clientMatchesNeeded + " Client Tasks. " + "Clients matched: " + clientsMatched;
 	}
@@ -361,33 +336,16 @@ public class ObjectiveManager : MonoBehaviour
 	bool CheckTasksComplete()
 	{
 		// check each task
-		today.taskComplete[0] = viewership.viewers >= today.viewersNeeded; // viewers 
-		today.taskComplete[1] = clientmatch.clientMatched >= today.clientMatchesNeeded; // client matches
-		today.taskComplete[2] = emailsSent >= today.emailsNeeded; // emails sent
-		bool morningEmailsSent = true;
-		foreach (int id in today.morningEmailIDs)
-		{
-			if (!emailloader.emails[id].isSent)
-			{
-				morningEmailsSent = false;
-			}
-		}
-		today.taskComplete[3] = morningEmailsSent; // morning emails sent
-		bool eveningEmailsSent = true;
-		foreach (int id in today.eveningEmailIDs)
-		{
-			if (!emailloader.emails[id].isSent)
-			{
-				eveningEmailsSent = false;
-			}
-		}
-		today.taskComplete[4] = eveningEmailsSent; // evening emails sent
+		today.tasksComplete[3] = viewership.viewers >= today.viewersNeeded; // viewers 
+		today.tasksComplete[4] = clientmatch.clientMatched >= today.clientMatchesNeeded; // client matches
+		today.tasksComplete[0] = emailsSent >= today.emailsNeeded; // emails sent
+		today.tasksComplete[2] = emailLoader.TodayStoryEmailsReplied(day);
 
 
 		// Display
 		for (int i = 0;i<today.tasks;i++)
 		{
-			if (today.taskComplete[i])
+			if (today.tasksComplete[i])
 			{
 				taskTexts[i].fontStyle = FontStyles.Strikethrough;
 				taskCircles[i].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
@@ -397,7 +355,7 @@ public class ObjectiveManager : MonoBehaviour
 
 		// finalize checking
 		bool allTasksComeplete = true;
-		foreach(bool taskComplete in today.taskComplete)
+		foreach(bool taskComplete in today.tasksComplete)
 		{
 			if (!taskComplete)
 			{

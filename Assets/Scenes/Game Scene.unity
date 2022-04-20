@@ -51870,7 +51870,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _bosuScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2135508171}
     - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
         type: 3}
       propertyPath: _mailScreen
@@ -51900,7 +51900,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _songManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2135508178}
     - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
         type: 3}
       propertyPath: _bamazonScreen
@@ -51974,7 +51974,7 @@ PrefabInstance:
     - target: {fileID: 7031866242856478867, guid: 1698f7408ff624952b953c707286ca19,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1698f7408ff624952b953c707286ca19, type: 3}
@@ -53668,7 +53668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1029242482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -68533,8 +68533,6 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
-  morningEmailIDs: 
-  eveningEmailIDs: 
 --- !u!114 &1825420212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68552,8 +68550,6 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
-  morningEmailIDs: 
-  eveningEmailIDs: 
 --- !u!114 &1825420213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68571,8 +68567,6 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
-  morningEmailIDs: 
-  eveningEmailIDs: 
 --- !u!114 &1825420214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68590,8 +68584,6 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
-  morningEmailIDs: 
-  eveningEmailIDs: 
 --- !u!114 &1825420215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68609,8 +68601,6 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
-  morningEmailIDs: 
-  eveningEmailIDs: 
 --- !u!1 &1837536854
 GameObject:
   m_ObjectHideFlags: 0
