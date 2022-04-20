@@ -130,8 +130,8 @@ Material:
     - _GradientCenterY: 0
     - _GradientEnabled: 0
     - _GradientSize: 10
-    - _LightContribution: 0.524
-    - _LightFalloffSize: 0.504
+    - _LightContribution: 0.826
+    - _LightFalloffSize: 0.006
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 0
     - _Metallic: 0
