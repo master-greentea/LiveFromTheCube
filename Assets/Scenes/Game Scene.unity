@@ -2881,7 +2881,7 @@ MonoBehaviour:
     uiDisplay: {fileID: 950418277}
   - name: Yellow
     color: {r: 0.9803922, g: 0.95294124, b: 0.86666673, a: 1}
-    uiDisplay: {fileID: 0}
+    uiDisplay: {fileID: 225941239}
   - name: Green
     color: {r: 0.72156864, g: 0.9490197, b: 0.90196085, a: 1}
     uiDisplay: {fileID: 417197366}
@@ -4551,6 +4551,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216645511}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &225941239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2317006575145116618, guid: 0ef169194a8583e44a372c70faf5f712,
+    type: 3}
+  m_PrefabInstance: {fileID: 909507877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &232111227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7649945105542053939, guid: f8251358aa06f95408ef29a6f27ceec7,
