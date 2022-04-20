@@ -3645,7 +3645,7 @@ MonoBehaviour:
   audioSource: {fileID: 1270975605}
   endscreen: {fileID: 1093758365}
   playOnAwake: 0
-  defaultSong: {fileID: 11400000, guid: 4c1b0eb1680cf4369855970d2df85e19, type: 2}
+  defaultSong: {fileID: 11400000, guid: ac88dfc44944640c39bada0d6c99601f, type: 2}
   delay: 3
   looping: 0
   autoTimeScalePause: 0
@@ -6029,6 +6029,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6382729411762113933, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6385503504402034501, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: looping
@@ -6189,6 +6194,11 @@ PrefabInstance:
       propertyPath: sustainEffect.Array.data[0]
       value: 
       objectReference: {fileID: 1342178332}
+    - target: {fileID: 9198389614552931256, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef169194a8583e44a372c70faf5f712, type: 3}
 --- !u!4 &269186605 stripped
@@ -8834,8 +8844,12 @@ MonoBehaviour:
   framePriceText: {fileID: 0}
   earprice: 20000
   earPriceText: {fileID: 0}
+  earSprite: {fileID: 0}
   dressprice: 20000
   dressPriceText: {fileID: 0}
+  dressSprite: {fileID: 0}
+  player: {fileID: 0}
+  bothSprite: {fileID: 0}
 --- !u!1 &437574233
 GameObject:
   m_ObjectHideFlags: 0
@@ -51187,7 +51201,7 @@ MonoBehaviour:
         m_MethodName: SetSong
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 4c1b0eb1680cf4369855970d2df85e19,
+          m_ObjectArgument: {fileID: 11400000, guid: ac88dfc44944640c39bada0d6c99601f,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: RhythmGameStarter.SongItem, com.bennykok.rgs.runtime
           m_IntArgument: 0
@@ -58333,6 +58347,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6382729411762113933, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6385503504402034501, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: looping
@@ -58503,6 +58522,11 @@ PrefabInstance:
       propertyPath: sustainEffect.Array.data[0]
       value: 
       objectReference: {fileID: 1256271051}
+    - target: {fileID: 9198389614552931256, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef169194a8583e44a372c70faf5f712, type: 3}
 --- !u!1 &1326608763 stripped
@@ -65871,6 +65895,11 @@ PrefabInstance:
       propertyPath: inUse
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6382729411762113933, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6385503504402034501, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: looping
@@ -66036,6 +66065,11 @@ PrefabInstance:
       propertyPath: sustainEffect.Array.data[0]
       value: 
       objectReference: {fileID: 488655608}
+    - target: {fileID: 9198389614552931256, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef169194a8583e44a372c70faf5f712, type: 3}
 --- !u!1 &1742085271
@@ -67486,30 +67520,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54268d30d9d5f4068abfdfcca21dc111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  days: []
   objList: {fileID: 1524108974}
-  rhythmGame: {fileID: 0}
+  BOSU: {fileID: 0}
   timeText: {fileID: 496222207}
   viewrshipManager: {fileID: 9948270}
-  clientSusManager: {fileID: 0}
+  clientManager: {fileID: 0}
   currencyManager: {fileID: 0}
   mailScreen: {fileID: 1029242481}
   fade: {fileID: 0}
-  task1: {fileID: 588031832}
-  task2: {fileID: 1474939459}
-  task3: {fileID: 786030852}
-  task4: {fileID: 474178949}
-  task5: {fileID: 0}
   maxComboUI: {fileID: 0}
   highestViewsUI: {fileID: 0}
   moneyEarnedUI: {fileID: 0}
   susReportUI: {fileID: 0}
   UItime: {fileID: 0}
   UIviews: {fileID: 0}
-  task1circle: {fileID: 0}
-  task2circle: {fileID: 0}
-  task3circle: {fileID: 0}
-  task4circle: {fileID: 0}
-  task5circle: {fileID: 0}
+  taskCircles: []
+  taskTexts: []
 --- !u!4 &1832876589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7812488517002309824, guid: 0ef169194a8583e44a372c70faf5f712,
@@ -68287,6 +68314,11 @@ PrefabInstance:
       propertyPath: inUse
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6382729411762113933, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6385503504402034501, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: looping
@@ -68452,6 +68484,11 @@ PrefabInstance:
       propertyPath: sustainEffect.Array.data[0]
       value: 
       objectReference: {fileID: 1145316079}
+    - target: {fileID: 9198389614552931256, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef169194a8583e44a372c70faf5f712, type: 3}
 --- !u!1 &1868888351
