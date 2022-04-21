@@ -166,6 +166,5 @@ public class TutorialManager : MonoBehaviour
     public void PurchaseCorrectItem()
     {
         _correctItemHasBeenPurchased = true;
-        Debug.Log("penis");
     }
 }
