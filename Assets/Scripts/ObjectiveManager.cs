@@ -108,6 +108,9 @@ public class ObjectiveManager : MonoBehaviour
 		DayProgress();
 		today.tasksComplete = new bool[today.tasks];
 
+		taskCircles[1].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
+		taskCircles[2].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
+
 	}
 
 	void Update()
@@ -116,41 +119,8 @@ public class ObjectiveManager : MonoBehaviour
 
 		TimeProgress();
 		UpdateText();
-
-
-		if (views > viewBenchmark)
-		{
-			//task4complete = true;
-
-		}
-
-
-		//END SCREEN STUFF 
-		if (highestView < views)
-		{
-			highestView = views;
-		}
-
-		// END SCREEN STUFF STOPS HERE
-
-
-
-
-		/*
-		//TASK STUFF 
-		if (clientMatched >= clientNumBenchmark)
-		{
-			task5complete = true;
-		}
-
-		if (task1complete == true && task2complete == true && task3complete == true && task4complete == true && task5complete == true)
-		{
-			dayEnd();
-		}
-		*/
 	}
 
-	//MORE END SCREEN STUFF
 	void dayEnd()
 	{
 		fade.SetActive(true);
@@ -362,7 +332,7 @@ public class ObjectiveManager : MonoBehaviour
 				allTasksComeplete = false;
 			}
 		}
-
 		return allTasksComeplete;
+		
 	}
 }
