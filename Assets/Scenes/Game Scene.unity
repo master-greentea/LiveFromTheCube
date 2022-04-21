@@ -51674,7 +51674,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _bosuScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142343594}
     - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
         type: 3}
       propertyPath: _mailScreen
@@ -51704,7 +51704,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _songManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142343601}
     - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
         type: 3}
       propertyPath: _bamazonScreen
@@ -64738,9 +64738,9 @@ MonoBehaviour:
   maxChatValue: 3
   chatMessage: []
   timeToRollChat: 3
-  listenToGame: 0
+  listenToGame: 1
   donationMultiplier: 100
-  rhythmManager: {fileID: 0}
+  rhythmManager: {fileID: 2142343594}
   moneyManager: {fileID: 432897624}
   viewerManager: {fileID: 9948270}
 --- !u!114 &1579613558

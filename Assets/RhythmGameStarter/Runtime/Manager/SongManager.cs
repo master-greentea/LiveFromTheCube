@@ -238,7 +238,7 @@ namespace RhythmGameStarter
 
                 //end condition
 
-                endscreen.SetActive(true);
+               // endscreen.SetActive(true);
                 //If its looping, we replay the current song
                 if (looping)
                     PlaySong(currentSongItem);
