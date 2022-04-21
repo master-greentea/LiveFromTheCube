@@ -12,4 +12,6 @@ public class Email
     public string responseSubject;
     public string responseBody;
     public bool isSent = false;
+    public int day;
+    public int hour;
 }
