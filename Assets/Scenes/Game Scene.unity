@@ -12666,9 +12666,8 @@ MonoBehaviour:
       earned.
     - All purchases will be instantly fulfilled with Bamazon Brime using drone tech
       and delivered via ceiling.
-    - Now you're ready to start the game! Stream, email, and match your way to the
-      top!
-    - You can also press TAB to switch between open apps.
+    - Why don't you use some of your money to buy a mug? Just click on the mug to
+      see its description and buy it!
 --- !u!1 &681228434
 GameObject:
   m_ObjectHideFlags: 0
@@ -64222,7 +64221,7 @@ PrefabInstance:
     - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
@@ -64236,6 +64235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 432897627}
@@ -64246,12 +64250,23 @@ PrefabInstance:
       objectReference: {fileID: 1026410516}
     - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+    - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
@@ -64266,6 +64281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PurchaseCorrectItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ShopManager, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -64276,12 +64296,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: TutorialManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484412560466484463, guid: 9f73dc309a40a463ebc68b27f0e44be4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5978730879635100874, guid: 9f73dc309a40a463ebc68b27f0e44be4,
