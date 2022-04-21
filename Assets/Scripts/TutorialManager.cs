@@ -28,6 +28,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private DialogueTrigger _correctSolution;
     [SerializeField] private DialogueTrigger _incorrectSolution;
     [SerializeField] private DialogueTrigger _whew;
+    [SerializeField] private DialogueTrigger _readyToStartGame;
 
     [SerializeField] private Color _grayedOutColor;
 
@@ -36,6 +37,7 @@ public class TutorialManager : MonoBehaviour
     public int tutorialEmailsPostBosu = 2;
     public bool excelHasBeenTutorialized = false;
     public bool correctClientMatch = false;
+    private bool _correctItemHasBeenPurchased = false;
 
     private void Awake()
     {
@@ -60,6 +62,8 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator Instructions()
     {
+        //initialize
+        //force send 1 mail
         Image bosuImage = _bosuIcon.GetComponent<Image>();
         Color bosuColor = bosuImage.color;
         bosuImage.color = _grayedOutColor;
@@ -86,6 +90,7 @@ public class TutorialManager : MonoBehaviour
         notesNotification.SetActive(false);
         yield return new WaitUntil(() => mailSentCount >= tutorialEmailsPreBosu);
 
+        //force play bosu
         _mailScreen.SetActive(false);
         _mailIcon.enabled = false;
         bosuImage.color = bosuColor;
@@ -93,6 +98,7 @@ public class TutorialManager : MonoBehaviour
         bosuNotification.SetActive(true);
         yield return new WaitUntil(() => _susManager.suspicionCount >= 20f);
 
+        //force send 1 mail
         _songManager.PauseSong();
         _watchOutForBoss.TriggerDialogue();
         _bosuIcon.enabled = false;
@@ -106,6 +112,7 @@ public class TutorialManager : MonoBehaviour
         _bosuScreen.SetActive(false);
         yield return new WaitUntil(() => mailSentCount >= tutorialEmailsPostBosu);
 
+        //force open notes
         _whew.TriggerDialogue();
         _susManager.suspicionGain = suspicionGain;
         _susManager.suspicionLoss = suspicionLoss;
@@ -120,6 +127,7 @@ public class TutorialManager : MonoBehaviour
 
         yield return new WaitUntil(() => _dialogueManager.IsDialoguePlaying == false);
 
+        //force client matching
         _notesIcon.enabled = false;
         _excelIcon.enabled = true;
         excelNotification.SetActive(true);
@@ -136,13 +144,15 @@ public class TutorialManager : MonoBehaviour
         }
         yield return new WaitUntil(() => _dialogueManager.IsDialoguePlaying == false);
 
+        //force bamazon
         _excelIcon.enabled = false;
         _bamazonIcon.enabled = true;
         bamazonNotification.SetActive(true);
         bamazonImage.color = bamazonColor;
         _excelScreen.SetActive(false);
-        yield return new WaitUntil(() => _bamazonScreen.activeSelf == true);
+        yield return new WaitUntil(() => _correctItemHasBeenPurchased == true);
 
+        _readyToStartGame.TriggerDialogue();
         yield return new WaitUntil(() => _dialogueManager.IsDialoguePlaying == false);
 
         _bamazonScreen.SetActive(false);
@@ -151,5 +161,11 @@ public class TutorialManager : MonoBehaviour
         _excelIcon.enabled = true;
         _notesIcon.enabled = true;
         yield break;
+    }
+
+    public void PurchaseCorrectItem()
+    {
+        _correctItemHasBeenPurchased = true;
+        Debug.Log("penis");
     }
 }
