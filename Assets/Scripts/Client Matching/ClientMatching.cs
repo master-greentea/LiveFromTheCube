@@ -27,7 +27,9 @@ public class ClientMatching : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _lookingToText;
     [SerializeField] private ClientSuspicion _clientSuspicion;
     [SerializeField] private float _reduceSusCount;
-
+    [SerializeField] private GameObject _correctScreen;
+    [SerializeField] private GameObject _incorrectScreen;
+    [SerializeField] private float _correctnessScreenTime;
 
     [SerializeField] GameObject currencyManager;
 
@@ -86,16 +88,8 @@ public class ClientMatching : MonoBehaviour
         }
         else
         {
-            Debug.Log("Incorrect.");
-            currensys.money -= moneyDecreased;
-
-            if (!TutorialManager.Instance.excelHasBeenTutorialized)
-            {
-                TutorialManager.Instance.correctClientMatch = false;
-                TutorialManager.Instance.excelHasBeenTutorialized = true;
-            }
+            UnmatchClient();
         }
-        GenerateChoice();
     }
 
     private void MatchClient()
@@ -103,12 +97,37 @@ public class ClientMatching : MonoBehaviour
         //player got match correct
         Debug.Log("Correct!");
         _clientSuspicion.ReduceSus(_reduceSusCount);
+        StartCoroutine(ShowCorrectness(_correctScreen));
 
-        if (!TutorialManager.Instance.excelHasBeenTutorialized)
+        if (TutorialManager.Instance != null && !TutorialManager.Instance.excelHasBeenTutorialized)
         {
             TutorialManager.Instance.correctClientMatch = true;
+        }
+    }
+
+    private void UnmatchClient()
+    {
+        Debug.Log("Incorrect.");
+        currensys.money -= moneyDecreased;
+        StartCoroutine(ShowCorrectness(_incorrectScreen));
+
+        if (TutorialManager.Instance != null && !TutorialManager.Instance.excelHasBeenTutorialized)
+        {
+            TutorialManager.Instance.correctClientMatch = false;
+        }
+    }
+
+    private IEnumerator ShowCorrectness(GameObject screenToShow)
+    {
+        screenToShow.SetActive(true);
+        yield return new WaitForSeconds(_correctnessScreenTime);
+        screenToShow.SetActive(false);
+        if (TutorialManager.Instance != null && !TutorialManager.Instance.excelHasBeenTutorialized)
+        {
             TutorialManager.Instance.excelHasBeenTutorialized = true;
         }
+        GenerateChoice();
+        yield break;
     }
 
     private T GetRandomElement<T>(T[] deck)

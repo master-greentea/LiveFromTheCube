@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7031866241245518984}
   - component: {fileID: 7031866241245518988}
   - component: {fileID: 7031866241245518991}
+  - component: {fileID: 3851562318147722244}
   m_Layer: 0
   m_Name: Tutorial Triggers
   m_TagString: Untagged
@@ -107,6 +108,26 @@ MonoBehaviour:
       for.
     - Matching clients with the wrong solutions companies will result in a pay cut,
       so be careful!
+--- !u!114 &3851562318147722244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031866241245518987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb147c9ecfed24b0c82f0fe095067e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Bamazon
+    sentences:
+    - Some items, like this mug, are purely aesthetic. Others affect gameplay, so
+      pay attention to the descriptions!
+    - Now you're ready to start the game! Stream, email, and match your way to the
+      top!
+    - You can also press TAB to switch between open apps.
 --- !u!1 &7031866242856478867
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3d8c37663db49f89d71504ab0f3462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isTutorialShown: 1
   _mailIcon: {fileID: 0}
   _bosuIcon: {fileID: 0}
   _bamazonIcon: {fileID: 0}
@@ -169,6 +191,7 @@ MonoBehaviour:
   _correctSolution: {fileID: 7031866241245518988}
   _incorrectSolution: {fileID: 7031866241245518991}
   _whew: {fileID: 7031866241245518984}
+  _readyToStartGame: {fileID: 3851562318147722244}
   _grayedOutColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   mailSentCount: 0
   tutorialEmailsPreBosu: 1
