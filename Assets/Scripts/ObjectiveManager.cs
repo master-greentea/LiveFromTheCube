@@ -16,9 +16,14 @@ public class ObjectiveManager : MonoBehaviour
 		[SerializeField] public int viewersNeeded; // task 0
 		[SerializeField] public int clientMatchesNeeded; // task 1
 		[SerializeField] public int emailsNeeded; // task 2
+		[SerializeField] public int decorsNeeded; // t
 		[NonSerialized] public int[] morningEmailIDs; // task 3
 		[NonSerialized] public int[] eveningEmailIDs; // task 4
 		[NonSerialized] public bool[] tasksComplete;
+		[NonSerialized] public int views;
+		[NonSerialized] public int emailsSent;
+		[NonSerialized] public int clientsMatched;
+		[NonSerialized] public int decorsBought;
 
 	}
 
@@ -74,12 +79,6 @@ public class ObjectiveManager : MonoBehaviour
 	[SerializeField] TextMeshProUGUI[] taskTexts;
 
 
-	private float viewBenchmark = 0;
-	private int emailNumBenchmark = 0;
-	private int phoneNumBenchmark = 0;
-	private int clientNumBenchmark = 0;
-	private bool caught = false;
-
 	private float views = 0;
 	private float emailsSent = 0;
 	private float clientsMatched = 0;
@@ -133,81 +132,6 @@ public class ObjectiveManager : MonoBehaviour
 
 
 
-	/*
-	void DAY1()
-	{
-		objList.text = "";
-		task1.text = "Send" + emailNumBenchmark + " emails";
-		task2.text = "Use phone less than 3 times but make 2 calls";
-		task3.text = "Don't get Caught";
-		task4.text = "Reach " + viewBenchmark + " views. View num: " + views;
-		task5.text = "Match " + clientNumBenchmark + " Client Tasks";
-
-		//TASK ONE 
-		if (task1complete == true)
-		{
-			task1.fontStyle = FontStyles.Strikethrough;
-			task1circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
-
-		}
-		else if (task1complete == false)
-		{
-			task1.fontStyle = FontStyles.Bold;
-		}
-
-		//TASK TWO 
-
-		if (task2complete == true)
-		{
-			task2.fontStyle = FontStyles.Strikethrough;
-			task2circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
-
-		}
-		else if (task2complete == false)
-		{
-			task2.fontStyle = FontStyles.Bold;
-		}
-
-
-		//TASK THREE 
-		if (task3complete == true)
-		{
-			task3.fontStyle = FontStyles.Strikethrough;
-			task3circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
-
-		}
-		else if (task3complete == false)
-		{
-			task3.fontStyle = FontStyles.Bold;
-		}
-
-		//TASK FOUR 
-
-		if (task4complete == true)
-		{
-			task4.fontStyle = FontStyles.Strikethrough;
-			task4circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
-
-		}
-		else if (task4complete == false)
-		{
-			task4.fontStyle = FontStyles.Bold;
-		}
-
-		//TASK FIVE
-		if (task5complete == true)
-		{
-			task5.fontStyle = FontStyles.Strikethrough;
-			task5circle.GetComponent<Image>().color = new Color32(255, 195, 0, 100);
-
-		}
-		else if (task5complete == false)
-		{
-			task4.fontStyle = FontStyles.Bold;
-		}
-	}
-	*/
-
 
 	void TimeProgress()
 	{
@@ -246,7 +170,7 @@ public class ObjectiveManager : MonoBehaviour
 
 			minute++;
 			ThingsToDoByMinute();
-			views = viewership.viewers;
+			today.views = viewership.viewers;
 			UIviews.text = viewership.viewers + "";
 			clientsMatched = clientmatch.clientMatched;
 			CheckTasksComplete();
@@ -285,31 +209,36 @@ public class ObjectiveManager : MonoBehaviour
 	{
 		today = days[dateOfToday];
 		today.tasksComplete = new bool[today.tasks];
-		emailsSent = 0;
-		clientsMatched = 0;
 
 
 	}
 	public void EmailSent()
 	{
-		emailsSent++;
+		today.emailsSent++;
+	}
+	public void DecorBought()
+	{
+		today.decorsBought++;
 	}
 	void UpdateText()
 	{
-		taskTexts[0].text = "Send" + today.emailsNeeded + " emails. Emails sent: "+emailsSent;
-		taskTexts[1].text = "Treat yourself with a new decor!";
-		taskTexts[2].text = "Reply to your morning and evening emails!";
-		taskTexts[3].text = "Reach " + today.viewersNeeded + " views. View num: " + views;
+		taskTexts[0].text = "Send" + today.emailsNeeded + " emails. Emails sent: "+today.emailsSent;
+		taskTexts[1].text = "Reply to your morning and evening emails!";
+		taskTexts[2].text = "Treat yourself with " +  "new decor!";
+		taskTexts[3].text = "Reach " + today.viewersNeeded + " views. View num: " + today.views;
 		taskTexts[4].text = "Match " + today.clientMatchesNeeded + " Client Tasks. " + "Clients matched: " + clientsMatched;
 	}
 
 	bool CheckTasksComplete()
 	{
 		// check each task
+		today.tasksComplete[0] = emailsSent >= today.emailsNeeded; // emails sent
+		today.tasksComplete[1] = emailLoader.TodayStoryEmailsReplied(day);
+		today.tasksComplete[2] = today.decorsBought >= today.decorsNeeded;
 		today.tasksComplete[3] = viewership.viewers >= today.viewersNeeded; // viewers 
 		today.tasksComplete[4] = clientmatch.clientMatched >= today.clientMatchesNeeded; // client matches
-		today.tasksComplete[0] = emailsSent >= today.emailsNeeded; // emails sent
-		today.tasksComplete[2] = emailLoader.TodayStoryEmailsReplied(day);
+		
+
 
 
 		// Display
