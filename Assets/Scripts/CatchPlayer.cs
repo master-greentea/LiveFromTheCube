@@ -45,6 +45,9 @@ public class CatchPlayer : MonoBehaviour
 
 	public float timeBetweenRolls = 1.0f;
 
+	[SerializeField] GameObject moneyManager;
+	[SerializeField] float fineMultiplier; // the smaller the multiplier, the harsher the penalty
+
 	
 	void Update()
 	{
@@ -91,11 +94,19 @@ public class CatchPlayer : MonoBehaviour
 
 			suspicionCount = startingSuspicion;
 		}
-		else if (suspicionCount >= 100) // game ends
+		else if (suspicionCount >= 100) // money punishment
 		{
+			/*
 			SceneManager.LoadScene("Failed Scene");
+			StopCoroutine(rollBoss());*/
+			moneyManager.GetComponent<CurrencySystem>().money = Mathf.RoundToInt(moneyManager.GetComponent<CurrencySystem>().money * fineMultiplier);
+			suspicionCount = 0;
 			StopCoroutine(rollBoss());
+			GetComponent<AudioSource>().Stop();// stop boss audio
+			mangaLines.SetActive(false);
+			bossRenderer.enabled = false;
 			CR_BOSS_running = false;
+
 		}
 	}
 
