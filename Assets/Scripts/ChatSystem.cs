@@ -24,7 +24,7 @@ public class ChatSystem : MonoBehaviour
 	private bool CR_ROLL_running;
 	private double counter = 2;
 
-	int currentPositivity; // 1 = pos, 0 = neg
+	public int currentPositivity; // 1 = pos, 0 = neg
 	int myCombo;
 	public int donationMultiplier;
 
