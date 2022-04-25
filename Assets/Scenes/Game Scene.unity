@@ -68020,8 +68020,12 @@ MonoBehaviour:
     name: BNotes
     sentences:
     - These are your objectives for each day.
-    - Complete everything before the day ends to sucessfully progress to the next
-      day.
+    - If you don't complete tasks related to streaming, your viewers will get mad
+      and you'll receive a money deduction.
+    - If you don't complete tasks related to work, your boss will fire you, and you'll
+      have to restart the day.
+    - Try to complete everything before the day ends to sucessfully progress to the
+      next day!
 --- !u!1001 &1575808068
 PrefabInstance:
   m_ObjectHideFlags: 0
