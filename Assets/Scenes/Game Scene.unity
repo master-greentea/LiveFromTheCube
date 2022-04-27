@@ -7120,6 +7120,7 @@ MonoBehaviour:
   dressSprite: {fileID: 21300000, guid: d5b887f143971474ab7eff749d65d403, type: 3}
   player: {fileID: 1937719452}
   bothSprite: {fileID: 21300000, guid: a88bb22da278ea34baf296ae8ba93fc7, type: 3}
+  objectiveManager: {fileID: 1825420208}
 --- !u!1001 &439517938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13368,6 +13369,8 @@ MonoBehaviour:
   suspicionLoss: 0.5
   startingSuspicion: 0
   timeBetweenRolls: 2
+  moneyManager: {fileID: 432897624}
+  fineMultiplier: 0.5
 --- !u!82 &733527838
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53900,16 +53903,6 @@ MonoBehaviour:
   emailIndex: -1
   responseColor: <color=#008007>
   emailsSent: 0
-  morningEmailIndexesDay1: 0500000005000000
-  morningEmailIndexesDay2: 0600000006000000
-  morningEmailIndexesDay3: 0700000007000000
-  morningEmailIndexesDay4: 0800000008000000
-  morningEmailIndexesDay5: 0900000009000000
-  eveningEmailIndexesDay1: 0a0000000a000000
-  eveningEmailIndexesDay2: 0b0000000b000000
-  eveningEmailIndexesDay3: 0c0000000c000000
-  eveningEmailIndexesDay4: 0d0000000d000000
-  eveningEmailIndexesDay5: 0e0000000e000000
   objectiveManager: {fileID: 1825420208}
 --- !u!1 &1039565589 stripped
 GameObject:
@@ -68020,8 +68013,12 @@ MonoBehaviour:
     name: BNotes
     sentences:
     - These are your objectives for each day.
-    - Complete everything before the day ends to sucessfully progress to the next
-      day.
+    - If you don't complete tasks related to streaming, your viewers will get mad
+      and you'll receive a money deduction.
+    - If you don't complete tasks related to work, your boss will fire you, and you'll
+      have to restart the day.
+    - Try to complete everything before the day ends to sucessfully progress to the
+      next day!
 --- !u!1001 &1575808068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69368,10 +69365,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: -1
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &1579613560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74563,6 +74560,7 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
+  decorsNeeded: 0
 --- !u!114 &1825420212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74580,6 +74578,7 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
+  decorsNeeded: 0
 --- !u!114 &1825420213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74597,6 +74596,7 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
+  decorsNeeded: 0
 --- !u!114 &1825420214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74614,6 +74614,7 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
+  decorsNeeded: 0
 --- !u!114 &1825420215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74631,6 +74632,7 @@ MonoBehaviour:
   viewersNeeded: 3000
   clientMatchesNeeded: 5
   emailsNeeded: 10
+  decorsNeeded: 0
 --- !u!1 &1837536854
 GameObject:
   m_ObjectHideFlags: 0
@@ -79475,7 +79477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2142343595
 MonoBehaviour:
   m_ObjectHideFlags: 0
