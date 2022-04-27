@@ -1570,10 +1570,11 @@ MonoBehaviour:
   _clientText: {fileID: 7603414718654421228}
   _lookingToText: {fileID: 7603414717276617852}
   _clientSuspicion: {fileID: 7455319768892155417}
-  _reduceSusCount: 10
+  _reduceSusCount: 30
   _correctScreen: {fileID: 5190067769160292187}
   _incorrectScreen: {fileID: 2506549333121527822}
   _correctnessScreenTime: 1
+  SusManager: {fileID: 0}
   currencyManager: {fileID: 0}
   clientMatched: 0
   moneyDecreased: 100

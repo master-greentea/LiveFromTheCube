@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CatchPlayer : MonoBehaviour
 {
@@ -41,18 +42,25 @@ public class CatchPlayer : MonoBehaviour
 
 	public float suspicionGain;
 	public float suspicionLoss;
-	public float startingSuspicion = 10;
+	public float startingSuspicion = 0;
 
 	public float timeBetweenRolls = 1.0f;
 
 	[SerializeField] GameObject moneyManager;
 	[SerializeField] float fineMultiplier; // the smaller the multiplier, the harsher the penalty
+	[SerializeField] Button bosuIcon;
+	[SerializeField] GameObject bosu;
+	[SerializeField] GameObject cycleManager;
+	[SerializeField] float penaltyTimer;
+	[SerializeField] Color _grayedOutColor;
+	Color bosuColor;
+	float penaltyTimerTemp;
+	bool bosuDisabled;
 
-	
 	void Update()
 	{
 
-//		Debug.Log("sus "+ suspicionCount);
+		//		Debug.Log("sus "+ suspicionCount);
 
 
 		discoVar = discolights.GetComponent<DiscoLights>().lightSwitched;
@@ -67,12 +75,6 @@ public class CatchPlayer : MonoBehaviour
 
 		}
 
-		/*
-		if (bossRenderer.enabled == true && CR_BOSS_running == false && suspicionCount > 60 == true)
-		{
-			StartCoroutine(BossActive());
-		}
-		*/
 
 		if (suspicionCount < 100 && playing && bossRenderer.enabled)
 		{
@@ -106,8 +108,19 @@ public class CatchPlayer : MonoBehaviour
 			mangaLines.SetActive(false);
 			bossRenderer.enabled = false;
 			CR_BOSS_running = false;
+			bosuIcon.enabled = false;
+			bosu.SetActive(false);
+			cycleManager.GetComponent<SwitchScreen>().apps[1] = cycleManager.GetComponent<SwitchScreen>().apps[3];
+			bosuDisabled = true;
+
+			bosuColor = bosuIcon.GetComponent<Image>().color;
+			bosuIcon.GetComponent<Image>().color = _grayedOutColor;
 
 		}
+		if(bosuDisabled)
+		{
+			PenaltyTimerOn();
+		}	
 	}
 
 	void Start()
@@ -118,24 +131,7 @@ public class CatchPlayer : MonoBehaviour
 		firstPlayDone = false;
 
 		suspicionCount = startingSuspicion;
-		
-		/*
-		while (discoVar == false)
-		{
-			yield return new WaitForSeconds(0.2f);
-
-			//while (discoVar == true) {
-			while (suspicionCount < 70)
-			{
-				suspicionCount += suspicionGain;
-
-				yield return StartCoroutine(MoveObject(transform, pointA, pointB, point, speed));
-				yield return StartCoroutine(MoveObject(transform, pointB, pointA, point, speed));
-			}
-		}
-
-		yield return new WaitForSeconds(1f);
-		*/
+		penaltyTimerTemp = penaltyTimer;
 	}
 
 	IEnumerator rollBoss()
@@ -167,58 +163,16 @@ public class CatchPlayer : MonoBehaviour
 
 	IEnumerator BossActive()
 	{
-		
+
 
 		CR_BOSS_running = true;
 		if (bossRenderer.enabled == true)
 		{
 
-			
-
-			/*
-			while (suspicionCount < 100 && playing == true)
-			{
-				suspicionCount += suspicionGain;
-
-				yield return new WaitForSeconds(1);
-			}
-
-			while (suspicionCount < 100 && playing == false && suspicionCount > 0)
-			{
-				suspicionCount -= suspicionLoss;
-
-				Debug.Log(suspicionCount);
-				yield return new WaitForSeconds(1);
-			}
 
 
-			if (suspicionCount <= 0)
-			{
-				Debug.Log("The boss is satisfied.");
-
-				yield return null;
-				StopCoroutine(rollBoss());
-
-				GetComponent<AudioSource>().Stop();// stop boss audio
-
-				bossRenderer.enabled = false;
-				CR_BOSS_running = false;
-
-				suspicionCount = startingSuspicion;
-
-
-			}
-			else if (suspicionCount >= 100)
-			{
-				SceneManager.LoadScene("Failed Scene");
-				//game should end here
-
-				yield return null;
-				StopCoroutine(rollBoss());
-				CR_BOSS_running = false;
-			}*/
 		}
-		
+
 		yield return null;
 	}
 
@@ -250,5 +204,18 @@ public class CatchPlayer : MonoBehaviour
 	public void ReduceSus(float loss)
 	{
 		suspicionCount -= loss;
+	}
+
+	void PenaltyTimerOn()
+	{
+		penaltyTimerTemp -= Time.deltaTime;
+		if (penaltyTimerTemp <= 0)
+		{
+			bosuIcon.enabled = true;
+			cycleManager.GetComponent<SwitchScreen>().apps[1] = bosu;
+			penaltyTimerTemp = penaltyTimer;
+			bosuIcon.GetComponent<Image>().color = bosuColor;
+			bosuDisabled = false;
+		}
 	}
 }
