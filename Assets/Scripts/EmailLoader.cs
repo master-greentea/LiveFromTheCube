@@ -31,25 +31,8 @@ public class EmailLoader : MonoBehaviour
 
 	bool responseComplete = true;
 
-	public List<Email>[] morningEmails; // 5 lists of morning emails for 5 days
-	public List<Email>[] eveningEmails; // 5 lists of evening emails for 5 days
-	[SerializeField] int[] morningEmailIndexesDay1;
-	[SerializeField] int[] morningEmailIndexesDay2;
-	[SerializeField] int[] morningEmailIndexesDay3;
-	[SerializeField] int[] morningEmailIndexesDay4;
-	[SerializeField] int[] morningEmailIndexesDay5;
-	[SerializeField] int[] eveningEmailIndexesDay1;
-	[SerializeField] int[] eveningEmailIndexesDay2;
-	[SerializeField] int[] eveningEmailIndexesDay3;
-	[SerializeField] int[] eveningEmailIndexesDay4;
-	[SerializeField] int[] eveningEmailIndexesDay5;
 	[SerializeField] GameObject objectiveManager;
 	ObjectiveManager objectiveManagerScr;
-	bool canUpdateEmailMorning = true;
-	bool canUpdateEmailEvening = true;
-	int[][] morningEmailIndexes;
-	int[][] eveningEmailIndexes;
-
 
 
 

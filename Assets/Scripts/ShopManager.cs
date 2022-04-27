@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ShopManager : MonoBehaviour
 {
@@ -94,6 +95,11 @@ public class ShopManager : MonoBehaviour
     [SerializeField] SpriteRenderer player;
     [SerializeField] Sprite bothSprite;
 
+
+
+    // objective manager
+    [SerializeField] GameObject objectiveManager;
+    
     void Start(){
         mmanager = MoneyManager.GetComponent<CurrencySystem>();
 
@@ -166,7 +172,7 @@ public class ShopManager : MonoBehaviour
         "We know you so well, we finish each other's purchases!",
         "Get one month of Bamazon Brime on us!",
         "Our employees don't need bathroom breaks; we don't let them hydrate!"};
-        int randIndex = Random.Range(0, insultArray.Length);
+        int randIndex = UnityEngine.Random.Range(0, insultArray.Length);
         return  insultArray[randIndex];
     }
  
@@ -176,6 +182,7 @@ public class ShopManager : MonoBehaviour
 
     public void JuiceBuys() {
         mmanager.money -= juiceprice;
+        objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
     }
 
     void KirbyOnClick() {
@@ -190,6 +197,7 @@ public class ShopManager : MonoBehaviour
             kirbySoldOut.SetActive(true); // say sold out
             kirbyButton.GetComponent<Button>().enabled = false; // no click
             kirbyObj.SetActive(true); // set plant
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
         }
     }
 
@@ -204,6 +212,7 @@ public class ShopManager : MonoBehaviour
             plantSoldOut.SetActive(true); // say sold out
             plantButton.GetComponent<Button>().enabled = false; // no click
             plantObj.SetActive(true); // set plant
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
         }
     }
 
@@ -213,6 +222,7 @@ public class ShopManager : MonoBehaviour
 
     public void MirrorBuys() {
         mmanager.money -= mirrorprice;
+        objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
     }
 
     void MugOnClick() {
@@ -226,6 +236,7 @@ public class ShopManager : MonoBehaviour
             mugSoldOut.SetActive(true); // say sold out
             mugButton.GetComponent<Button>().enabled = false; // no click
             mugObj.SetActive(true); // set plant
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
         }
     }
 
@@ -240,6 +251,7 @@ public class ShopManager : MonoBehaviour
             redSoldOut.SetActive(true);
             redButton.GetComponent<Button>().enabled = false;
             redObj.SetActive(true);
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
         }
     }
 
@@ -254,6 +266,7 @@ public class ShopManager : MonoBehaviour
             frameSoldOut.SetActive(true);
             frameButton.GetComponent<Button>().enabled = false;
             frameObj.SetActive(true);
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
         }
     }
 
@@ -268,6 +281,7 @@ public class ShopManager : MonoBehaviour
             earSoldOut.SetActive(true);
             earButton.GetComponent<Button>().enabled = false;
             PlayerApperanceChange();
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
         }
     }
 
@@ -282,6 +296,7 @@ public class ShopManager : MonoBehaviour
             dressSoldOut.SetActive(true);
             dressButton.GetComponent<Button>().enabled = false;
             PlayerApperanceChange();
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
         }
     }
 

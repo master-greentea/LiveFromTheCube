@@ -69,6 +69,7 @@ MonoBehaviour:
     name: Bmail
     sentences:
     - Whew! Looks like you're in the clear for now.
+    - If the boss catches you streaming, you'll be temporarily locked out of BOSU.
     - Remember to send emails periodically so you can keep your job!
     - Now let's check out some other apps.
 --- !u!114 &7031866241245518988
@@ -127,7 +128,8 @@ MonoBehaviour:
       pay attention to the descriptions!
     - Now you're ready to start the game! Stream, email, and match your way to the
       top!
-    - You can also press TAB to switch between open apps.
+    - You can also look around by clicking and dragging, and you can press TAB to
+      quickly switch between open apps.
 --- !u!1 &7031866242856478867
 GameObject:
   m_ObjectHideFlags: 0
