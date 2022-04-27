@@ -76,8 +76,8 @@ public class EmailLoader : MonoBehaviour
 
 			if (signatures != null)
 			{
-				email.body = email.body + "\n\n" + signatures[Random.Range(0, signatures.Length - 1)] + "\n" + email.sender;
-				email.responseBody = email.responseBody + "\n\n" + signatures[Random.Range(0, signatures.Length - 1)] + "\n" + email.responseSender;
+				email.body = email.body + "\n" + signatures[Random.Range(0, signatures.Length - 1)] + ",\n" + email.sender;
+				email.responseBody = email.responseBody + "\n" + signatures[Random.Range(0, signatures.Length - 1)] + ",\n" + email.responseSender;
 			}
 
 			emails.Add(email);
@@ -104,16 +104,13 @@ public class EmailLoader : MonoBehaviour
 
 			if (signatures != null)
 			{
-				email.body = email.body + "\n\n" + signatures[Random.Range(0, signatures.Length - 1)] + "\n" + email.sender;
-				email.responseBody = email.responseBody + "\n\n" + signatures[Random.Range(0, signatures.Length - 1)] + "\n" + email.responseSender;
+				email.body = email.body + "\n" + signatures[Random.Range(0, signatures.Length - 1)] + ",\n" + email.sender;
+				email.responseBody = email.responseBody + "\n" + signatures[Random.Range(0, signatures.Length - 1)] + ",\n" + email.responseSender;
 			}
 
 			storyEmails.Add(email);
 		}
-		foreach (Email e in storyEmails)
-		{
-			Debug.Log(e.subject);
-		}
+
 
 		// text boxes setup
 		ResetEmailDisplayAndIndex();
@@ -250,6 +247,10 @@ public class EmailLoader : MonoBehaviour
 	public void InsertStoryEmails(int day, int hour)
 	{
 		List<Email> storyEmailsToInsert = storyEmails.FindAll(e => (e.day == day && e.hour == hour));
+		foreach (Email e in storyEmailsToInsert)
+		{
+			Debug.Log(e.subject);
+		}
 		emails.InsertRange(0, storyEmailsToInsert);
 		ResetEmailDisplayAndIndex();
 	}

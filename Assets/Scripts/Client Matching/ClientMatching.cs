@@ -30,6 +30,7 @@ public class ClientMatching : MonoBehaviour
     [SerializeField] private GameObject _correctScreen;
     [SerializeField] private GameObject _incorrectScreen;
     [SerializeField] private float _correctnessScreenTime;
+    [SerializeField] GameObject SusManager;
 
     [SerializeField] GameObject currencyManager;
 
@@ -96,7 +97,8 @@ public class ClientMatching : MonoBehaviour
     {
         //player got match correct
         Debug.Log("Correct!");
-        _clientSuspicion.ReduceSus(_reduceSusCount);
+        //_clientSuspicion.ReduceSus(_reduceSusCount);
+        SusManager.GetComponent<CatchPlayer>().ReduceSus(_reduceSusCount);
         StartCoroutine(ShowCorrectness(_correctScreen));
 
         if (TutorialManager.Instance != null && !TutorialManager.Instance.excelHasBeenTutorialized)
