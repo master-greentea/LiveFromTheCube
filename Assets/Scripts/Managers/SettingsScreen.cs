@@ -15,7 +15,7 @@ public class SettingsScreen : MonoBehaviour
 
         UpdateBosuKeyText();
 
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()
