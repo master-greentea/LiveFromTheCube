@@ -6,6 +6,7 @@ public class PauseGame : MonoBehaviour
 {
     private bool _isPaused;
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private SettingsScreen _settingsScreen;
 
     void Update()
     {
@@ -15,7 +16,7 @@ public class PauseGame : MonoBehaviour
             {
                 Pause();
             }
-            else
+            else if (!_settingsScreen.gameObject.activeSelf)
             {
                 Unpause();
             }
