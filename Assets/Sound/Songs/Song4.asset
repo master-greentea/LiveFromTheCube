@@ -331,12 +331,6 @@ MonoBehaviour:
     noteLength: 0.10135135
     beatIndex: 76
     beatLengthIndex: 0.25
-  - noteName: 4
-    noteOctave: 4
-    time: 31.216217
-    noteLength: 0.10135135
-    beatIndex: 77
-    beatLengthIndex: 0.25
   - noteName: 5
     noteOctave: 4
     time: 31.621622
