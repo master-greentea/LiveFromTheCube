@@ -35,7 +35,7 @@ public class ObjectiveManager : MonoBehaviour
 
 	[SerializeField] Day[] days;
 	Day today;
-	int dateOfToday = 0;
+	int dateOfToday = -1;
 
 	[SerializeField] TMPro.TextMeshProUGUI objList;
 	[SerializeField] GameObject BOSU;

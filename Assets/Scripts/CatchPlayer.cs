@@ -48,6 +48,7 @@ public class CatchPlayer : MonoBehaviour
 
 	[SerializeField] GameObject moneyManager;
 	[SerializeField] float fineMultiplier; // the smaller the multiplier, the harsher the penalty
+	[SerializeField] int fine;
 	[SerializeField] Button bosuIcon;
 	[SerializeField] GameObject bosu;
 	[SerializeField] GameObject cycleManager;
@@ -57,17 +58,34 @@ public class CatchPlayer : MonoBehaviour
 	float penaltyTimerTemp;
 	bool bosuDisabled;
 
+
+	[SerializeField] float safeTimer;
+	float safeTimerTemp;
+	bool isSafe = true;
+
 	void Update()
 	{
-
-		//		Debug.Log("sus "+ suspicionCount);
-
 
 		discoVar = discolights.GetComponent<DiscoLights>().lightSwitched;
 		playing = rhythmGameScreen.activeInHierarchy; //first play done stops the boss from firing before the player presses play the first time
 
+		if (playing && firstPlayDone && isSafe)
+		{
+			safeTimerTemp -= Time.deltaTime;
+		}
+		else
+		{
+			safeTimerTemp = safeTimer;
+		}
+		
+		if (safeTimerTemp <= 0 && playing && firstPlayDone)
+		{
+			isSafe = false;
+			safeTimerTemp = safeTimer;
+		}
 
-		if (bossRenderer.enabled == false && CR_ROLL_running == false && firstPlayDone == true)
+
+		if (!bossRenderer.enabled && !CR_ROLL_running && firstPlayDone && !isSafe)
 		{
 			Debug.Log("roll boss");
 			StartCoroutine(rollBoss());
@@ -96,25 +114,31 @@ public class CatchPlayer : MonoBehaviour
 
 			suspicionCount = startingSuspicion;
 		}
-		else if (suspicionCount >= 100) // money punishment
+		else if (suspicionCount >= 100)
 		{
-			/*
-			SceneManager.LoadScene("Failed Scene");
-			StopCoroutine(rollBoss());*/
-			moneyManager.GetComponent<CurrencySystem>().money = Mathf.RoundToInt(moneyManager.GetComponent<CurrencySystem>().money * fineMultiplier);
+			// boss logic
 			suspicionCount = 0;
 			StopCoroutine(rollBoss());
 			GetComponent<AudioSource>().Stop();// stop boss audio
 			mangaLines.SetActive(false);
 			bossRenderer.enabled = false;
 			CR_BOSS_running = false;
+			isSafe = true;
+
+			// grey out bosu
 			bosuIcon.enabled = false;
 			bosu.SetActive(false);
 			cycleManager.GetComponent<SwitchScreen>().apps[1] = cycleManager.GetComponent<SwitchScreen>().apps[3];
 			bosuDisabled = true;
-
 			bosuColor = bosuIcon.GetComponent<Image>().color;
 			bosuIcon.GetComponent<Image>().color = _grayedOutColor;
+
+			// money punishment
+			/*
+			SceneManager.LoadScene("Failed Scene");
+			StopCoroutine(rollBoss());*/
+			//moneyManager.GetComponent<CurrencySystem>().money = Mathf.RoundToInt(moneyManager.GetComponent<CurrencySystem>().money * fineMultiplier);
+			moneyManager.GetComponent<CurrencySystem>().money -= fine;
 
 		}
 		if(bosuDisabled)
@@ -132,6 +156,7 @@ public class CatchPlayer : MonoBehaviour
 
 		suspicionCount = startingSuspicion;
 		penaltyTimerTemp = penaltyTimer;
+
 	}
 
 	IEnumerator rollBoss()
