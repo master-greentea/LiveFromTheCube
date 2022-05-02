@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChatMessage
+public class ChatMessage :ICloneable
 {
 	public int index;
 	public string name;
@@ -13,4 +14,9 @@ public class ChatMessage
 	public string game;
 	public string dependency;
 
+	public object Clone()
+	{
+		return this.MemberwiseClone();
+		throw new NotImplementedException();
+	}
 }
