@@ -13604,7 +13604,7 @@ MonoBehaviour:
   discolights: {fileID: 563187279}
   speed: 5
   discoVar: 0
-  maxRange: 12
+  maxRange: 8
   activateNum: 2
   suspicionGain: 5
   suspicionLoss: 0.5
@@ -13612,11 +13612,13 @@ MonoBehaviour:
   timeBetweenRolls: 2
   moneyManager: {fileID: 432897624}
   fineMultiplier: 0.5
+  fine: 1000
   bosuIcon: {fileID: 1428310136}
   bosu: {fileID: 2142343594}
   cycleManager: {fileID: 1378343783}
   penaltyTimer: 60
   _grayedOutColor: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  safeTimer: 10
 --- !u!82 &733527838
 AudioSource:
   m_ObjectHideFlags: 0
