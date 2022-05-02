@@ -18,8 +18,6 @@ public class ObjectiveManager : MonoBehaviour
 		[SerializeField] public int clientMatchesNeeded; // task 1
 		[SerializeField] public int emailsNeeded; // task 2
 		[SerializeField] public int decorsNeeded; // t
-		[NonSerialized] public int[] morningEmailIDs; // task 3
-		[NonSerialized] public int[] eveningEmailIDs; // task 4
 		[NonSerialized] public bool[] tasksComplete;
 		[NonSerialized] public int views;
 		[NonSerialized] public int emailsSent;
@@ -60,7 +58,7 @@ public class ObjectiveManager : MonoBehaviour
 	StatsSystem statsystem;
 
 
-
+	[SerializeField] GameObject dayEndUI;
 	[SerializeField] TMPro.TextMeshProUGUI maxComboUI;
 	[SerializeField] TMPro.TextMeshProUGUI highestViewsUI;
 	[SerializeField] TMPro.TextMeshProUGUI moneyEarnedUI;
@@ -109,8 +107,6 @@ public class ObjectiveManager : MonoBehaviour
 		DayProgress();
 		today.tasksComplete = new bool[today.tasks];
 
-		//taskCircles[1].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
-		//taskCircles[2].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
 
 	}
 
@@ -177,15 +173,10 @@ public class ObjectiveManager : MonoBehaviour
 
 	private void ThingsToDoByMinute()
 	{
-		if (hour == 15 && minute == 1)
+		if (minute == 1)
 		{
-			emailLoader.InsertStoryEmails(day, 15); // add evening emails at 15:00
-			Debug.Log("evening emails inserted");
-		}
-		if (hour == 9 && minute == 1)
-		{
-			emailLoader.InsertStoryEmails(day, 9);
-			Debug.Log("morning emails inserted");
+			emailLoader.InsertStoryEmails(day, hour); // add evening emails at 15:00
+			Debug.Log("story emails inserted");
 		}
 		if (hour >= 17 && minute == 1) // day ends at 17:00
 		{
@@ -197,6 +188,13 @@ public class ObjectiveManager : MonoBehaviour
 	void dayEnd()
 	{
 		Debug.Log("day end triggered");
+		//Time.timeScale = 0;
+		if (today.index == 4) // final ending
+		{
+
+		}
+
+
 		if (!today.tasksComplete[0] || !today.tasksComplete[1] || !today.tasksComplete[4]) // if any of the company tasks are not done
 		{
 			SceneManager.LoadScene("Failed Scene");
@@ -204,18 +202,18 @@ public class ObjectiveManager : MonoBehaviour
 		else if (!today.tasksComplete[2] || !today.tasksComplete[3]) // if any of the streaming tasks are not done
 		{
 			fade.SetActive(true);
-
+			dayEndUI.SetActive(true);
 			maxComboUI.text = statsystem.maxCombo + "!";
-			highestViewsUI.text = highestView + " views";
+			highestViewsUI.text = today.views + " views";
 			moneyEarnedUI.text = "$" + currensys.money + "";
 			susReportUI.text = "Make sure you finish your streaming tasks!";
 		}
 		else if (CheckAllTasksComplete()) // perfect day end
 		{
 			fade.SetActive(true);
-
+			dayEndUI.SetActive(true);
 			maxComboUI.text = statsystem.maxCombo + "!";
-			highestViewsUI.text = highestView + " views";
+			highestViewsUI.text = today.views + " views";
 			moneyEarnedUI.text = "$" + currensys.money + "";
 			susReportUI.text = "Perfect Day!";
 		}
@@ -228,10 +226,13 @@ public class ObjectiveManager : MonoBehaviour
 
 	}
 
-	void DayProgress()
+	public void DayProgress()
 	{
+		Time.timeScale = 1;
 		hour = 9;
+		minute = 0;
 		fade.SetActive(false);
+		dateOfToday++;
 		today = days[dateOfToday];
 		today.tasksComplete = new bool[today.tasks];
 

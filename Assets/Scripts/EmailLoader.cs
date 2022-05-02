@@ -20,6 +20,8 @@ public class EmailLoader : MonoBehaviour
 	[SerializeField] GameObject emailResponseSubject;
 	[SerializeField] GameObject emailResponseBody;
 	[SerializeField] GameObject susManager;
+	[SerializeField] GameObject storyHeader;
+	[SerializeField] GameObject storyBackground;
 	[SerializeField] float reduceSusCount;
 
 	public int emailIndex = -1;
@@ -227,7 +229,7 @@ public class EmailLoader : MonoBehaviour
 	private void ResetEmailDisplayAndIndex()
 	{
 		emailIndex = 0;
-		emailResponseBody.GetComponent<TextMeshProUGUI>().color = new Color(180, 180, 180);
+		//emailResponseBody.GetComponent<TextMeshProUGUI>().color = new Color(180, 180, 180);
 		emailSubject.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].subject;
 		emailSender.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].sender;
 		emailBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].body;
@@ -236,6 +238,16 @@ public class EmailLoader : MonoBehaviour
 		emailResponseBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseBody;
 		responseComplete = false;
 		responseColoringIndex = 0;
+		if (emails[emailIndex].index>=300)
+		{
+			storyBackground.SetActive(true);
+			storyHeader.SetActive(true);
+		}
+		else
+		{
+			storyBackground.SetActive(false);
+			storyHeader.SetActive(false);
+		}
 	}
 
 	private void OnEnable()
@@ -247,12 +259,16 @@ public class EmailLoader : MonoBehaviour
 	public void InsertStoryEmails(int day, int hour)
 	{
 		List<Email> storyEmailsToInsert = storyEmails.FindAll(e => (e.day == day && e.hour == hour));
-		foreach (Email e in storyEmailsToInsert)
+		if ((storyEmailsToInsert != null) && (storyEmailsToInsert.Any()))
 		{
-			Debug.Log(e.subject);
+			foreach (Email e in storyEmailsToInsert)
+			{
+				Debug.Log(e.subject);
+			}
+			emails.InsertRange(0, storyEmailsToInsert);
+			ResetEmailDisplayAndIndex();
 		}
-		emails.InsertRange(0, storyEmailsToInsert);
-		ResetEmailDisplayAndIndex();
+
 	}
 	public bool TodayStoryEmailsReplied(int day)
 	{
