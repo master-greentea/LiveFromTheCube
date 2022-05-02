@@ -6,6 +6,7 @@ using TMPro;
 using RhythmGameStarter;
 using System;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class ObjectiveManager : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class ObjectiveManager : MonoBehaviour
 	}
 
 
-	[SerializeField]  Day[] days;
+	[SerializeField] Day[] days;
 	Day today;
 	int dateOfToday = 0;
 
@@ -82,7 +83,8 @@ public class ObjectiveManager : MonoBehaviour
 	private float views = 0;
 	private float emailsSent = 0;
 	private float clientsMatched = 0;
-	float timer = 1f; //seconds
+	[SerializeField] float timer; //seconds
+	float timerTemp;
 
 
 	void Start()
@@ -107,8 +109,8 @@ public class ObjectiveManager : MonoBehaviour
 		DayProgress();
 		today.tasksComplete = new bool[today.tasks];
 
-		taskCircles[1].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
-		taskCircles[2].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
+		//taskCircles[1].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
+		//taskCircles[2].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
 
 	}
 
@@ -119,20 +121,6 @@ public class ObjectiveManager : MonoBehaviour
 		TimeProgress();
 		UpdateText();
 	}
-
-	void dayEnd()
-	{
-		fade.SetActive(true);
-
-		maxComboUI.text = statsystem.maxCombo + "!";
-		highestViewsUI.text = highestView + " views";
-		moneyEarnedUI.text = "$" + currensys.money + "";
-		susReportUI.text = "sussy baka";
-	}
-
-
-
-
 	void TimeProgress()
 	{
 		// display
@@ -164,8 +152,8 @@ public class ObjectiveManager : MonoBehaviour
 
 
 		// time logic
-		timer -= Time.deltaTime;
-		if (timer <= 0)
+		timerTemp -= Time.deltaTime;
+		if (timerTemp <= 0)
 		{
 
 			minute++;
@@ -174,39 +162,76 @@ public class ObjectiveManager : MonoBehaviour
 			UIviews.text = viewership.viewers + "";
 			clientsMatched = clientmatch.clientMatched;
 			CheckTasksComplete();
-			
+
 			if (minute >= 60)
 			{
 
 				hour++;
-				
+
 				minute = 0;
 			}
-			timer = 1f;
+			timerTemp = timer;
 		}
 
 	}
 
 	private void ThingsToDoByMinute()
 	{
-		if (hour == 15 && minute == 0)
+		if (hour == 15 && minute == 1)
 		{
 			emailLoader.InsertStoryEmails(day, 15); // add evening emails at 15:00
+			Debug.Log("evening emails inserted");
 		}
 		if (hour == 9 && minute == 1)
 		{
 			emailLoader.InsertStoryEmails(day, 9);
 			Debug.Log("morning emails inserted");
 		}
-		if (hour >= 17 && minute == 0) // day ends at 17:00
+		if (hour >= 17 && minute == 1) // day ends at 17:00
 		{
-			hour = 9;
-			DayProgress();
+			
+			dayEnd();
+			//DayProgress();
 		}
+	}
+	void dayEnd()
+	{
+		Debug.Log("day end triggered");
+		if (!today.tasksComplete[0] || !today.tasksComplete[1] || !today.tasksComplete[4]) // if any of the company tasks are not done
+		{
+			SceneManager.LoadScene("Failed Scene");
+		}
+		else if (!today.tasksComplete[2] || !today.tasksComplete[3]) // if any of the streaming tasks are not done
+		{
+			fade.SetActive(true);
+
+			maxComboUI.text = statsystem.maxCombo + "!";
+			highestViewsUI.text = highestView + " views";
+			moneyEarnedUI.text = "$" + currensys.money + "";
+			susReportUI.text = "Make sure you finish your streaming tasks!";
+		}
+		else if (CheckAllTasksComplete()) // perfect day end
+		{
+			fade.SetActive(true);
+
+			maxComboUI.text = statsystem.maxCombo + "!";
+			highestViewsUI.text = highestView + " views";
+			moneyEarnedUI.text = "$" + currensys.money + "";
+			susReportUI.text = "Perfect Day!";
+		}
+		else
+		{
+			Debug.Log("you dumb ass can't even do simple boolean logic");
+		}
+
+
+
 	}
 
 	void DayProgress()
 	{
+		hour = 9;
+		fade.SetActive(false);
 		today = days[dateOfToday];
 		today.tasksComplete = new bool[today.tasks];
 
@@ -222,39 +247,49 @@ public class ObjectiveManager : MonoBehaviour
 	}
 	void UpdateText()
 	{
-		taskTexts[0].text = "Send" + today.emailsNeeded + " emails. Emails sent: "+today.emailsSent;
+		taskTexts[0].text = "Send" + today.emailsNeeded + " emails. Emails sent: " + today.emailsSent;
 		taskTexts[1].text = "Reply to your morning and evening emails!";
-		taskTexts[2].text = "Treat yourself with " +  "new decor!";
-		taskTexts[3].text = "Reach " + today.viewersNeeded + " views. View num: " + today.views;
+		taskTexts[2].text = "Treat yourself with " + today.decorsNeeded + "new decors! Decors bought: " + today.decorsBought;
+		taskTexts[3].text = "Reach " + today.viewersNeeded + " views. Views: " + today.views;
 		taskTexts[4].text = "Match " + today.clientMatchesNeeded + " Client Tasks. " + "Clients matched: " + clientsMatched;
 	}
 
-	bool CheckTasksComplete()
+	void CheckTasksComplete()
 	{
 		// check each task
-		today.tasksComplete[0] = emailsSent >= today.emailsNeeded; // emails sent
+		today.tasksComplete[0] = today.emailsSent >= today.emailsNeeded; // emails sent
 		today.tasksComplete[1] = emailLoader.TodayStoryEmailsReplied(day);
 		today.tasksComplete[2] = today.decorsBought >= today.decorsNeeded;
 		today.tasksComplete[3] = viewership.viewers >= today.viewersNeeded; // viewers 
 		today.tasksComplete[4] = clientmatch.clientMatched >= today.clientMatchesNeeded; // client matches
-		
+
 
 
 
 		// Display
-		for (int i = 0;i<today.tasks;i++)
+		for (int i = 0; i < today.tasks; i++)
 		{
 			if (today.tasksComplete[i])
 			{
 				taskTexts[i].fontStyle = FontStyles.Strikethrough;
 				taskCircles[i].GetComponent<Image>().color = new Color32(255, 195, 0, 100);
 			}
+			else
+			{
+				taskTexts[i].fontStyle = FontStyles.Normal;
+				taskCircles[i].GetComponent<Image>().color = new Color32(0, 0, 0, 100);
+			}
 		}
 
 
+
+	}
+	bool CheckAllTasksComplete()
+	{
+
 		// finalize checking
 		bool allTasksComeplete = true;
-		foreach(bool taskComplete in today.tasksComplete)
+		foreach (bool taskComplete in today.tasksComplete)
 		{
 			if (!taskComplete)
 			{
@@ -262,6 +297,6 @@ public class ObjectiveManager : MonoBehaviour
 			}
 		}
 		return allTasksComeplete;
-		
 	}
+
 }

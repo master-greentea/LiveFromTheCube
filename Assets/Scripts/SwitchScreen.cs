@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchScreen : MonoBehaviour
 {
-	[SerializeField] GameObject[] apps;
+	[SerializeField] public GameObject[] apps;
 	int index;
 	// Start is called before the first frame update
 	void Start()
@@ -15,30 +15,33 @@ public class SwitchScreen : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-	
-		for (int i = 0; i < apps.Length; i++)
+		if (TutorialManager.Instance.tutorialFinished)
 		{
-			if (apps[i].activeInHierarchy)
+			for (int i = 0; i < apps.Length; i++)
 			{
-				index = i;
+				if (apps[i].activeInHierarchy)
+				{
+					index = i;
+				}
 			}
-		}
-		if (Input.GetKeyDown(KeyCode.Tab))
-		{
-			if (index != 0)
+			if (Input.GetKeyDown(KeyCode.Tab))
 			{
-				apps[index].SetActive(false);
-			}
-			if (index < apps.Length - 1)
-			{
-				apps[index + 1].SetActive(true);
-			}
-			else
-			{
-				apps[0].SetActive(true);
-			}
+				if (index != 0)
+				{
+					apps[index].SetActive(false);
+				}
+				if (index < apps.Length - 1)
+				{
+					apps[index + 1].SetActive(true);
+				}
+				else
+				{
+					apps[0].SetActive(true);
+				}
 
+			}
 		}
-//		Debug.Log(index);
+
+		//		Debug.Log(index);
 	}
 }
