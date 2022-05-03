@@ -63,11 +63,15 @@ public class ObjectiveManager : MonoBehaviour
 	[SerializeField] TMPro.TextMeshProUGUI highestViewsUI;
 	[SerializeField] TMPro.TextMeshProUGUI moneyEarnedUI;
 	[SerializeField] TMPro.TextMeshProUGUI susReportUI;
+	[SerializeField] TMPro.TextMeshProUGUI companiesMatchedUI;
+	[SerializeField] TMPro.TextMeshProUGUI emailsSentUI;
 
 	private int maxCombo;
 	private float highestView;
 	private int moneyEarned;
 
+
+	public Slider slider;
 
 	[SerializeField] TMPro.TextMeshProUGUI UItime;
 	[SerializeField] TMPro.TextMeshProUGUI UIviews;
@@ -98,6 +102,8 @@ public class ObjectiveManager : MonoBehaviour
 			circle.GetComponent<Image>().color = new Color32(163, 163, 163, 100);
 		}
 
+		slider.maxValue = 480;
+
 		// time setup
 		hour = 9;
 		minute = 0;
@@ -112,10 +118,9 @@ public class ObjectiveManager : MonoBehaviour
 
 	void Update()
 	{
-
-
 		TimeProgress();
 		UpdateText();
+		timerBar();
 	}
 	void TimeProgress()
 	{
@@ -171,6 +176,13 @@ public class ObjectiveManager : MonoBehaviour
 
 	}
 
+	private void timerBar()
+	{
+		slider.value = minute + ((hour-9)*60);
+
+		Debug.Log("sv" + slider.value);
+	}
+
 	private void ThingsToDoByMinute()
 	{
 		if (minute == 1)
@@ -206,6 +218,8 @@ public class ObjectiveManager : MonoBehaviour
 			maxComboUI.text = statsystem.maxCombo + "!";
 			highestViewsUI.text = today.views + " views";
 			moneyEarnedUI.text = "$" + currensys.money + "";
+			companiesMatchedUI.text = "" + clientmatch.clientMatched + "";
+			emailsSentUI.text = "" + today.emailsSent + "";
 			susReportUI.text = "Make sure you finish your streaming tasks!";
 		}
 		else if (CheckAllTasksComplete()) // perfect day end
