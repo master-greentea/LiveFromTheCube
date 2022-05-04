@@ -36,8 +36,8 @@ public class ShopManager : MonoBehaviour
 
 
     // juice
-    // [SerializeField]
-    // GameObject juiceObj;
+    [SerializeField]
+    GameObject juiceObj;
     [SerializeField] int juiceprice = 15;
     [SerializeField] TMPro.TextMeshProUGUI juicePriceText;
     bool boughtJuice;
@@ -178,11 +178,18 @@ public class ShopManager : MonoBehaviour
  
     void JuiceOnClick() {
         juiceButton.gameObject.transform.parent.transform.Find("detes_s").gameObject.SetActive(true);
+        juiceObj.SetActive(false); // set plant
     }
 
     public void JuiceBuys() {
-        mmanager.money -= juiceprice;
-        objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
+        if (CheckMoney(juiceprice)) {
+            // boughtKirby = true;
+            mmanager.money -= juiceprice; // deduct price
+            // kirbySoldOut.SetActive(true); // say sold out
+            // juiceButton.GetComponent<Button>().enabled = false; // no click
+            juiceObj.SetActive(true); // set plant
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
+        }
     }
 
     void KirbyOnClick() {
