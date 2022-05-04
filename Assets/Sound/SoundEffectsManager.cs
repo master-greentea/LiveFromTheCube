@@ -15,9 +15,6 @@ public class SoundEffectsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K)) {
-            audS.PlayOneShot(effects[0]);
-        }
         if (Input.GetMouseButtonDown(0)) {
             audS.PlayOneShot(effects[1]);
         }
