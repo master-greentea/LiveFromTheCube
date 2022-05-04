@@ -49,8 +49,8 @@ public class ShopManager : MonoBehaviour
     bool boughtKirby;
 
     // mirror
-    // [SerializeField]
-    // GameObject mirrorObj;
+    [SerializeField]
+    GameObject mirrorObj;
     [SerializeField] int mirrorprice = 10;
     [SerializeField] TMPro.TextMeshProUGUI mirrorPriceText;
     bool boughtMirror;
@@ -221,8 +221,14 @@ public class ShopManager : MonoBehaviour
     }
 
     public void MirrorBuys() {
-        mmanager.money -= mirrorprice;
-        objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
+        if (CheckMoney(mirrorprice)) {
+            boughtMirror = true;
+            mmanager.money -= mirrorprice; // deduct price
+            mirrorSoldOut.SetActive(true); // say sold out
+            mirrorButton.GetComponent<Button>().enabled = false; // no click
+            mirrorObj.SetActive(true); // set plant
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
+        }
     }
 
     void MugOnClick() {
