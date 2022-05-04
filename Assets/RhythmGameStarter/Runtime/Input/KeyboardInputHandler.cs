@@ -11,6 +11,8 @@ namespace RhythmGameStarter
         [ReorderableDisplay("Track")]
         public StringList keyMapping;
 
+        private KeyCode[] _bosuKeys = new KeyCode[4];
+
         [Title("Swipe Action Key", 3)]
         public KeyCode up;
         public KeyCode down;
@@ -22,20 +24,23 @@ namespace RhythmGameStarter
 
         public override bool GetTrackActionKeyDown(Track track, int index)
         {
-            var key = keyMapping[index];
-            return Input.GetKeyDown(key);
+            //var key = keyMapping[index];
+            //return Input.GetKeyDown(key);
+            return Input.GetKeyDown(_bosuKeys[index]);
         }
 
         public override bool GetTrackActionKeyUp(Track track, int index)
         {
-            var key = keyMapping[index];
-            return Input.GetKeyUp(key);
+            //var key = keyMapping[index];
+            //return Input.GetKeyUp(key);
+            return Input.GetKeyUp(_bosuKeys[index]);
         }
 
         public override bool GetTrackActionKey(Track track, int index)
         {
-            var key = keyMapping[index];
-            return Input.GetKey(key);
+            //var key = keyMapping[index];
+            //return Input.GetKey(key);
+            return Input.GetKey(_bosuKeys[index]);
         }
 
         public override bool GetTrackDirectionKey(Note.SwipeDirection swipeDirection)
@@ -57,6 +62,12 @@ namespace RhythmGameStarter
                     break;
             }
             return Input.GetKey(key);
+        }
+
+
+        public void UpdateBosuKeys(KeyCode[] newKeys)
+        {
+            _bosuKeys = newKeys;
         }
 
     }

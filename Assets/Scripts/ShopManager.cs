@@ -36,8 +36,8 @@ public class ShopManager : MonoBehaviour
 
 
     // juice
-    // [SerializeField]
-    // GameObject juiceObj;
+    [SerializeField]
+    GameObject juiceObj;
     [SerializeField] int juiceprice = 15;
     [SerializeField] TMPro.TextMeshProUGUI juicePriceText;
     bool boughtJuice;
@@ -49,8 +49,8 @@ public class ShopManager : MonoBehaviour
     bool boughtKirby;
 
     // mirror
-    // [SerializeField]
-    // GameObject mirrorObj;
+    [SerializeField]
+    GameObject mirrorObj;
     [SerializeField] int mirrorprice = 10;
     [SerializeField] TMPro.TextMeshProUGUI mirrorPriceText;
     bool boughtMirror;
@@ -178,11 +178,18 @@ public class ShopManager : MonoBehaviour
  
     void JuiceOnClick() {
         juiceButton.gameObject.transform.parent.transform.Find("detes_s").gameObject.SetActive(true);
+        juiceObj.SetActive(false); // set plant
     }
 
     public void JuiceBuys() {
-        mmanager.money -= juiceprice;
-        objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
+        if (CheckMoney(juiceprice)) {
+            // boughtKirby = true;
+            mmanager.money -= juiceprice; // deduct price
+            // kirbySoldOut.SetActive(true); // say sold out
+            // juiceButton.GetComponent<Button>().enabled = false; // no click
+            juiceObj.SetActive(true); // set plant
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
+        }
     }
 
     void KirbyOnClick() {
@@ -221,8 +228,14 @@ public class ShopManager : MonoBehaviour
     }
 
     public void MirrorBuys() {
-        mmanager.money -= mirrorprice;
-        objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
+        if (CheckMoney(mirrorprice)) {
+            boughtMirror = true;
+            mmanager.money -= mirrorprice; // deduct price
+            mirrorSoldOut.SetActive(true); // say sold out
+            mirrorButton.GetComponent<Button>().enabled = false; // no click
+            mirrorObj.SetActive(true); // set plant
+            objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
+        }
     }
 
     void MugOnClick() {

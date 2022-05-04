@@ -2154,6 +2154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 711374391370555313}
   - component: {fileID: -8382390491936830130}
+  - component: {fileID: 9147868427465062955}
   m_Layer: 0
   m_Name: Settings Manager
   m_TagString: Untagged
@@ -2190,6 +2191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings: {fileID: 11400000, guid: 2d76b6c0d39ca4517b78ae4b4b6beb21, type: 2}
+  _keyboardInputHandler: {fileID: 0}
   _volumeSettings:
   - _structs: []
   - _structs: []
@@ -2199,6 +2201,25 @@ MonoBehaviour:
   - {fileID: 4894014435117893255}
   - {fileID: 6458454203319531179}
   - {fileID: 348061430070490281}
+--- !u!114 &9147868427465062955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785522726810354940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52e9f5470abc4023839fd8b33205bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bosuKeyTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _settingsManager: {fileID: -8382390491936830130}
+  _settings: {fileID: 11400000, guid: 2d76b6c0d39ca4517b78ae4b4b6beb21, type: 2}
 --- !u!1 &4969370111907155198
 GameObject:
   m_ObjectHideFlags: 0
