@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using RhythmGameStarter;
 
 public class SettingsManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class SettingsManager : MonoBehaviour
     public UpdateKeys updateKeys;
 
     [SerializeField] private SavedSettings _settings;
+    [SerializeField] private KeyboardInputHandler _keyboardInputHandler;
 
     public AudioSetting MasterVolume { get; private set; }
     [SerializeField] [Tooltip("0: Music; 1: Sound FX; 2: Beat Sounds.")] private AudioSetting[] _volumeSettings = new AudioSetting[3];
@@ -85,11 +87,15 @@ public class SettingsManager : MonoBehaviour
     private void Start()
     {
         updateAudio += ChangeVolume;
+        updateKeys += UpdateBosuKeys;
+
+        updateKeys?.Invoke();
     }
 
     private void OnDestroy()
     {
         updateAudio -= ChangeVolume;
+        updateKeys -= UpdateBosuKeys;
     }
 
     public void ChangeKey(int keyIndex)
@@ -178,5 +184,10 @@ public class SettingsManager : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void UpdateBosuKeys()
+    {
+        _keyboardInputHandler.UpdateBosuKeys(_settings.keys);
     }
 }
