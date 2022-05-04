@@ -12007,7 +12007,7 @@ MonoBehaviour:
         m_MethodName: SetSong
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: ac88dfc44944640c39bada0d6c99601f,
+          m_ObjectArgument: {fileID: 11400000, guid: d281e3e5166cb4b058fd3177fd332122,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: RhythmGameStarter.SongItem, com.bennykok.rgs.runtime
           m_IntArgument: 0
@@ -13381,6 +13381,13 @@ MonoBehaviour:
   timeBetweenRolls: 2
   moneyManager: {fileID: 432897624}
   fineMultiplier: 0.5
+  fine: 0
+  bosuIcon: {fileID: 0}
+  bosu: {fileID: 0}
+  cycleManager: {fileID: 0}
+  penaltyTimer: 0
+  _grayedOutColor: {r: 0, g: 0, b: 0, a: 0}
+  safeTimer: 0
 --- !u!82 &733527838
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53909,6 +53916,8 @@ MonoBehaviour:
   emailResponseSubject: {fileID: 1291849433}
   emailResponseBody: {fileID: 752966216}
   susManager: {fileID: 733527834}
+  storyHeader: {fileID: 0}
+  storyBackground: {fileID: 0}
   reduceSusCount: 10
   emailIndex: -1
   responseColor: <color=#008007>
@@ -74540,6 +74549,7 @@ MonoBehaviour:
   currencyManager: {fileID: 432897624}
   mailScreen: {fileID: 1029242481}
   fade: {fileID: 1606802451}
+  dayEndUI: {fileID: 0}
   maxComboUI: {fileID: 2078816073}
   highestViewsUI: {fileID: 938396294}
   moneyEarnedUI: {fileID: 1169003048}
@@ -74558,6 +74568,7 @@ MonoBehaviour:
   - {fileID: 786030852}
   - {fileID: 474178949}
   - {fileID: 1085196878}
+  timer: 0
 --- !u!114 &1825420211
 MonoBehaviour:
   m_ObjectHideFlags: 0
