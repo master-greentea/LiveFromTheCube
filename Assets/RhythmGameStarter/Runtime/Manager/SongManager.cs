@@ -273,7 +273,7 @@ namespace RhythmGameStarter
         {
             if (songPaused == true && songHasStarted == true)
             {
-                ResumeSong();
+                ResumeSongWrapped();
             }
         }
     }

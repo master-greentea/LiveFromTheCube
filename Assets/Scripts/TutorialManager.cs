@@ -38,6 +38,7 @@ public class TutorialManager : MonoBehaviour
     public bool excelHasBeenTutorialized = false;
     public bool correctClientMatch = false;
     private bool _correctItemHasBeenPurchased = false;
+    public bool tutorialFinished;
 
     private void Awake()
     {
@@ -160,6 +161,7 @@ public class TutorialManager : MonoBehaviour
         _bosuIcon.enabled = true;
         _excelIcon.enabled = true;
         _notesIcon.enabled = true;
+        tutorialFinished = true;
         yield break;
     }
 

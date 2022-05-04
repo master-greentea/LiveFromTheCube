@@ -28,14 +28,14 @@ public class ChatSystem : MonoBehaviour
 	int myCombo;
 	public int donationMultiplier;
 
-	[SerializeField]GameObject rhythmManager;
+	[SerializeField] GameObject rhythmManager;
 	[SerializeField] GameObject moneyManager;
 	[SerializeField] GameObject viewerManager;
 	public void ComboUpdate()
 	{
 		myCombo = rhythmManager.GetComponent<StatsSystem>().combo;
 		currentPositivity = myCombo == 0 ? 0 : 1;
-//		Debug.Log("currentPositivity = " + currentPositivity);
+		//		Debug.Log("currentPositivity = " + currentPositivity);
 	}
 
 	void Start()
@@ -65,14 +65,18 @@ public class ChatSystem : MonoBehaviour
 	}
 	ChatMessage PickMessage()
 	{
-		ChatMessage myMessage = chatMessages[Random.Range(0, chatMessages.Count)];
+		ChatMessage myMessage = new ChatMessage();
+
+		myMessage = (ChatMessage)chatMessages[Random.Range(0, chatMessages.Count)].Clone();
 		if (myMessage.positivity == currentPositivity)
 		{
+
 			if (currentPositivity == 1)
 			{
 				int income = moneyManager.GetComponent<CurrencySystem>().getMoneyRange * moneyManager.GetComponent<CurrencySystem>().tierIndex;
+
 				myMessage.message = myMessage.message + "\n<color=#FF5733>Donation: $" + income + "</color>";
-				// moneyManager.GetComponent<CurrencySystem>().GainMoney(income);
+				moneyManager.GetComponent<CurrencySystem>().GainMoney(income);
 			}
 			return myMessage;
 		}
@@ -80,7 +84,7 @@ public class ChatSystem : MonoBehaviour
 		{
 			return PickMessage();
 		}
-		
+
 	}
 
 	private void ManageChat()
