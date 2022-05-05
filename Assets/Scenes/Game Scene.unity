@@ -53279,6 +53279,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 53405823}
     m_Modifications:
+    - target: {fileID: 7031866241245518984, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866241245518984, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: 'Every morning and Evening, you will recieve special emails! They have
+        a unique look in comparison to normal emails. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866241245518984, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: 'Respond to these to clear off your tasks! Your second email should
+        pay a visit around 3:00 PM so be on the watchout! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031866241245518984, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: Now let's check out some other apps.
+      objectReference: {fileID: 0}
     - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
         type: 3}
       propertyPath: _bosuIcon
