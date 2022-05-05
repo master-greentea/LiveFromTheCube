@@ -179,8 +179,6 @@ public class ObjectiveManager : MonoBehaviour
 	private void timerBar()
 	{
 		slider.value = minute + ((hour-9)*60);
-
-		Debug.Log("sv" + slider.value);
 	}
 
 	private void ThingsToDoByMinute()
