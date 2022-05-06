@@ -66,7 +66,6 @@ public class ChatSystem : MonoBehaviour
 	ChatMessage PickMessage()
 	{
 		ChatMessage myMessage = new ChatMessage();
-
 		myMessage = (ChatMessage)chatMessages[Random.Range(0, chatMessages.Count)].Clone();
 		if (myMessage.positivity == currentPositivity)
 		{

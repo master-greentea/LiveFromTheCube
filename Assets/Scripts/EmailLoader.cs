@@ -200,30 +200,33 @@ public class EmailLoader : MonoBehaviour
 	}
 	public void NextEmail()
 	{
-
-		emails[emailIndex].isSent = true;
-		if (storyEmails.Contains(emails[emailIndex]))
+		if (responseComplete)
 		{
-			Email sentStoryEmail = storyEmails.Find(e => (e.index == emails[emailIndex].index));
-			sentStoryEmail.isSent = true; // if this email is in the storyEmail list, set its isSent to true as well.
+			emails[emailIndex].isSent = true;
+			if (storyEmails.Contains(emails[emailIndex]))
+			{
+				Email sentStoryEmail = storyEmails.Find(e => (e.index == emails[emailIndex].index));
+				sentStoryEmail.isSent = true; // if this email is in the storyEmail list, set its isSent to true as well.
+			}
+
+			emails.RemoveAt(emailIndex);
+
+			if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPreBosu)
+			{
+				TutorialManager.Instance.mailSentCount++;
+			}
+			else if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPostBosu)
+			{
+				susManager.GetComponent<CatchPlayer>().ReduceSus(100);
+				TutorialManager.Instance.mailSentCount++;
+			}
+
+			ResetEmailDisplayAndIndex();
+
+			susManager.GetComponent<CatchPlayer>().ReduceSus(reduceSusCount);
+			objectiveManagerScr.EmailSent();
 		}
-
-		emails.RemoveAt(emailIndex);
-
-		if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPreBosu)
-		{
-			TutorialManager.Instance.mailSentCount++;
-		}
-		else if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPostBosu)
-		{
-			susManager.GetComponent<CatchPlayer>().ReduceSus(100);
-			TutorialManager.Instance.mailSentCount++;
-		}
-
-		ResetEmailDisplayAndIndex();
-
-		susManager.GetComponent<CatchPlayer>().ReduceSus(reduceSusCount);
-		objectiveManagerScr.EmailSent();
+		
 
 	}
 	private void ResetEmailDisplayAndIndex()
