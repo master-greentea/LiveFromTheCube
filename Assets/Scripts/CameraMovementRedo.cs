@@ -40,10 +40,16 @@ public class CameraMovementRedo : MonoBehaviour
 			FOVTarget = 50;
 			return 1;
 		}
-		else if (apps[3].activeInHierarchy || apps[4].activeInHierarchy || apps[1].activeInHierarchy) // mail, bamazon, client
+		else if (apps[3].activeInHierarchy || apps[1].activeInHierarchy) // mail, bamazon, client
 		{
 			homingTo = new Vector3(0, 15, 0);
 			FOVTarget = 40;
+			return 2;
+		}
+		else if (apps[4].activeInHierarchy) // mail, bamazon, client
+		{
+			homingTo = new Vector3(0, 15, 0);
+			FOVTarget = 70;
 			return 2;
 		}
 		else // desktop

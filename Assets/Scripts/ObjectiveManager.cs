@@ -19,6 +19,7 @@ public class ObjectiveManager : MonoBehaviour
 		[SerializeField] public int emailsNeeded; // task 2
 		[SerializeField] public int decorsNeeded; // t
 		[NonSerialized] public bool[] tasksComplete;
+
 		[NonSerialized] public int views;
 		[NonSerialized] public int emailsSent;
 		[NonSerialized] public int clientsMatched;
@@ -75,6 +76,8 @@ public class ObjectiveManager : MonoBehaviour
 
 	[SerializeField] TMPro.TextMeshProUGUI UItime;
 	[SerializeField] TMPro.TextMeshProUGUI UIviews;
+	[SerializeField] TMPro.TextMeshProUGUI UIviews2;
+	[SerializeField] TMPro.TextMeshProUGUI UImoney;
 
 
 	// the list of tasks
@@ -161,6 +164,9 @@ public class ObjectiveManager : MonoBehaviour
 			ThingsToDoByMinute();
 			today.views = viewership.viewers;
 			UIviews.text = viewership.viewers + "";
+
+			UIviews2.text = viewership.viewers + "";
+			UImoney.text = "$" + currensys.money + "";
 			clientsMatched = clientmatch.clientMatched;
 			CheckTasksComplete();
 

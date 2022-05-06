@@ -8,7 +8,7 @@ public class DiscoLights : MonoBehaviour
     public GameObject rhythmGame;
     public CatchPlayer susManager;
     public GameObject heartsOn;
-    public GameObject keys; 
+    //public GameObject keys; 
     public GameObject lightsoff; 
     public bool lightSwitched = false;
 
@@ -33,7 +33,7 @@ public class DiscoLights : MonoBehaviour
             lightsoff.SetActive(false);
             heartsOn.SetActive(true);
 
-            keys.SetActive(true);
+           // keys.SetActive(true);
 
 
         }
@@ -42,7 +42,7 @@ public class DiscoLights : MonoBehaviour
             lightsoff.SetActive(true);
             heartsOn.SetActive(false);
 
-            keys.SetActive(false);
+          // keys.SetActive(false);
         }
     }
 }
