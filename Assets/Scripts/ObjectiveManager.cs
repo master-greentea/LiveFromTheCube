@@ -48,7 +48,15 @@ public class ObjectiveManager : MonoBehaviour
 	[SerializeField] GameObject clientManager;
 	[SerializeField] GameObject currencyManager;
 	[SerializeField] GameObject mailScreen;
+	[SerializeField] GameObject confetti;
 	[SerializeField] GameObject fade;
+
+	[SerializeField] GameObject calendar;
+	[SerializeField] GameObject monday;
+	[SerializeField] GameObject tuesday;
+	[SerializeField] GameObject wednesday;
+	[SerializeField] GameObject thursday;
+	[SerializeField] GameObject friday;
 
 	EmailLoader emailLoader;
 	ClientMatching clientmatch;
@@ -98,6 +106,14 @@ public class ObjectiveManager : MonoBehaviour
 
 	void Start()
 	{
+		if(dateOfToday + 1 == 4) {
+			if(minute <= 5)
+			{ 
+			calendar.SetActive(true);
+			thursday.SetActive(true);
+			}
+        }
+
 		// Objects initialize 
 		viewership = viewrshipManager.GetComponent<Viewship>();
 		emailLoader = mailScreen.GetComponent<EmailLoader>();
@@ -128,6 +144,13 @@ public class ObjectiveManager : MonoBehaviour
 		TimeProgress();
 		UpdateText();
 		timerBar();
+
+		if (CheckAllTasksComplete() == true) {
+			confetti.SetActive(true);
+		}
+
+	
+
 	}
 	void TimeProgress()
 	{
@@ -248,7 +271,6 @@ public class ObjectiveManager : MonoBehaviour
 
 				}
 
-
 				SceneManager.LoadScene("Final Scene");
 				GameObject finalManager = Instantiate(finalSceneManager);
 				finalSceneManager.GetComponent<FinalSceneManager>().SetFinalStats(viewsTotal, emailsSentTotal, clientsMatchedTotal, decorsBoughtTotal, comboMax, moneyRemaining);
@@ -308,8 +330,6 @@ public class ObjectiveManager : MonoBehaviour
 		days[dateOfToday].tasksComplete[2] = days[dateOfToday].decorsBought >= days[dateOfToday].decorsNeeded;
 		days[dateOfToday].tasksComplete[3] = viewership.viewers >= days[dateOfToday].viewersNeeded; // viewers 
 		days[dateOfToday].tasksComplete[4] = clientmatch.clientMatched >= days[dateOfToday].clientMatchesNeeded; // client matches
-
-
 
 
 		// Display
