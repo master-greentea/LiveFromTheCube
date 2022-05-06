@@ -168,6 +168,8 @@ public class ObjectiveManager : MonoBehaviour
 			ThingsToDoByMinute();
 			days[dateOfToday].views = viewership.viewers;
 			UIviews.text = viewership.viewers + "";
+			UIviews2.text = viewership.viewers + "";
+			UImoney.text = "$"+ currensys.money + ""; 
 			clientsMatched = clientmatch.clientMatched;
 			CheckTasksComplete();
 
