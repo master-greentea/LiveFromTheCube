@@ -106,13 +106,22 @@ public class ObjectiveManager : MonoBehaviour
 
 	void Start()
 	{
-		if(dateOfToday + 1 == 4) {
-			if(minute <= 5)
-			{ 
-			calendar.SetActive(true);
+		calendar.SetActive(true);
+		if (dateOfToday  == 0) {
+			monday.SetActive(true);
+			
+        } else if(dateOfToday == 1 ) {
+			tuesday.SetActive(true);
+
+		} else if (dateOfToday == 2) {
+			wednesday.SetActive(true);
+
+		} else if (dateOfToday == 3) {
 			thursday.SetActive(true);
-			}
-        }
+
+		} else if (dateOfToday == 4) {
+			friday.SetActive(true);
+		}
 
 		// Objects initialize 
 		viewership = viewrshipManager.GetComponent<Viewship>();
