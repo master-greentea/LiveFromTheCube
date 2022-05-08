@@ -83350,6 +83350,7 @@ MonoBehaviour:
   - {fileID: 1825420212}
   - {fileID: 1825420211}
   dateOfToday: 0
+  computerScreen: {fileID: 1423984114}
   objList: {fileID: 1524108974}
   BOSU: {fileID: 2142343594}
   timeText: {fileID: 496222207}
@@ -83389,7 +83390,7 @@ MonoBehaviour:
   - {fileID: 786030852}
   - {fileID: 474178949}
   - {fileID: 1085196878}
-  timer: 0.3
+  timer: 0.5
   finalSceneManager: {fileID: 1008067711439597242, guid: d40c55fadf5e44ff6824a31a51d88790,
     type: 3}
 --- !u!114 &1825420211
@@ -83406,10 +83407,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 4
   tasks: 5
-  viewersNeeded: 3000
-  clientMatchesNeeded: 1
-  emailsNeeded: 1
-  decorsNeeded: 1
+  viewersNeeded: 5000
+  clientMatchesNeeded: 8
+  emailsNeeded: 8
+  decorsNeeded: 2
 --- !u!114 &1825420212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83424,10 +83425,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 3
   tasks: 5
-  viewersNeeded: 3000
-  clientMatchesNeeded: 1
-  emailsNeeded: 1
-  decorsNeeded: 1
+  viewersNeeded: 4000
+  clientMatchesNeeded: 7
+  emailsNeeded: 7
+  decorsNeeded: 2
 --- !u!114 &1825420213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83443,9 +83444,9 @@ MonoBehaviour:
   index: 2
   tasks: 5
   viewersNeeded: 3000
-  clientMatchesNeeded: 1
-  emailsNeeded: 1
-  decorsNeeded: 1
+  clientMatchesNeeded: 6
+  emailsNeeded: 6
+  decorsNeeded: 2
 --- !u!114 &1825420214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83460,10 +83461,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 1
   tasks: 5
-  viewersNeeded: 3000
-  clientMatchesNeeded: 1
-  emailsNeeded: 1
-  decorsNeeded: 1
+  viewersNeeded: 2000
+  clientMatchesNeeded: 5
+  emailsNeeded: 5
+  decorsNeeded: 2
 --- !u!114 &1825420215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83478,9 +83479,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   tasks: 1
-  viewersNeeded: 3000
-  clientMatchesNeeded: 1
-  emailsNeeded: 1
+  viewersNeeded: 1000
+  clientMatchesNeeded: 3
+  emailsNeeded: 3
   decorsNeeded: 1
 --- !u!1 &1833536591
 GameObject:
@@ -89570,10 +89571,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyMapping:
     values:
-    - d
     - f
+    - g
+    - h
     - j
-    - k
   up: 273
   down: 274
   left: 276

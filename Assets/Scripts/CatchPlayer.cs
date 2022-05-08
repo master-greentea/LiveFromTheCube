@@ -113,6 +113,7 @@ public class CatchPlayer : MonoBehaviour
 			CR_BOSS_running = false;
 
 			suspicionCount = startingSuspicion;
+			isSafe = true;
 		}
 		else if (suspicionCount >= 100)
 		{
