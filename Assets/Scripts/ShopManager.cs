@@ -11,6 +11,8 @@ public class ShopManager : MonoBehaviour
     public GameObject MoneyManager;
     CurrencySystem mmanager;
 
+    [SerializeField] public SodaCanEffect sce;
+
     public TMPro.TextMeshProUGUI insult;
     float insultTimer;
     bool insulting;
@@ -132,6 +134,7 @@ public class ShopManager : MonoBehaviour
 
 
         // set price
+        juicePriceText.text = "$"+juiceprice;
         kirbyPriceText.text = "$"+kirbyprice;
         mirrorPriceText.text = "$"+mirrorprice;
         plantPriceText.text = "$"+plantprice;
@@ -189,6 +192,7 @@ public class ShopManager : MonoBehaviour
             // juiceButton.GetComponent<Button>().enabled = false; // no click
             juiceObj.SetActive(true); // set plant
             objectiveManager.GetComponent<ObjectiveManager>().DecorBought();
+            sce.sodaTimer = 0;
         }
     }
 
