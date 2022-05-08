@@ -57722,7 +57722,7 @@ MonoBehaviour:
   storyBackground: {fileID: 1008530240}
   reduceSusCount: 30
   emailIndex: -1
-  typingSpeed: 3
+  typingSpeed: 1
   responseColor: <color=#008007>
   emailsSent: 0
   objectiveManager: {fileID: 1825420208}
@@ -82427,6 +82427,8 @@ MonoBehaviour:
   sodaEffect: {fileID: 1765548795}
   sodaDuration: 30
   sodaTimer: 0
+  emailLoader: {fileID: 1029242485}
+  boostTypingSpeed: 2
 --- !u!1 &1768339568
 GameObject:
   m_ObjectHideFlags: 0
