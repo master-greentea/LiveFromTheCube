@@ -57722,6 +57722,7 @@ MonoBehaviour:
   storyBackground: {fileID: 1008530240}
   reduceSusCount: 30
   emailIndex: -1
+  typingSpeed: 3
   responseColor: <color=#008007>
   emailsSent: 0
   objectiveManager: {fileID: 1825420208}
@@ -82043,21 +82044,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 733527836}
-        m_TargetAssemblyTypeName: CatchPlayer, Assembly-CSharp
-        m_MethodName: ReduceSus
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1029242485}
         m_TargetAssemblyTypeName: EmailLoader, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: NextEmail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

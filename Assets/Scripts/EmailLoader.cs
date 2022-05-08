@@ -27,7 +27,7 @@ public class EmailLoader : MonoBehaviour
 	public int emailIndex = -1;
 
 	int responseColoringIndex = 0;
-
+	public int typingSpeed;
 	public string responseColor;
 	public int emailsSent = 0;
 
@@ -147,7 +147,7 @@ public class EmailLoader : MonoBehaviour
 				}
 				else if (responseColoringIndex < emails[emailIndex].responseBody.Length)
 				{
-					responseColoringIndex++;
+					responseColoringIndex += typingSpeed;
 					emailResponseBody.GetComponent<TextMeshProUGUI>().text = ColorizeResponse();
 				}
 				else
@@ -166,7 +166,7 @@ public class EmailLoader : MonoBehaviour
 	{
 		string output = emails[emailIndex].responseBody;
 
-		output = output.Insert(responseColoringIndex, "</color>");
+		output = output.Insert(responseColoringIndex < output.Length ? responseColoringIndex : output.Length , "</color>");
 		output = responseColor + output;
 
 		return output;
@@ -226,7 +226,7 @@ public class EmailLoader : MonoBehaviour
 			susManager.GetComponent<CatchPlayer>().ReduceSus(reduceSusCount);
 			objectiveManagerScr.EmailSent();
 		}
-		
+
 
 	}
 	private void ResetEmailDisplayAndIndex()
@@ -241,7 +241,7 @@ public class EmailLoader : MonoBehaviour
 		emailResponseBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseBody;
 		responseComplete = false;
 		responseColoringIndex = 0;
-		if (emails[emailIndex].index>=300)
+		if (emails[emailIndex].index >= 300)
 		{
 			storyBackground.SetActive(true);
 			storyHeader.SetActive(true);
