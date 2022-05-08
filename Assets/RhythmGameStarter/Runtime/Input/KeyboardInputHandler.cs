@@ -7,13 +7,13 @@ namespace RhythmGameStarter
     [HelpURL("https://bennykok.gitbook.io/rhythm-game-starter/hierarchy-overview/input")]
     public class KeyboardInputHandler : BaseInputHandler
     {
-        [Title("Track Action Key", 3)]
+        [Title("Track Action Key", 4)]
         [ReorderableDisplay("Track")]
         public StringList keyMapping;
 
-        private KeyCode[] _bosuKeys = new KeyCode[4];
+        private KeyCode[] _bosuKeys = new KeyCode[3];
 
-        [Title("Swipe Action Key", 3)]
+        [Title("Swipe Action Key", 4)]
         public KeyCode up;
         public KeyCode down;
         public KeyCode left;

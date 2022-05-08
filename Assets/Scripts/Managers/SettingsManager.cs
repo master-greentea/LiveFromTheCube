@@ -19,6 +19,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private KeyboardInputHandler _keyboardInputHandler;
 
     public AudioSetting MasterVolume { get; private set; }
+
     [SerializeField] [Tooltip("0: Music; 1: Sound FX; 2: Beat Sounds.")] private AudioSetting[] _volumeSettings = new AudioSetting[3];
     [SerializeField] private Slider[] _volumeSliders = new Slider[4];
 
