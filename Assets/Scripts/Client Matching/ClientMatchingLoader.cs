@@ -87,7 +87,7 @@ public class ClientMatchingLoader : MonoBehaviour
 
     private string[] ParseClientsCsv(string csvText)
     {
-        string[] rows = csvText.Split(Environment.NewLine.ToCharArray());
+        string[] rows = csvText.Split("\n");
         if (rows.Length == 0)
         {
             throw new Exception("CSV File is empty.");

@@ -9376,8 +9376,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyDisplay: {fileID: 1850258057}
   viewship: {fileID: 9948271}
-  money: 470
-  getMoneyRange: 100
+  money: 200
+  getMoneyRange: 50
   tierIndex: 1
 --- !u!4 &432897626
 Transform:
@@ -9407,6 +9407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyManager: {fileID: 432897624}
+  sce: {fileID: 1765548797}
   insult: {fileID: 360497996367823945}
   juiceButton: {fileID: 5476594675012913239}
   juiceSoldOut: {fileID: 6445428130679923272}
@@ -9427,30 +9428,30 @@ MonoBehaviour:
   dressButton: {fileID: 8508541334255190664}
   dressSoldOut: {fileID: 7041351401700317245}
   juiceObj: {fileID: 1607209145}
-  juiceprice: 15
+  juiceprice: 100
   juicePriceText: {fileID: 4780624247897945975}
   kirbyObj: {fileID: 658191064}
-  kirbyprice: 250
+  kirbyprice: 2500
   kirbyPriceText: {fileID: 8566488589716003760}
   mirrorObj: {fileID: 2144872783}
-  mirrorprice: 10
+  mirrorprice: 5000
   mirrorPriceText: {fileID: 5194708491109701184}
   plantObj: {fileID: 1799435027}
-  plantprice: 170
+  plantprice: 1500
   plantPriceText: {fileID: 7088476026191673931}
   mugObj: {fileID: 518750947}
-  mugprice: 1
+  mugprice: 1000
   mugPriceText: {fileID: 7310811237193662223}
   redObj: {fileID: 85641192}
-  redprice: 100
+  redprice: 2500
   redPriceText: {fileID: 5977123183255653428}
   frameObj: {fileID: 761529558}
-  frameprice: 125
+  frameprice: 1500
   framePriceText: {fileID: 6024950633240125174}
-  earprice: 5
+  earprice: 3500
   earPriceText: {fileID: 1280857633688256648}
   earSprite: {fileID: 21300000, guid: 415ae968c6187eb42b280bde2c4a17ee, type: 3}
-  dressprice: 5
+  dressprice: 6000
   dressPriceText: {fileID: 4564459173329586312}
   dressSprite: {fileID: 21300000, guid: d5b887f143971474ab7eff749d65d403, type: 3}
   player: {fileID: 1937719452}
@@ -82382,6 +82383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1765548796}
   - component: {fileID: 1765548795}
+  - component: {fileID: 1765548797}
   m_Layer: 0
   m_Name: Soda Effect Volume
   m_TagString: Untagged
@@ -82421,6 +82423,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1765548797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765548794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9daba7cfb3c344c46b55b82a682997ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sodaEffect: {fileID: 1765548795}
+  sodaDuration: 30
+  sodaTimer: 0
 --- !u!1 &1768339568
 GameObject:
   m_ObjectHideFlags: 0
