@@ -11,7 +11,7 @@ namespace RhythmGameStarter
         [ReorderableDisplay("Track")]
         public StringList keyMapping;
 
-        private KeyCode[] _bosuKeys = new KeyCode[3];
+        private KeyCode[] _bosuKeys = new KeyCode[4];
 
         [Title("Swipe Action Key", 4)]
         public KeyCode up;
