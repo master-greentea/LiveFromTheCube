@@ -6844,6 +6844,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1480774168}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &327258562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2656251679360947828, guid: 0ef169194a8583e44a372c70faf5f712,
+    type: 3}
+  m_PrefabInstance: {fileID: 909507877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837ff3b71e1714c4cbc2427db63097f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &329184966
 GameObject:
   m_ObjectHideFlags: 0
@@ -11373,6 +11385,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &524864783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 433294380691750001, guid: 0ef169194a8583e44a372c70faf5f712,
+    type: 3}
+  m_PrefabInstance: {fileID: 909507877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &536206848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7649945105542053939, guid: f8251358aa06f95408ef29a6f27ceec7,
@@ -17527,6 +17545,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788981522}
   m_CullTransparentMesh: 1
+--- !u!114 &792882052 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8501700293401670812, guid: 0ef169194a8583e44a372c70faf5f712,
+    type: 3}
+  m_PrefabInstance: {fileID: 909507877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837ff3b71e1714c4cbc2427db63097f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &793673372
 GameObject:
   m_ObjectHideFlags: 0
@@ -54772,7 +54802,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bEffect.Array.data[0]
       value: 
-      objectReference: {fileID: 950418273}
+      objectReference: {fileID: 327258562}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: longEffect.Array.size
@@ -54782,47 +54812,87 @@ PrefabInstance:
         type: 3}
       propertyPath: oEffect.Array.data[0]
       value: 
-      objectReference: {fileID: 950418275}
+      objectReference: {fileID: 792882052}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: pEffect.Array.data[0]
       value: 
-      objectReference: {fileID: 950418273}
+      objectReference: {fileID: 327258562}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: pEffect.Array.data[1]
       value: 
-      objectReference: {fileID: 950418275}
+      objectReference: {fileID: 792882052}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: longEffect.Array.data[0]
       value: 
-      objectReference: {fileID: 950418274}
+      objectReference: {fileID: 1394579886}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: sustainEffect.Array.data[0]
       value: 
-      objectReference: {fileID: 950418275}
+      objectReference: {fileID: 792882052}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 950418274}
+      objectReference: {fileID: 1394579886}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 433294381373179695}
+      objectReference: {fileID: 524864783}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 950418274}
+      objectReference: {fileID: 1394579886}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 433294381373179695}
+      objectReference: {fileID: 524864783}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RhythmGameStarter.NoteEffect, com.bennykok.rgs.runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RhythmGameStarter.NoteEffect, com.bennykok.rgs.runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9198389614552931256, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -55140,6 +55210,11 @@ PrefabInstance:
       propertyPath: _mailIcon
       value: 
       objectReference: {fileID: 29600008}
+    - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7031866242856478864, guid: 1698f7408ff624952b953c707286ca19,
         type: 3}
       propertyPath: _excelIcon
@@ -68946,6 +69021,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1394579886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5896946328266977855, guid: 0ef169194a8583e44a372c70faf5f712,
+    type: 3}
+  m_PrefabInstance: {fileID: 909507877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837ff3b71e1714c4cbc2427db63097f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1395172240
 GameObject:
   m_ObjectHideFlags: 0
