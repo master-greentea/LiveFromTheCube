@@ -9,7 +9,7 @@ public class BosuKeyUi : MonoBehaviour
     [SerializeField] private SettingsManager _settingsManager;
     [SerializeField] private SavedSettings _settings;
 
-    void Start()
+    void Awake()
     {
         _settingsManager.updateKeys += UpdateKeyText;
     }

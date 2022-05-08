@@ -137,7 +137,7 @@ public class EmailLoader : MonoBehaviour
 		{
 			foreach (char inputChar in Input.inputString)
 			{
-				if (inputChar == '\n')
+				if (inputChar == '\n' || inputChar == '\r')
 				{
 					if (responseComplete)
 					{

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class CameraMovementRedo : MonoBehaviour
 	[SerializeField] GameObject[] apps = new GameObject[5]; // bosu, client, notes, mail, bamazon
 	Vector2 rotation;
 	bool isReleasing;
+	bool isZeroed;
 	Vector3 homingFrom;
 	Vector3 homingTo;
 	float FOVFrom;
@@ -82,12 +84,17 @@ public class CameraMovementRedo : MonoBehaviour
 		//GetInitialRotation();
 		if (Input.GetMouseButton(0))
 		{
-			isReleasing = false;
-			Vector2 wantedVelocity = GetInput() * sensitivity;
+			
+			if (!isReleasing || ApproximatelyEqual(transform.localEulerAngles, homingTo, 0.1f))
+			{
+				isReleasing = false;
+				Vector2 wantedVelocity = GetInput() * sensitivity;
 
-			rotation += wantedVelocity * Time.deltaTime; // replace with velocity if you want acceleration
-			rotation.y = ClampVerticleAngle(rotation.y);
-			transform.localEulerAngles = new Vector3(rotation.y, rotation.x, 0);
+				rotation += wantedVelocity * Time.deltaTime; // replace with velocity if you want acceleration
+				rotation.y = ClampVerticleAngle(rotation.y);
+				transform.localEulerAngles = new Vector3(rotation.y, rotation.x, 0);
+			}
+
 		}
 		else // resetting to 0,0,0
 		{
@@ -106,6 +113,8 @@ public class CameraMovementRedo : MonoBehaviour
 				t = 0;
 				isReleasing = true;
 			}
+
+			//rotation = new Vector2(transform.localEulerAngles.x, transform.localEulerAngles.y);
 			transform.localEulerAngles = new Vector3
 			(
 				Mathf.LerpAngle(homingFrom.x, homingTo.x, t),
@@ -114,10 +123,18 @@ public class CameraMovementRedo : MonoBehaviour
 			);
 			GetComponent<Camera>().fieldOfView = Mathf.Lerp(FOVFrom, FOVTarget, t);
 			t += Time.deltaTime * homingSpeedMultiplier;
+
+
+
 		}
 
 
-
+		bool ApproximatelyEqual(Vector2 a, Vector2 b, float delta)
+		{
+			bool x = Math.Abs(a.x - b.x) < delta;
+			bool y = Math.Abs(a.y - b.y) < delta;
+			return x && y;
+		}
 
 	}
 }

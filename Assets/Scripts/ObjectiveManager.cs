@@ -35,8 +35,8 @@ public class ObjectiveManager : MonoBehaviour
 
 
 	[SerializeField] Day[] days;
-	int dateOfToday = 3;
-
+	[SerializeField] int dateOfToday = 3;
+	[SerializeField] GameObject computerScreen;
 	[SerializeField] TMPro.TextMeshProUGUI objList;
 	[SerializeField] GameObject BOSU;
 
@@ -192,28 +192,33 @@ public class ObjectiveManager : MonoBehaviour
 
 
 		// time logic
-		timerTemp -= Time.deltaTime;
-		if (timerTemp <= 0)
+		if (computerScreen.activeInHierarchy)
 		{
-
-			minute++;
-			ThingsToDoByMinute();
-			days[dateOfToday].views = viewership.viewers;
-			UIviews.text = viewership.viewers + "";
-			UIviews2.text = viewership.viewers + "";
-			UImoney.text = "$"+ currensys.money + ""; 
-			clientsMatched = clientmatch.clientMatched;
-			CheckTasksComplete();
-
-			if (minute >= 60)
+			timerTemp -= Time.deltaTime;
+			if (timerTemp <= 0)
 			{
 
-				hour++;
+				minute++;
+				ThingsToDoByMinute();
+				days[dateOfToday].views = viewership.viewers;
+				UIviews.text = viewership.viewers + "";
+				UIviews2.text = viewership.viewers + "";
+				UImoney.text = "$" + currensys.money + "";
+				clientsMatched = clientmatch.clientMatched;
+				CheckTasksComplete();
 
-				minute = 0;
+				if (minute >= 60)
+				{
+
+					hour++;
+
+					minute = 0;
+				}
+				timerTemp = timer;
 			}
-			timerTemp = timer;
 		}
+		
+		
 
 	}
 
@@ -241,6 +246,8 @@ public class ObjectiveManager : MonoBehaviour
 	void dayEnd()
 	{
 		Debug.Log("day end triggered");
+		computerScreen.SetActive(false);
+		BOSU.SetActive(false);
 		//Time.timeScale = 0;
 
 
@@ -290,6 +297,8 @@ public class ObjectiveManager : MonoBehaviour
 			maxComboUI.text = statsystem.maxCombo + "!";
 			highestViewsUI.text = days[dateOfToday].views + " views";
 			moneyEarnedUI.text = "$" + currensys.money + "";
+			companiesMatchedUI.text = "" + clientmatch.clientMatched + "";
+			emailsSentUI.text = "" + days[dateOfToday].emailsSent + "";
 			susReportUI.text = "Perfect Day!";
 
 		}
@@ -307,10 +316,10 @@ public class ObjectiveManager : MonoBehaviour
 		Time.timeScale = 1;
 		hour = 9;
 		minute = 0;
-		fade.SetActive(false);
+		//fade.SetActive(false);
 		dateOfToday++;
-		//today = days[dateOfToday];
 		days[dateOfToday].tasksComplete = new bool[days[dateOfToday].tasks];
+		computerScreen.SetActive(true);
 
 
 	}
