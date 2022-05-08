@@ -5081,6 +5081,12 @@ Transform:
   m_Father: {fileID: 2142343603}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &234891463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 433294380691750001, guid: 0ef169194a8583e44a372c70faf5f712,
+    type: 3}
+  m_PrefabInstance: {fileID: 909507877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &246280847
 GameObject:
   m_ObjectHideFlags: 0
@@ -55290,22 +55296,62 @@ PrefabInstance:
         type: 3}
       propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 950418274}
+      objectReference: {fileID: 1126665836}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 433294381373179695}
+      objectReference: {fileID: 234891463}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 950418274}
+      objectReference: {fileID: 1126665836}
     - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 433294381373179695}
+      objectReference: {fileID: 234891463}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RhythmGameStarter.NoteEffect, com.bennykok.rgs.runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionEnd.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RhythmGameStarter.NoteEffect, com.bennykok.rgs.runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038567904038407073, guid: 0ef169194a8583e44a372c70faf5f712,
+        type: 3}
+      propertyPath: OnInteractionBegin.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9198389614552931256, guid: 0ef169194a8583e44a372c70faf5f712,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -90923,6 +90969,126 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: RhythmGameStarter.StatsSystem, com.bennykok.rgs.runtime
         m_MethodName: ClearEverything
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1529305108}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1096248214}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2069660788}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1579222232}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1119330148}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 923317941}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1762681651157622312}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 78011135}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1967813520}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2032106419}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
