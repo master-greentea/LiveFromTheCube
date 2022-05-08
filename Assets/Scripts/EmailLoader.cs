@@ -27,7 +27,7 @@ public class EmailLoader : MonoBehaviour
 	public int emailIndex = -1;
 
 	int responseColoringIndex = 0;
-
+	public int typingSpeed;
 	public string responseColor;
 	public int emailsSent = 0;
 
@@ -147,7 +147,7 @@ public class EmailLoader : MonoBehaviour
 				}
 				else if (responseColoringIndex < emails[emailIndex].responseBody.Length)
 				{
-					responseColoringIndex++;
+					responseColoringIndex += typingSpeed;
 					emailResponseBody.GetComponent<TextMeshProUGUI>().text = ColorizeResponse();
 				}
 				else
@@ -166,7 +166,7 @@ public class EmailLoader : MonoBehaviour
 	{
 		string output = emails[emailIndex].responseBody;
 
-		output = output.Insert(responseColoringIndex, "</color>");
+		output = output.Insert(responseColoringIndex < output.Length ? responseColoringIndex : output.Length , "</color>");
 		output = responseColor + output;
 
 		return output;
@@ -200,30 +200,33 @@ public class EmailLoader : MonoBehaviour
 	}
 	public void NextEmail()
 	{
-
-		emails[emailIndex].isSent = true;
-		if (storyEmails.Contains(emails[emailIndex]))
+		if (responseComplete)
 		{
-			Email sentStoryEmail = storyEmails.Find(e => (e.index == emails[emailIndex].index));
-			sentStoryEmail.isSent = true; // if this email is in the storyEmail list, set its isSent to true as well.
+			emails[emailIndex].isSent = true;
+			if (storyEmails.Contains(emails[emailIndex]))
+			{
+				Email sentStoryEmail = storyEmails.Find(e => (e.index == emails[emailIndex].index));
+				sentStoryEmail.isSent = true; // if this email is in the storyEmail list, set its isSent to true as well.
+			}
+
+			emails.RemoveAt(emailIndex);
+
+			if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPreBosu)
+			{
+				TutorialManager.Instance.mailSentCount++;
+			}
+			else if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPostBosu)
+			{
+				susManager.GetComponent<CatchPlayer>().ReduceSus(100);
+				TutorialManager.Instance.mailSentCount++;
+			}
+
+			ResetEmailDisplayAndIndex();
+
+			susManager.GetComponent<CatchPlayer>().ReduceSus(reduceSusCount);
+			objectiveManagerScr.EmailSent();
 		}
 
-		emails.RemoveAt(emailIndex);
-
-		if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPreBosu)
-		{
-			TutorialManager.Instance.mailSentCount++;
-		}
-		else if (TutorialManager.Instance.mailSentCount <= TutorialManager.Instance.tutorialEmailsPostBosu)
-		{
-			susManager.GetComponent<CatchPlayer>().ReduceSus(100);
-			TutorialManager.Instance.mailSentCount++;
-		}
-
-		ResetEmailDisplayAndIndex();
-
-		susManager.GetComponent<CatchPlayer>().ReduceSus(reduceSusCount);
-		objectiveManagerScr.EmailSent();
 
 	}
 	private void ResetEmailDisplayAndIndex()
@@ -238,7 +241,7 @@ public class EmailLoader : MonoBehaviour
 		emailResponseBody.GetComponent<TextMeshProUGUI>().text = emails[emailIndex].responseBody;
 		responseComplete = false;
 		responseColoringIndex = 0;
-		if (emails[emailIndex].index>=300)
+		if (emails[emailIndex].index >= 300)
 		{
 			storyBackground.SetActive(true);
 			storyHeader.SetActive(true);
