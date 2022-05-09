@@ -32,7 +32,7 @@ public class SodaCanEffect : MonoBehaviour
     {
         if (sodaTimer < sodaDuration)
         {
-            ld.intensity.value = Mathf.Lerp(-0.628f, 0f, sodaTimer / sodaDuration);
+            ld.intensity.value = Mathf.Lerp(-0.35f, 0f, sodaTimer / sodaDuration * 5);
             vnt.intensity.value = Mathf.Lerp(1, 0f, sodaTimer / sodaDuration);
             emailLoader.typingSpeed = boostTypingSpeed;
             
