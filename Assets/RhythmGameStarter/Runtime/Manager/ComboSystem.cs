@@ -59,6 +59,13 @@ namespace RhythmGameStarter
             onVisibilityChange.Invoke(isShowing);
         }
 
+        public void ClearCombo()
+        {
+            statsSystem.combo = 0;
+            isShowing = false;
+            onVisibilityChange.Invoke(isShowing);
+        }
+
         public void UpdateComboDisplay()
         {
             onComboUpdate.Invoke((statsSystem.combo+1).ToString());
