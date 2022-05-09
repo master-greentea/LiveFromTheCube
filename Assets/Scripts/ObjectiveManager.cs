@@ -295,7 +295,7 @@ public class ObjectiveManager : MonoBehaviour
 			fade.SetActive(false);
 			dayEndUI.SetActive(true);
 			maxComboUI.text = statsystem.maxCombo + "!";
-			highestViewsUI.text = days[dateOfToday].views + " views";
+			highestViewsUI.text = days[dateOfToday].views + "";
 			moneyEarnedUI.text = "$" + currensys.money + "";
 			companiesMatchedUI.text = "" + clientmatch.clientMatched + "";
 			emailsSentUI.text = "" + days[dateOfToday].emailsSent + "";
