@@ -91,7 +91,12 @@ public class EmailLoader : MonoBehaviour
 		string[] storyEmailsArray = storyEmailCSV.text.Split(new char[] { '\n' });
 		for (int i = 1; i < storyEmailsArray.Length; i++) // for every row in csv
 		{
+			if(storyEmailsArray[i].Length<7)
+			{
+				break; // dumb dumb check idky
+			}
 			string[] row = storyEmailsArray[i].Split(new char[] { ',' }); // row = a row in csv split by column (id, email, response)
+			Debug.Log(row.Length + " items in story email row");
 			Email email = new Email(); // refers to the Email class, 
 			int.TryParse(row[0], out email.index);
 			email.sender = ParseText(row[1], varDictionary);
@@ -281,6 +286,7 @@ public class EmailLoader : MonoBehaviour
 		{
 			if (!e.isSent)
 			{
+				Debug.Log(e.subject+"is not sent");
 				allReplied = false;
 				break;
 			}

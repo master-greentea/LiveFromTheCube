@@ -9213,7 +9213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyDisplay: {fileID: 1850258057}
   viewship: {fileID: 9948271}
-  money: 200
+  money: 1000
   getMoneyRange: 50
   tierIndex: 1
 --- !u!4 &432897626
@@ -14765,6 +14765,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1606802451}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &679962702
 MonoBehaviour:
@@ -83436,7 +83448,7 @@ MonoBehaviour:
   - {fileID: 1825420213}
   - {fileID: 1825420212}
   - {fileID: 1825420211}
-  dateOfToday: 0
+  dateOfToday: -1
   computerScreen: {fileID: 1423984114}
   objList: {fileID: 1524108974}
   BOSU: {fileID: 2142343594}
@@ -83477,7 +83489,7 @@ MonoBehaviour:
   - {fileID: 786030852}
   - {fileID: 474178949}
   - {fileID: 1085196878}
-  timer: 0.5
+  timer: 0.7
   finalSceneManager: {fileID: 1008067711439597242, guid: d40c55fadf5e44ff6824a31a51d88790,
     type: 3}
 --- !u!114 &1825420211
@@ -83565,7 +83577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  tasks: 1
+  tasks: 5
   viewersNeeded: 1000
   clientMatchesNeeded: 3
   emailsNeeded: 3
