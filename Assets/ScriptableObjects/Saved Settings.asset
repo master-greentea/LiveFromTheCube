@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f59f37d876374c70ab5f988d7aa8db5, type: 3}
   m_Name: Saved Settings
   m_EditorClassIdentifier: 
-  keys: 6600000067000000680000006a000000
+  keys: 64000000660000006a0000006b000000
   _masterVolume: 1
   _beatSounds: 0
   _backgroundSounds: 0
