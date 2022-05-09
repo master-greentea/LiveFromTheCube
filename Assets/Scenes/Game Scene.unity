@@ -13360,7 +13360,7 @@ MonoBehaviour:
   redObj: {fileID: 85641192}
   redprice: 2500
   redPriceText: {fileID: 5977123183255653428}
-  frameObj: {fileID: 0}
+  frameObj: {fileID: 516336676}
   frameprice: 1500
   framePriceText: {fileID: 6024950633240125174}
   earprice: 3500
