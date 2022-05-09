@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FinalSceneManager : MonoBehaviour
 {
@@ -47,12 +48,18 @@ public class FinalSceneManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Debug.Log(viewsTotal + "/" + emailsSentTotal + "/" + clientsMatchedTotal + "/" + decorsBoughtTotal + "/" + comboMax + "/" + moneyRemaining);
+        viewsTotalUI.GetComponent<TextMeshProUGUI>().text = viewsTotal.ToString();
+        emailsSentTotalUI.GetComponent<TextMeshProUGUI>().text = emailsSentTotal.ToString();
+        clientsMatchedTotalUI.GetComponent<TextMeshProUGUI>().text = clientsMatchedTotal.ToString();
+        decorsBoughtTotalUI.GetComponent<TextMeshProUGUI>().text = decorsBoughtTotal.ToString();
+        comboMaxUI.GetComponent<TextMeshProUGUI>().text = comboMax.ToString();
+        moneyUI.GetComponent<TextMeshProUGUI>().text = moneyRemaining.ToString();
     }
 }

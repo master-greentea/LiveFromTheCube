@@ -35,7 +35,7 @@ public class ObjectiveManager : MonoBehaviour
 
 
 	[SerializeField] Day[] days;
-	[SerializeField] int dateOfToday = 3;
+	[SerializeField] int dateOfToday = -1;
 	[SerializeField] GameObject computerScreen;
 	[SerializeField] TMPro.TextMeshProUGUI objList;
 	[SerializeField] GameObject BOSU;
@@ -258,7 +258,7 @@ public class ObjectiveManager : MonoBehaviour
 		}
 		else if (!days[dateOfToday].tasksComplete[2] || !days[dateOfToday].tasksComplete[3]) // if any of the streaming tasks are not done
 		{
-			fade.SetActive(true);
+			fade.SetActive(false);
 			dayEndUI.SetActive(true);
 			maxComboUI.text = statsystem.maxCombo + "!";
 			highestViewsUI.text = days[dateOfToday].views + " views";
@@ -292,10 +292,10 @@ public class ObjectiveManager : MonoBehaviour
 				finalSceneManager.GetComponent<FinalSceneManager>().SetFinalStats(viewsTotal, emailsSentTotal, clientsMatchedTotal, decorsBoughtTotal, comboMax, moneyRemaining);
 
 			}
-			fade.SetActive(true);
+			fade.SetActive(false);
 			dayEndUI.SetActive(true);
 			maxComboUI.text = statsystem.maxCombo + "!";
-			highestViewsUI.text = days[dateOfToday].views + " views";
+			highestViewsUI.text = days[dateOfToday].views + "";
 			moneyEarnedUI.text = "$" + currensys.money + "";
 			companiesMatchedUI.text = "" + clientmatch.clientMatched + "";
 			emailsSentUI.text = "" + days[dateOfToday].emailsSent + "";
@@ -344,7 +344,7 @@ public class ObjectiveManager : MonoBehaviour
 	{
 		// check each task
 		days[dateOfToday].tasksComplete[0] = days[dateOfToday].emailsSent >= days[dateOfToday].emailsNeeded; // emails sent
-		days[dateOfToday].tasksComplete[1] = emailLoader.TodayStoryEmailsReplied(days[dateOfToday].index);
+		days[dateOfToday].tasksComplete[1] = emailLoader.TodayStoryEmailsReplied(dateOfToday);
 		days[dateOfToday].tasksComplete[2] = days[dateOfToday].decorsBought >= days[dateOfToday].decorsNeeded;
 		days[dateOfToday].tasksComplete[3] = viewership.viewers >= days[dateOfToday].viewersNeeded; // viewers 
 		days[dateOfToday].tasksComplete[4] = clientmatch.clientMatched >= days[dateOfToday].clientMatchesNeeded; // client matches
