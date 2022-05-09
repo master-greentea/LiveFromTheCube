@@ -258,7 +258,7 @@ public class ObjectiveManager : MonoBehaviour
 		}
 		else if (!days[dateOfToday].tasksComplete[2] || !days[dateOfToday].tasksComplete[3]) // if any of the streaming tasks are not done
 		{
-			fade.SetActive(true);
+			//fade.SetActive(true);
 			dayEndUI.SetActive(true);
 			maxComboUI.text = statsystem.maxCombo + "!";
 			highestViewsUI.text = days[dateOfToday].views + " views";
@@ -292,7 +292,7 @@ public class ObjectiveManager : MonoBehaviour
 				finalSceneManager.GetComponent<FinalSceneManager>().SetFinalStats(viewsTotal, emailsSentTotal, clientsMatchedTotal, decorsBoughtTotal, comboMax, moneyRemaining);
 
 			}
-			fade.SetActive(true);
+			//fade.SetActive(true);
 			dayEndUI.SetActive(true);
 			maxComboUI.text = statsystem.maxCombo + "!";
 			highestViewsUI.text = days[dateOfToday].views + " views";
