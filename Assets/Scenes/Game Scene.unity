@@ -1245,6 +1245,57 @@ MonoBehaviour:
   introHard: {fileID: 837075371}
   Bosu: {fileID: 1023879004}
   ObjectiveManager: {fileID: 1825420208}
+  onMenuOpened:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1890626317}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1542768180}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4553078}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1510873541}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &44428255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65934,7 +65985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1023879005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66246,6 +66297,7 @@ MonoBehaviour:
   audioSource: {fileID: 1270975605}
   endscreen: {fileID: 0}
   stopButton: {fileID: 235704684}
+  pauseButton: {fileID: 54529687}
   playOnAwake: 0
   defaultSong: {fileID: 11400000, guid: ac88dfc44944640c39bada0d6c99601f, type: 2}
   delay: 4
@@ -108179,6 +108231,7 @@ MonoBehaviour:
   audioSource: {fileID: 1270975605}
   endscreen: {fileID: 0}
   stopButton: {fileID: 0}
+  pauseButton: {fileID: 0}
   playOnAwake: 0
   defaultSong: {fileID: 11400000, guid: ac88dfc44944640c39bada0d6c99601f, type: 2}
   delay: 4

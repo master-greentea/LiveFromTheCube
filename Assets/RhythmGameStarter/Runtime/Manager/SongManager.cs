@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using UnityEngine.UI;
 
 namespace RhythmGameStarter
 {
@@ -13,6 +14,7 @@ namespace RhythmGameStarter
         public AudioSource audioSource;
         public GameObject endscreen;
         public GameObject stopButton;
+        public GameObject pauseButton;
         //public CatchPlayer catchPlayer;
 
         [Title("Properties", 0)]
@@ -161,6 +163,7 @@ namespace RhythmGameStarter
         public void ResumeSong()
         {
             stopButton.SetActive(true);
+            pauseButton.GetComponent<Button>().interactable = true;
             if (!songHasStarted)
             {
                 
@@ -256,6 +259,7 @@ namespace RhythmGameStarter
                 if (resumeTimer>=0)
 				{
                     resumeTimer -= Time.deltaTime;
+                    pauseButton.GetComponent<Button>().interactable = false;
                 }
                 else
 				{

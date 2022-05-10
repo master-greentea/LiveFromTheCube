@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SongUnlock : MonoBehaviour
 {
@@ -14,9 +15,12 @@ public class SongUnlock : MonoBehaviour
     private int dateOfToday;
     public GameObject ObjectiveManager;
 
+    public UnityEvent onMenuOpened;
 
     void OnEnable()
     {
+        onMenuOpened.Invoke();
+
         dateOfToday = ObjectiveManager.GetComponent<ObjectiveManager>().dateOfToday;
 
         if (dateOfToday == 0)
