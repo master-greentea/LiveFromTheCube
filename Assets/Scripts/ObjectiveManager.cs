@@ -35,7 +35,7 @@ public class ObjectiveManager : MonoBehaviour
 
 
 	[SerializeField] Day[] days;
-	[SerializeField] int dateOfToday = -1;
+	[SerializeField] public int dateOfToday = -1;
 	[SerializeField] GameObject computerScreen;
 	[SerializeField] TMPro.TextMeshProUGUI objList;
 	[SerializeField] GameObject BOSU;
@@ -57,6 +57,8 @@ public class ObjectiveManager : MonoBehaviour
 	[SerializeField] GameObject wednesday;
 	[SerializeField] GameObject thursday;
 	[SerializeField] GameObject friday;
+
+	
 
 	EmailLoader emailLoader;
 	ClientMatching clientmatch;
@@ -109,8 +111,8 @@ public class ObjectiveManager : MonoBehaviour
 		calendar.SetActive(true);
 		if (dateOfToday  == 0) {
 			monday.SetActive(true);
-			
-        } else if(dateOfToday == 1 ) {
+
+		} else if(dateOfToday == 1 ) {
 			tuesday.SetActive(true);
 
 		} else if (dateOfToday == 2) {

@@ -11,7 +11,8 @@ namespace RhythmGameStarter
     {
         [Comment("Responsible for song control, handling song related events.")]
         public AudioSource audioSource;
-        public GameObject endscreen; 
+        public GameObject endscreen;
+        public GameObject stopButton;
         //public CatchPlayer catchPlayer;
 
         [Title("Properties", 0)]
@@ -20,6 +21,7 @@ namespace RhythmGameStarter
         public SongItem defaultSong;
         public float delay;
         public bool looping;
+        
 
         [Tooltip("Automatically handle play/pause when timescale set to 0, or back to 1")]
         public bool autoTimeScalePause;
@@ -85,6 +87,7 @@ namespace RhythmGameStarter
                 PlaySong(defaultSong);
             }
             resumeTimer = resumeDelay;
+
         }
 
         public void PlaySong()
@@ -144,6 +147,7 @@ namespace RhythmGameStarter
             if (songPaused) return;
 
             songPaused = true;
+            stopButton.SetActive(false);
             if (audioSource) audioSource.Pause();
 
             dspPausedTime = AudioSettings.dspTime;
@@ -156,8 +160,10 @@ namespace RhythmGameStarter
 		}
         public void ResumeSong()
         {
+            stopButton.SetActive(true);
             if (!songHasStarted)
             {
+                
                 PlaySong();
                 return;
             }
