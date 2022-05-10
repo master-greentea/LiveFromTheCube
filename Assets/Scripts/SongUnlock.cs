@@ -17,10 +17,13 @@ public class SongUnlock : MonoBehaviour
 
     public UnityEvent onMenuOpened;
 
-    void OnEnable()
+    void Start()
     {
         onMenuOpened.Invoke();
+    }
 
+    void OnEnable()
+    {
         dateOfToday = ObjectiveManager.GetComponent<ObjectiveManager>().dateOfToday;
 
         if (dateOfToday == 0)
