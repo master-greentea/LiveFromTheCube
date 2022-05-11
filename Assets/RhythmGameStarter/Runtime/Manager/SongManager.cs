@@ -50,6 +50,7 @@ namespace RhythmGameStarter
         [NonSerialized] public bool songPaused;
         [NonSerialized] public SongItem currentSongItem;
         [NonSerialized] public ComboSystem comboSystem;
+        [NonSerialized] public StatsSystem statsSystem;
         [NonSerialized] public TrackManager trackManager;
 
         private bool songHasStarted;
@@ -57,6 +58,7 @@ namespace RhythmGameStarter
         private double dspStartTime;
         private double dspPausedTime;
         private double accumulatedPauseTime;
+
 
         #endregion
 
@@ -76,6 +78,7 @@ namespace RhythmGameStarter
         {
             trackManager = GetComponent<TrackManager>();
             comboSystem = GetComponent<ComboSystem>();
+            statsSystem = GetComponent<StatsSystem>();
             //catchPlayer = suspectManager.GetComponent<catchPlayer>();
 
             trackManager.Init(this);
@@ -162,8 +165,7 @@ namespace RhythmGameStarter
 		}
         public void ResumeSong()
         {
-            stopButton.SetActive(true);
-            pauseButton.GetComponent<Button>().interactable = true;
+            
             if (!songHasStarted)
             {
                 
@@ -174,6 +176,8 @@ namespace RhythmGameStarter
 
             songPaused = false;
             if (audioSource) audioSource.Play();
+            stopButton.SetActive(true);
+            pauseButton.GetComponent<Button>().interactable = true;
 
             accumulatedPauseTime += AudioSettings.dspTime - dspPausedTime;
         }
