@@ -108,23 +108,7 @@ public class ObjectiveManager : MonoBehaviour
 
 	void Start()
 	{
-		calendar.SetActive(true);
-		if (dateOfToday  == 0) {
-			monday.SetActive(true);
-
-		} else if(dateOfToday == 1 ) {
-			tuesday.SetActive(true);
-
-		} else if (dateOfToday == 2) {
-			wednesday.SetActive(true);
-
-		} else if (dateOfToday == 3) {
-			thursday.SetActive(true);
-
-		} else if (dateOfToday == 4) {
-			friday.SetActive(true);
-		}
-
+		
 		// Objects initialize 
 		viewership = viewrshipManager.GetComponent<Viewship>();
 		emailLoader = mailScreen.GetComponent<EmailLoader>();
@@ -320,6 +304,23 @@ public class ObjectiveManager : MonoBehaviour
 		minute = 0;
 		//fade.SetActive(false);
 		dateOfToday++;
+		calendar.SetActive(true);
+		if (dateOfToday == 0) {
+			monday.SetActive(true);
+
+		} else if (dateOfToday == 1) {
+			tuesday.SetActive(true);
+
+		} else if (dateOfToday == 2) {
+			wednesday.SetActive(true);
+
+		} else if (dateOfToday == 3) {
+			thursday.SetActive(true);
+
+		} else if (dateOfToday == 4) {
+			friday.SetActive(true);
+		}
+
 		days[dateOfToday].tasksComplete = new bool[days[dateOfToday].tasks];
 		computerScreen.SetActive(true);
 
