@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using UnityEngine.UI;
 
 namespace RhythmGameStarter
 {
@@ -11,7 +12,9 @@ namespace RhythmGameStarter
     {
         [Comment("Responsible for song control, handling song related events.")]
         public AudioSource audioSource;
-        public GameObject endscreen; 
+        public GameObject endscreen;
+        public GameObject stopButton;
+        public GameObject pauseButton;
         //public CatchPlayer catchPlayer;
 
         [Title("Properties", 0)]
@@ -20,6 +23,7 @@ namespace RhythmGameStarter
         public SongItem defaultSong;
         public float delay;
         public bool looping;
+        
 
         [Tooltip("Automatically handle play/pause when timescale set to 0, or back to 1")]
         public bool autoTimeScalePause;
@@ -46,6 +50,7 @@ namespace RhythmGameStarter
         [NonSerialized] public bool songPaused;
         [NonSerialized] public SongItem currentSongItem;
         [NonSerialized] public ComboSystem comboSystem;
+        [NonSerialized] public StatsSystem statsSystem;
         [NonSerialized] public TrackManager trackManager;
 
         private bool songHasStarted;
@@ -53,6 +58,7 @@ namespace RhythmGameStarter
         private double dspStartTime;
         private double dspPausedTime;
         private double accumulatedPauseTime;
+
 
         #endregion
 
@@ -72,6 +78,7 @@ namespace RhythmGameStarter
         {
             trackManager = GetComponent<TrackManager>();
             comboSystem = GetComponent<ComboSystem>();
+            statsSystem = GetComponent<StatsSystem>();
             //catchPlayer = suspectManager.GetComponent<catchPlayer>();
 
             trackManager.Init(this);
@@ -85,6 +92,7 @@ namespace RhythmGameStarter
                 PlaySong(defaultSong);
             }
             resumeTimer = resumeDelay;
+
         }
 
         public void PlaySong()
@@ -144,6 +152,7 @@ namespace RhythmGameStarter
             if (songPaused) return;
 
             songPaused = true;
+            stopButton.SetActive(false);
             if (audioSource) audioSource.Pause();
 
             dspPausedTime = AudioSettings.dspTime;
@@ -156,8 +165,10 @@ namespace RhythmGameStarter
 		}
         public void ResumeSong()
         {
+            
             if (!songHasStarted)
             {
+                
                 PlaySong();
                 return;
             }
@@ -165,6 +176,8 @@ namespace RhythmGameStarter
 
             songPaused = false;
             if (audioSource) audioSource.Play();
+            stopButton.SetActive(true);
+            pauseButton.GetComponent<Button>().interactable = true;
 
             accumulatedPauseTime += AudioSettings.dspTime - dspPausedTime;
         }
@@ -250,6 +263,7 @@ namespace RhythmGameStarter
                 if (resumeTimer>=0)
 				{
                     resumeTimer -= Time.deltaTime;
+                    pauseButton.GetComponent<Button>().interactable = false;
                 }
                 else
 				{

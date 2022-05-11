@@ -10,10 +10,13 @@ namespace RhythmGameStarter
         public GameObject UIHEART;
         private Animator anim;
 
+
         void Start()
         {
             anim = GetComponent<Animator>();
         }
+
+        
 
         public void OnComboAdd()
         {
